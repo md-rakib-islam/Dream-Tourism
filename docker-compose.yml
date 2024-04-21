@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  dreamtourism:
+    build: .
+    container_name: tourismapp
+    restart: always
+    ports:
+      - 3009:3000
+    # env_file:
+    #   - .env.local
+    networks:
+      - tourismnet
+    volumes:
+      - tourismapp_data:/usr/share/tourismapp/data
+
+networks:
+  tourismnet:
+    driver: bridge
+volumes:
+  tourismapp_data:

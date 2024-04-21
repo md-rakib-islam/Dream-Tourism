@@ -1,0 +1,80 @@
+.policyContainer {
+  //   padding-top: 90px;
+  padding-bottom: 20px;
+  color: #000000;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.textJustify {
+  text-align: justify;
+  color: #000000;
+}
+.pt20 {
+  padding-top: 20px;
+}
+
+.listStyle li {
+  list-style: square;
+}
+.questionItem {
+  list-style: inherit;
+  margin: 4px 0px;
+}
+.questionItem a {
+  font-size: 14px;
+  color: black;
+}
+.answerContainer {
+  margin-top: 30px;
+}
+
+// free cencellation sections
+
+.bannar_mobile {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.bannar_desktop {
+  @media (min-width: 767px) {
+    display: none;
+  }
+}
+
+// popular links
+
+.linksList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-left: 15px;
+}
+
+.linkItem {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  color: #4d4d4d;
+  margin-right: 0.5rem;
+  font-size: 16px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.linksList > .linkItem:not(:last-child):after {
+  content: "";
+  height: 0.7rem;
+  border-right: 1px solid #b3b3b3;
+}
