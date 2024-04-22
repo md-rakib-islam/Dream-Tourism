@@ -130,7 +130,7 @@ const Tours = ({ destination }) => {
                 </Slider>
 
                 <div className="cardImage__leftBadge">
-                  {/* <div
+                  <div
                     className={`py-5  rounded-right-4 text-12 lh-16 fw-600 uppercase ${
                       isTextMatched(item?.tag, "likely to sell out*")
                         ? "bg-dark-1 text-white"
@@ -145,15 +145,15 @@ const Tours = ({ destination }) => {
                         : ""
                     }`}
                   >
-                    Item
-                  </div> */}
-                  <div class="buttons">
+                    {item?.tag}{" "}
+                  </div>
+                  {/* <div class="buttons">
                     <button style={{ backgroundColor: "black" }}>
                       {`${currentCurrency?.symbol} ${item.price}`}{" "}
                       <span> PER PERSON</span>
                     </button>
                     <button>No</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

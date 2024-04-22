@@ -74,10 +74,6 @@ const index = () => {
         {/* End .container */}
       </section>
       {/* End layout for listing sidebar and content */}
-
-      <CallToActions />
-      {/* End Call To Actions Section */}
-
     </>
   );
 };

@@ -23,9 +23,6 @@ const index = () => {
       <NotFound />
       {/* End 404 section */}
 
-      <CallToActions />
-      {/* End Call To Actions Section */}
-
       {/* <DefaultFooter /> */}
       {/* End Call To Actions Section */}
     </>

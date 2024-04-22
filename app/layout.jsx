@@ -29,6 +29,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="robots" content="noindex" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -39,6 +41,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
+
         <link rel="icon" href="./favicon.ico" />
       </head>
       <body>

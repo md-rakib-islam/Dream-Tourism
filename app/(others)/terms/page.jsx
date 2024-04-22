@@ -4,25 +4,26 @@ import dynamic from "next/dynamic";
 // import DefaultFooter from "@/components/footer/default";
 import TermsConent from "@/components/common/TermsConent";
 
-
 const metaDatas = {
-  "general_terms_of_use" : {
-    title : "Dream Tourism UK - Terms and Conditions",
-    description : "Explore the terms and conditions that govern your experience with Dream Tourism UK. Understand our commitment to quality, fairness, and your satisfaction.",
+  general_terms_of_use: {
+    title: "Dream Tourism UK - Terms and Conditions",
+    description:
+      "Explore the terms and conditions that govern your experience with Dream Tourism UK. Understand our commitment to quality, fairness, and your satisfaction.",
   },
-  "privacy_policy" : {
-    title : "Dream Tourism UK Privacy Policy - Your Privacy, Our Priority",
-    description : "Read Dream Tourism UK's privacy policy to understand how we handle and protect your information. Your privacy is important to us, and we prioritize keeping your data secure.",
+  privacy_policy: {
+    title: "Dream Tourism UK Privacy Policy - Your Privacy, Our Priority",
+    description:
+      "Read Dream Tourism UK's privacy policy to understand how we handle and protect your information. Your privacy is important to us, and we prioritize keeping your data secure.",
   },
-}
+};
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const {type} = searchParams;
- 
+  const { type } = searchParams;
+
   return {
     title: metaDatas[type]?.title,
-    description : metaDatas[type]?.description
-  }
+    description: metaDatas[type]?.description,
+  };
 }
 
 const Terms = () => {
@@ -44,9 +45,6 @@ const Terms = () => {
         </div>
       </section>
       {/* End terms section */}
-
-      <CallToActions />
-      {/* End Call To Actions Section */}
 
       {/* <DefaultFooter /> */}
       {/* End Call To Actions Section */}

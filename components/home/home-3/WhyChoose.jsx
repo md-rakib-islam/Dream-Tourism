@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Image from "next/image";
 import Slider from "react-slick";
 
@@ -7,28 +7,28 @@ const WhyChoose = () => {
     {
       id: 1,
       icon: "/img/featureIcons/3/1.svg",
-      title: "Best Price Assurance",
-      text: `Find the Lowest Rates Anywhere, Every Time.`,
+      title: "Best Price Guarantee",
+      text: `Unbeatable Value for Your Unforgettable Experience.`,
       delayAnimation: "100",
     },
     {
       id: 2,
       icon: "/img/featureIcons/3/2.svg",
-      title: "Effortless Booking Experience",
-      text: `Streamlined Booking Process for Your Convenience.`,
+      title: "Easy & Quick Booking",
+      text: `Simplified Reservations for Instant Travel Plans.`,
       delayAnimation: "200",
     },
     {
       id: 3,
       icon: "/img/featureIcons/3/3.svg",
       title: "Customer Care 24/7",
-      text: `Always Here for You - Anytime, Anywhere!`,
+      text: `Around-the-Clock Support for Your Peace of Mind.`,
       delayAnimation: "300",
     },
     {
       id: 4,
       icon: "/img/featureIcons/3/4.svg",
-      title: "Verified Reviews You Can Trust",
+      title: "Trusted reviews",
       text: `4.3 stars from 100,000+ reviews.`,
       delayAnimation: "300",
     },
@@ -45,6 +45,8 @@ const WhyChoose = () => {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
+          autoplay: true, // Enable autoplay
+          autoplaySpeed: 3000, // Set autoplay speed in milliseconds
           slidesToScroll: 2,
         },
       },
@@ -53,6 +55,8 @@ const WhyChoose = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
+          autoplay: true, // Enable autoplay
+          autoplaySpeed: 5000, // Set autoplay speed in milliseconds
           slidesToScroll: 2,
         },
       },
@@ -60,40 +64,41 @@ const WhyChoose = () => {
         breakpoint: 520,
         settings: {
           slidesToShow: 1,
+          autoplay: true, // Enable autoplay
+          autoplaySpeed: 5000, // Set autoplay speed in milliseconds
           slidesToScroll: 1,
         },
       },
     ],
   };
 
-
   return (
     <>
-    <Slider {...settings}>
-      {blockContent?.map((item) => (
-        <div
-          className="col-lg-3 col-sm-6"
-          key={item.id}
-          data-aos="fade"
-          data-aos-delay={item.delayAnimation}
-        >
-          <div className="featureIcon -type-1 ">
-            <div className="d-flex justify-center">
-              <Image
-                width={70}
-                height={70}
-                src={item.icon}
-                alt="image"
-                className="js-lazy"
-              />
-            </div>
-            <div className="text-center mt-30">
-              <h4 className="text-18 fw-500">{item.title}</h4>
-              <p className="text-15 mt-10">{item.text}</p>
+      <Slider {...settings}>
+        {blockContent?.map((item) => (
+          <div
+            className="col-lg-3 col-sm-6"
+            key={item.id}
+            data-aos="fade"
+            data-aos-delay={item.delayAnimation}
+          >
+            <div className="featureIcon -type-1 ">
+              <div className="d-flex justify-center">
+                <Image
+                  width={70}
+                  height={70}
+                  src={item.icon}
+                  alt="image"
+                  className="js-lazy"
+                />
+              </div>
+              <div className="text-center mt-30">
+                <h4 className="text-18 fw-600">{item.title}</h4>
+                <p className="text-15 mt-10">{item.text}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
       </Slider>
     </>
   );

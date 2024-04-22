@@ -23,35 +23,42 @@ import getAllMenuItem from "@/services/menuService";
 import Link from "next/link";
 
 const destinationsMetadatas = {
-  netherlands : {
-    title : "Explore the Netherlands with Dream Tourism UK",
-    description : "Discover the beauty of the Netherlands with Dream Tourism UK. Enjoy scenic landscapes, lively cities, and rich culture. Plan your Dutch adventure now!"
+  netherlands: {
+    title: "Explore the Netherlands with Dream Tourism UK",
+    description:
+      "Discover the beauty of the Netherlands with Dream Tourism UK. Enjoy scenic landscapes, lively cities, and rich culture. Plan your Dutch adventure now!",
   },
-  switzerland : {
-    title : "Switzerland Awaits - Dream Tourism UK",
-    description : "Experience the magic of Switzerland with Dream Tourism UK. Enjoy stunning mountains, calm lakes, and charming cities. Plan your Swiss getaway today!"
+  switzerland: {
+    title: "Switzerland Awaits - Dream Tourism UK",
+    description:
+      "Experience the magic of Switzerland with Dream Tourism UK. Enjoy stunning mountains, calm lakes, and charming cities. Plan your Swiss getaway today!",
   },
-  germany : {
-    title : "Discover Germany - Dream Tourism UK",
-    description : "Explore the diverse beauty of Germany with Dream Tourism UK. From historic castles to modern cities, immerse yourself in German culture. Start planning your German adventure now!"
+  germany: {
+    title: "Discover Germany - Dream Tourism UK",
+    description:
+      "Explore the diverse beauty of Germany with Dream Tourism UK. From historic castles to modern cities, immerse yourself in German culture. Start planning your German adventure now!",
   },
   united_states: {
-    title : "Explore the USA with Dream Tourism UK",
-    description : "Embark on a journey through the United States with Dream Tourism UK. From famous landmarks to natural wonders, explore the best of America. Plan your USA trip today!"
+    title: "Explore the USA with Dream Tourism UK",
+    description:
+      "Embark on a journey through the United States with Dream Tourism UK. From famous landmarks to natural wonders, explore the best of America. Plan your USA trip today!",
   },
-  italy : {
-    title : "Discover Italy - Dream Tourism UK",
-    description : "Indulge in the beauty and culture of Italy with Dream Tourism UK. From ancient ruins to delicious food, plan your dream Italian vacation today!"
+  italy: {
+    title: "Discover Italy - Dream Tourism UK",
+    description:
+      "Indulge in the beauty and culture of Italy with Dream Tourism UK. From ancient ruins to delicious food, plan your dream Italian vacation today!",
   },
-  belgium : {
-    title : "Charm of Belgium - Dream Tourism UK",
-    description : "Discover the enchanting beauty of Belgium with Dream Tourism UK. Explore historic towns, taste delicious chocolates, and experience Belgian hospitality. Plan your Belgian adventure now!"
+  belgium: {
+    title: "Charm of Belgium - Dream Tourism UK",
+    description:
+      "Discover the enchanting beauty of Belgium with Dream Tourism UK. Explore historic towns, taste delicious chocolates, and experience Belgian hospitality. Plan your Belgian adventure now!",
   },
-  france : {
-    title : "Bonjour France - Dream Tourism UK",
-    description : "Experience the allure of France with Dream Tourism UK. From the Eiffel Tower to charming villages, immerse yourself in the French way of life. Plan your dream French getaway today!"
-  }
-}
+  france: {
+    title: "Bonjour France - Dream Tourism UK",
+    description:
+      "Experience the allure of France with Dream Tourism UK. From the Eiffel Tower to charming villages, immerse yourself in the French way of life. Plan your dream French getaway today!",
+  },
+};
 
 // export const metadata = {
 //   title: "Destinations || GoTrip - Travel & Tour React NextJS Template",
@@ -61,24 +68,26 @@ const destinationsMetadatas = {
 export async function generateStaticParams() {
   const data = await getAllMenuItem();
   // console.log(menus);
- 
-  return data?.menus.find((item) => item.name === "Destinations")?.children?.map((item) => ({
-    slug: item.name,
-  }))
+
+  return data?.menus
+    .find((item) => item.name === "Destinations")
+    ?.children?.map((item) => ({
+      slug: item.name,
+    }));
 }
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const slug = params.slug;
- 
+
   return {
     title: destinationsMetadatas[slug]?.title,
-    description : destinationsMetadatas[slug]?.description
-  }
+    description: destinationsMetadatas[slug]?.description,
+  };
 }
 
 const Destinations = ({ params }) => {
   const slug = params.slug;
-  
+
   return (
     <>
       {/* End Page Title */}
@@ -95,7 +104,7 @@ const Destinations = ({ params }) => {
       <section className="layout-pb-md">
         <div className="container">
           <div className="row">
-            <Banner slug ={slug}/>
+            <Banner slug={slug} />
           </div>
           {/* End .row */}
 
@@ -111,7 +120,7 @@ const Destinations = ({ params }) => {
             </div> */}
             {/* End .col-auto */}
 
-            <IntroTown slug={slug}/>
+            <IntroTown slug={slug} />
           </div>
           {/* End .row */}
 
@@ -124,7 +133,7 @@ const Destinations = ({ params }) => {
             </div>
             {/* End. col-12 */}
 
-            <Weather slug={slug}/>
+            <Weather slug={slug} />
           </div>
           {/* End local weather */}
 
@@ -136,9 +145,8 @@ const Destinations = ({ params }) => {
             
             <GeneralInfo />
           </div> */}
-         
+
           {/* <div className="mt-30 border-top-light" /> */}
-          
         </div>
         {/* End .container */}
       </section>
@@ -155,9 +163,9 @@ const Destinations = ({ params }) => {
                 </p>
               </div>
             </div> */}
-            {/* End .col */}
+      {/* End .col */}
 
-            {/* <div className="col-auto">
+      {/* <div className="col-auto">
               <Link
                 href="#"
                 className="button -md -blue-1 bg-blue-1-05 text-blue-1"
@@ -166,52 +174,60 @@ const Destinations = ({ params }) => {
               </Link>
             </div>
           </div> */}
-          {/* End .row */}
+      {/* End .row */}
 
-          {/* <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+      {/* <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
             <Hotels />
           </div> */}
-          {/* End relative */}
-        {/* </div>
+      {/* End relative */}
+      {/* </div>
       </section> */}
       {/* End  Hotel sections */}
 
-     {
-      slug === "italy" ? ( <section className="">
-      <div className="container">
-        <div className="row y-gap-20 justify-between items-end">
-          <div className="col-auto">
-            <div className="sectionTitle -md">
-              <h2 className="sectionTitle__title">Popular Tours In {slug?.split("_")?.map((word) => word?.charAt(0).toUpperCase()
-  + word?.slice(1))?.join(" ")}</h2>
-              <p className=" sectionTitle__text mt-5 sm:mt-0">
-              Explore Our Best Sellers: Unmatched Experiences in Every Journey
-              </p>
+      {slug === "italy" ? (
+        <section className="layout-pt-md layout-pb-md">
+          <div className="container">
+            <div className="row y-gap-22 justify-between items-start">
+              <div className="col-8 col-lg-auto">
+                <div className="sectionTitle -md">
+                  <h2 className="sectionTitle__title">Most Popular Tours</h2>
+                  <p className=" sectionTitle__text mt-5 sm:mt-0">
+                    Explore Our Best Sellers: Unmatched Experiences in Every
+                    Journey
+                  </p>
+                </div>
+              </div>
+              {/* End .col */}
+
+              <div className="col-4 col-lg-auto">
+                <Link
+                  href="/tours"
+                  className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+                >
+                  More <div className="icon-arrow-top-right ml-15" />
+                </Link>
+              </div>
+              {/* End .col */}
             </div>
-          </div>
-          {/* End .col */}
+            {/* End .row */}
 
-          <div className="col-auto">
-            <Link
-              href="/tours?location=Italy"
-              className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-            >
-              More <div className="icon-arrow-top-right ml-15" />
-            </Link>
+            <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+              <Tours
+                destination={slug
+                  ?.split("_")
+                  ?.map(
+                    (word) => word?.charAt(0).toUpperCase() + word?.slice(1)
+                  )
+                  ?.join(" ")}
+              />
+            </div>
+            {/* End .row */}
           </div>
-          {/* End .col */}
-        </div>
-        {/* End .row */}
-
-        <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-          <Tours destination = {slug?.split("_")?.map((word) => word?.charAt(0).toUpperCase()
-  + word?.slice(1))?.join(" ")}/>
-        </div>
-        {/* End .row */}
-      </div>
-      {/* End .container */}
-    </section>) : ""
-     }
+          {/* End .container */}
+        </section>
+      ) : (
+        ""
+      )}
       {/* End Tours Sections */}
 
       {/* <section className="layout-pt-md layout-pb-md">
@@ -346,8 +362,15 @@ const Destinations = ({ params }) => {
           <div className="row">
             <div className="col-auto">
               <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Top sights in {slug?.split("_")?.map((word) => word?.charAt(0).toUpperCase()
-    + word?.slice(1))?.join(" ")}</h2>
+                <h2 className="sectionTitle__title">
+                  Top sights in{" "}
+                  {slug
+                    ?.split("_")
+                    ?.map(
+                      (word) => word?.charAt(0).toUpperCase() + word?.slice(1)
+                    )
+                    ?.join(" ")}
+                </h2>
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
                   {slightContent[slug]?.title}
                 </p>
@@ -357,7 +380,7 @@ const Destinations = ({ params }) => {
           {/* End .row */}
 
           <div className="row y-gap-30 pt-40">
-            <Slights slug={slug}/>
+            <Slights slug={slug} />
           </div>
           {/* End .row */}
 
@@ -418,15 +441,19 @@ const Destinations = ({ params }) => {
               <h2 className="text-30 fw-500">
                 FAQs about
                 <br />
-                {slug?.split("_")?.map((word) => word?.charAt(0).toUpperCase()
-    + word?.slice(1))?.join(" ")}
+                {slug
+                  ?.split("_")
+                  ?.map(
+                    (word) => word?.charAt(0).toUpperCase() + word?.slice(1)
+                  )
+                  ?.join(" ")}
               </h2>
             </div>
             {/* End .col */}
 
             <div className="col-lg-8">
               <div className="accordion -simple row y-gap-20 js-accordion">
-                <Faq slug ={slug}/>
+                <Faq slug={slug} />
               </div>
             </div>
             {/* End .col-lg-8 */}
@@ -443,7 +470,8 @@ const Destinations = ({ params }) => {
             <div className="col-auto">
               <div className="sectionTitle -md">
                 <h2 className="sectionTitle__title">
-                  Warm Destinations
+                  Destinations near{" "}
+                  {slug.charAt(0).toUpperCase() + slug.slice(1)}
                 </h2>
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
                   These popular destinations have a lot to offer
@@ -452,7 +480,6 @@ const Destinations = ({ params }) => {
             </div>
           </div>
           {/* End .row */}
-          
 
           <div className="pt-40 relative">
             <TopDestinations2 slug={slug} />
@@ -461,9 +488,6 @@ const Destinations = ({ params }) => {
         {/* End .container */}
       </section>
       {/* End top destinations */}
-
-      <CallToActions />
-      {/* End Call To Actions Section */}
 
       {/* <DefaultFooter /> */}
       {/* End Call To Actions Section */}
