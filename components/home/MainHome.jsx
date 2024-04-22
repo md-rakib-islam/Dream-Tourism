@@ -1,4 +1,3 @@
-
 import TopDestinations from "@/components/destinations/TopDestinations";
 // import Hero7 from "@/components/hero/hero-7";
 import Hero3 from "@/components/hero/hero-3";
@@ -13,28 +12,28 @@ import Link from "next/link";
 // };
 
 const home_3 = () => {
-  
   return (
     <>
       {/* <Hero7/> */}
       <div className="header-margin"></div>
-      <Hero3/>
+      <Hero3 />
       {/* End Hero 3 */}
-      
+
       <section className="layout-pt-md layout-pb-md">
         <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
-            <div className="col-auto">
+          <div className="row y-gap-22 justify-between items-start">
+            <div className="col-8 col-lg-auto">
               <div className="sectionTitle -md">
                 <h2 className="sectionTitle__title">Most Popular Tours</h2>
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
-                Explore Our Best Sellers: Unmatched Experiences in Every Journey
+                  Explore Our Best Sellers: Unmatched Experiences in Every
+                  Journey
                 </p>
               </div>
             </div>
             {/* End .col */}
 
-            <div className="col-auto">
+            <div className="col-4 col-lg-auto">
               <Link
                 href="/tours"
                 className="button -md -blue-1 bg-blue-1-05 text-blue-1"
@@ -62,7 +61,7 @@ const home_3 = () => {
               <div className="sectionTitle -md">
                 <h2 className="sectionTitle__title">Top Destinations</h2>
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
-                Explore Exciting Destinations, Tailored for Every Explorer
+                  Explore Exciting Destinations, Tailored for Every Explorer
                 </p>
               </div>
             </div>
@@ -85,7 +84,7 @@ const home_3 = () => {
               <div className="sectionTitle -md">
                 <h2 className="sectionTitle__title">Why Choose Us</h2>
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
-                Experience Quality and Excellence with DreamTourism
+                  Experience Quality and Excellence with DreamTourism
                 </p>
               </div>
             </div>
@@ -101,18 +100,28 @@ const home_3 = () => {
       </section>
       {/* End Why choose Section */}
 
-      
-      <section style={{backgroundColor : "#EAFBF7"}} className="layout-pt-md layout-pb-md">
+      <section
+        style={{ backgroundColor: "#EAFBF7" }}
+        className="layout-pt-md layout-pb-md"
+      >
         <div className="container">
           <div className="row justify-center text-center">
             <div className="col-auto">
               <div className="sectionTitle -md">
                 <h2 className="sectionTitle__title">Free cancellation</h2>
-                <p style={{color : "black"}} className="mt-5 sm:mt-4 bannar_mobile">
-                You'll receive a full refund if you cancel at least 24 <br/> hours in advance of most experiences.
+                <p
+                  style={{ color: "black" }}
+                  className="mt-5 sm:mt-4 bannar_mobile"
+                >
+                  You'll receive a full refund if you cancel at least 24 <br />{" "}
+                  hours in advance of most experiences.
                 </p>
-                <p style={{color : "black"}} className=" mt-5 sm:mt-4 bannar_desktop">
-                You'll receive a full refund if you cancel at least 24 hours in advance of most experiences.
+                <p
+                  style={{ color: "black" }}
+                  className=" mt-5 sm:mt-4 bannar_desktop"
+                >
+                  You'll receive a full refund if you cancel at least 24 hours
+                  in advance of most experiences.
                 </p>
               </div>
             </div>
@@ -130,89 +139,140 @@ const home_3 = () => {
               </div>
             </div>
             {/* End .col */}
-
           </div>
           {/* End .row */}
 
           <div className="row y-gap-30 pt-20 sm:pt-20 item_gap-x30">
             <ul className="linksList">
               <li className="linkItem">
-                <Link className="link" href="/destinations/france">Things to do in France</Link>
+                <Link className="link" href="/destinations/france">
+                  Things to do in France
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/destinations/france">Places to visit in Paris</Link>
+                <Link className="link" href="/destinations/france">
+                  Places to visit in Paris
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Top attractions in Spain</Link>
+                <Link className="link" href="/">
+                  Top attractions in Spain
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Must-see sights in Barcelona</Link>
+                <Link className="link" href="/">
+                  Must-see sights in Barcelona
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/destinations/germany">Activities in Germany</Link>
+                <Link className="link" href="/destinations/germany">
+                  Activities in Germany
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Best things to do in Berlin</Link>
+                <Link className="link" href="/">
+                  Best things to do in Berlin
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Attractions in the United Kingdom</Link>
+                <Link className="link" href="/">
+                  Attractions in the United Kingdom
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Explore London's landmarks</Link>
+                <Link className="link" href="/">
+                  Explore London's landmarks
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">What to do in Greece</Link>
+                <Link className="link" href="/">
+                  What to do in Greece
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Sightseeing in Athens</Link>
+                <Link className="link" href="/">
+                  Sightseeing in Athens
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Activities in Portugal</Link>
+                <Link className="link" href="/">
+                  Activities in Portugal
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Discover Lisbon's highlights</Link>
+                <Link className="link" href="/">
+                  Discover Lisbon's highlights
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Things to see in the Netherlands</Link>
+                <Link className="link" href="/">
+                  Things to see in the Netherlands
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Visit Amsterdam's famous spots</Link>
+                <Link className="link" href="/">
+                  Visit Amsterdam's famous spots
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Top experiences in Switzerland</Link>
+                <Link className="link" href="/">
+                  Top experiences in Switzerland
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Galway's artistic charm</Link>
+                <Link className="link" href="/">
+                  Galway's artistic charm
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Must-do activities in Austria</Link>
+                <Link className="link" href="/">
+                  Must-do activities in Austria
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Discover Vienna's cultural gems</Link>
+                <Link className="link" href="/">
+                  Discover Vienna's cultural gems
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Top experiences in Switzerland</Link>
+                <Link className="link" href="/">
+                  Top experiences in Switzerland
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Charming towns in Tuscany</Link>
+                <Link className="link" href="/">
+                  Charming towns in Tuscany
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Exploring Florence's treasures</Link>
+                <Link className="link" href="/">
+                  Exploring Florence's treasures
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Discovering Venice's magic</Link>
+                <Link className="link" href="/">
+                  Discovering Venice's magic
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Unforgettable experiences in Rome</Link>
+                <Link className="link" href="/">
+                  Unforgettable experiences in Rome
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Italy's hidden gems</Link>
+                <Link className="link" href="/">
+                  Italy's hidden gems
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Experience Brussels' charm</Link>
+                <Link className="link" href="/">
+                  Experience Brussels' charm
+                </Link>
               </li>
               <li className="linkItem">
-                <Link className="link" href="/">Things to explore in Belgium</Link>
+                <Link className="link" href="/">
+                  Things to explore in Belgium
+                </Link>
               </li>
             </ul>
           </div>

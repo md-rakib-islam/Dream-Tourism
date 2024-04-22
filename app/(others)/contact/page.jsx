@@ -10,7 +10,8 @@ import Social from "@/components/common/social/Social";
 
 export const metadata = {
   title: "Contact Dream Tourism UK - Reach Out for Unforgettable Adventures",
-  description: "Connect with Dream Tourism UK for all your travel needs. Our team is here to assist you in planning your dream getaway. Let's turn your travel dreams into reality together!",
+  description:
+    "Connect with Dream Tourism UK for all your travel needs. Our team is here to assist you in planning your dream getaway. Let's turn your travel dreams into reality together!",
 };
 
 const Contact = () => {
@@ -29,10 +30,7 @@ const Contact = () => {
 
       <div className="map-outer">
         <div className="map-canvas">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28250.91588853126!2d12.473874066474862!3d41.90335665795884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6197b04e4813%3A0x35b2f75bb1d9d291!2sVia%20Principe%20Eugenio%2C%2095%2C%2000185%20Roma%20RM%2C%20Italy!5e0!3m2!1sen!2sbd!4v1707049062158!5m2!1sen!2sbd"
-            loading="lazy"
-          ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28250.91588853126!2d12.473874066474862!3d41.90335665795884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6197b04e4813%3A0x35b2f75bb1d9d291!2sVia%20Principe%20Eugenio%2C%2095%2C%2000185%20Roma%20RM%2C%20Italy!5e0!3m2!1sen!2sbd!4v1707049062158!5m2!1sen!2sbd"></iframe>
           {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.3610585104984!2d39.81982877439845!3d21.415048774400667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c205018b9a80af%3A0xd9d4563a691a241b!2sHotel%20Mohammed%20Abdullah%20Al-Ghammas!5e0!3m2!1sen!2sbd!4v1700576126933!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
         </div>
       </div>
@@ -58,7 +56,7 @@ const Contact = () => {
             </div>
             {/* End .col */}
 
-            <Address uk = {true}/>
+            <Address uk={true} />
             {/* End address com */}
 
             <div className="col-auto">

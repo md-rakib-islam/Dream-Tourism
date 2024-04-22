@@ -1,20 +1,19 @@
-
-'use client'
+"use client";
 
 import useTours from "@/hooks/useTours";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import isTextMatched from "../../../utils/isTextMatched";
 
 const TourProperties = () => {
-  const searchParams = useSearchParams()
-  const search = searchParams.get('location')
-  const tourItems = useTours(search ? search : "Home")
-  const {currentCurrency} = useSelector(state => state.currency);
+  const searchParams = useSearchParams();
+  const search = searchParams.get("location");
+  const tourItems = useTours(search ? search : "Home");
+  const { currentCurrency } = useSelector((state) => state.currency);
   return (
     <>
       {tourItems?.map((item) => (
@@ -25,7 +24,11 @@ const TourProperties = () => {
           data-aos-delay={item?.delayAnimation}
         >
           <Link
-            href={`/tour/${item?.title?.replace(/[,.-]/g, '')?.toLowerCase()?.split(" ")?.join("-")}`}
+            href={`/tour/${item?.title
+              ?.replace(/[,.-]/g, "")
+              ?.toLowerCase()
+              ?.split(" ")
+              ?.join("-")}`}
             className="tourCard -type-1 rounded-4 position-relative"
           >
             <div className="tourCard__image">
@@ -48,7 +51,7 @@ const TourProperties = () => {
                             className="rounded-4 col-12 js-lazy"
                             src={slide}
                             alt="image"
-                            style={{width: "300px", height: "300px"}}
+                            style={{ width: "300px", height: "300px" }}
                           />
                         </SwiperSlide>
                       ))}
@@ -93,7 +96,7 @@ const TourProperties = () => {
                 <div className="size-3 bg-light-1 rounded-full ml-10 mr-10" />
                 <div className="text-14 text-light-1">{item?.tourType}</div>
               </div>
-              <h4 className="tourCard__title text-dark-1 text-18 lh-16 fw-500">
+              <h4 className="tourCard__title text-dark-5 text-18 lh-16 fw-500">
                 <span>{item?.title}</span>
               </h4>
               <p className="text-light-1 lh-14 text-14 mt-5">
