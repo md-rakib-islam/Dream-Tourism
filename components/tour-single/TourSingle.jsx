@@ -29,6 +29,9 @@ import {
   WhatsappShareButton,
 } from "react-share";
 import { capitalize } from "@/utils";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import Image from "next/image";
 
 export const tourUrlsMap = {
   "colosseum-roman-forum-and-palatine-hills-priority-ticket-skip-the-ticket-line":
@@ -51,9 +54,11 @@ export const tourUrlsMap = {
 const TourSingleV1Dynamic = ({ params, children }) => {
   const dispatch = useDispatch();
   const { menuItems } = useSelector((state) => state.menus);
-  const tourId = menuItems.find((item) => item.name === "Tour")?.id;
+  const tourId = menuItems.find((item) => item.name === "Tours")?.id;
   const { data, isSuccess, isFulfilled } =
-    useGetContentsByMenuContentTitleQuery(capitalize(params?.name));
+    useGetContentsByMenuContentTitleQuery(tourUrlsMap[params?.name]);
+  const [copied, setCopied] = useState(false);
+  const [isCopyLoading, setIsCopyLoading] = useState(false);
 
   const {
     data: imageContents,
@@ -91,27 +96,110 @@ const TourSingleV1Dynamic = ({ params, children }) => {
     // console.log("Hele", data);
     dispatch(addtourItem(data));
   }
+  //copy link
+  const copyToClipboard = () => {
+    setIsCopyLoading(true);
 
-  console.log("capitalize(params?.name", capitalize(params?.name));
+    // Create a custom promise to handle the copying process
+    const copyingPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        navigator?.clipboard
+          ?.writeText(window?.location?.href)
+          .then(() => {
+            setIsCopyLoading(false);
+            setCopied(true);
+            setTimeout(() => {
+              setCopied(false);
+            }, 1500); // Remove "Copied!" message after 1.5 seconds
+            resolve(); // Resolve the promise when copying is successful
+          })
+          .catch(() => {
+            setIsCopyLoading(false);
+            reject(); // Reject the promise if copying fails
+          });
+      }, 1500); // Remove "Copied!" message after 1.5 seconds
+    });
+
+    // Show a pending toast using toast.promise()
+    toast.promise(
+      copyingPromise,
+      {
+        pending: "Copying link to clipboard...", // Message to show while promise is pending
+        success: "Link copied successfully", // Message to show on success
+        error: "Failed to copy link to clipboard", // Message to show on error
+        pendingToastId: "pending-toast", // Custom ID for the pending toast
+        successToastId: "success-toast", // Custom ID for the success toast
+        errorToastId: "error-toast", // Custom ID for the error toast
+      },
+      {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    );
+  };
+  console.log("capitalize(params?.name", tour, tourId, params);
   return (
     <>
       <div className="header-margin"></div>
       {/* header top margin */}
 
-      <section className="pt-40">
+      <section className="pt-50 js-pin-container">
         <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
+          <div className="row y-gap-30">
+            {/* <div className="col-auto">
+              <h1 className="text-30 fw-600">{tour?.title}</h1>
+              <div className="row x-gap-20 y-gap-20 items-center pt-10">
+                <div className="col-auto">
+                  <div className="d-flex items-center">
+                    <div className="d-flex x-gap-5 items-center">
+                      <i className="icon-star text-10 text-yellow-1"></i>
+
+                      <i className="icon-star text-10 text-yellow-1"></i>
+
+                      <i className="icon-star text-10 text-yellow-1"></i>
+
+                      <i className="icon-star text-10 text-yellow-1"></i>
+
+                      <i className="icon-star text-10 text-yellow-1"></i>
+                    </div>
+
+                    <div className="text-14 text-light-1 ml-10">
+                      {tour?.numberOfReviews} reviews
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-auto">
+                  <div className="row x-gap-10 items-center">
+                    <div className="col-auto">
+                      <div className="d-flex x-gap-5 items-center">
+                        <i className="icon-placeholder text-16 text-light-1"></i>
+                        <div className="text-15 text-light-1">
+                          {tour?.location}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> */}
             {children}
             {/* End .col */}
 
-            <div className="col-auto">
-              <div className="row x-gap-10 y-gap-10">
+            <div className="col-xl-4 d-flex align-items-end">
+              <div className="row ">
                 <div className="col-auto btn-group dropup">
                   <button
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                    className="button px-15 py-10 -blue-1 "
+                    className="button px-10 py-10 -blue-1 "
                   >
                     <i className="icon-share mr-10"></i>
                     Share
@@ -120,7 +208,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                     <li className="d-flex my-2">
                       <FacebookShareButton
                         className="me-2"
-                        url={`https://dreamziarah.com/tours/${tour?.title
+                        url={`https://demo.dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
@@ -129,7 +217,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                       </FacebookShareButton>
                       <FacebookMessengerShareButton
                         className="me-2"
-                        url={`https://dreamziarah.com/tours/${tour?.title
+                        url={`https://demo.dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
@@ -138,7 +226,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                       </FacebookMessengerShareButton>
                       <WhatsappShareButton
                         className="me-2"
-                        url={`https://dreamziarah.com/tours/${tour?.title
+                        url={`https://demo.dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
@@ -147,27 +235,85 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                       </WhatsappShareButton>
                       <EmailShareButton
                         className="me-2"
-                        url={`https://dreamziarah.com/tours/${tour?.title
+                        url={`https://demo.dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
                       >
                         <EmailIcon size={32} round={true} />
                       </EmailShareButton>
-                      <LinkedinShareButton
-                        url={`https://dreamziarah.com/tours/${tour?.title
+                      {/* <LinkedinShareButton
+                        url={`https://demo.dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
                       >
                         <LinkedinIcon size={32} round={true} />
-                      </LinkedinShareButton>
+                      </LinkedinShareButton> */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginLeft: "-15px",
+                        }}
+                        onClick={copyToClipboard}
+                      >
+                        {isCopyLoading ? (
+                          // <CircularProgress
+                          //   style={{ color: "#e02043", marginRight: "10px" }}
+                          //   size={20}
+                          // />
+                          <div
+                            // className="col-12 h-20 text-center"
+                            style={{
+                              marginLeft: "10px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Loading />
+                          </div>
+                        ) : (
+                          <i
+                            className="icon-copy"
+                            style={{ height: 32, width: 32 }}
+                          ></i>
+                        )}
+                        {copied ? (
+                          <h6
+                            style={{
+                              marginLeft: "-15px",
+                            }}
+                          >
+                            copied!
+                          </h6>
+                        ) : (
+                          // <i className="icon-files-o"></i>
+                          <>
+                            {!isCopyLoading && (
+                              <Image
+                                width={40}
+                                height={40}
+                                style={{
+                                  // height: "32px",
+                                  // width: "32px",
+                                  // marginRight: "10px",
+                                  cursor: "pointer",
+                                }}
+                                alt="images"
+                                src="https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/80bd75f3-6ddb-4c93-1acf-7b4fb358f200/public"
+                              />
+                            )}
+                          </>
+                        )}
+                      </div>
                     </li>
                   </ul>
                 </div>
 
                 <div className="col-auto">
-                  <button className="button px-15 py-10 -blue-1 bg-light-2">
+                  <button className="button px-10 py-10 -blue-1 bg-light-2">
                     <i className="icon-heart mr-10"></i>
                     Save
                   </button>

@@ -101,7 +101,11 @@ const Tours = ({ destination }) => {
       {tourItems?.map((item) => (
         <div key={item?.id}>
           <Link
-            href={`/tour/${item?.title?.toLowerCase()?.split(" ")?.join("-")}`}
+            href={`/tour/${item?.title
+              ?.replace(/[,.-]/g, "")
+              ?.toLowerCase()
+              ?.split(" ")
+              ?.join("-")}`}
             style={{ cursor: "pointer" }}
             className="tourCard -type-1 rounded-4 hover-inside-slider"
           >
@@ -147,13 +151,6 @@ const Tours = ({ destination }) => {
                   >
                     {item?.tag}{" "}
                   </div>
-                  {/* <div class="buttons">
-                    <button style={{ backgroundColor: "black" }}>
-                      {`${currentCurrency?.symbol} ${item.price}`}{" "}
-                      <span> PER PERSON</span>
-                    </button>
-                    <button>No</button>
-                  </div> */}
                 </div>
               </div>
             </div>

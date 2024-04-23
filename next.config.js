@@ -2,7 +2,7 @@
 
 const prodConfig = {
   protocol: "https",
-  hostname: "api.dreamtourism.co.uk",
+  hostname: "api.dreamtourism.it",
   port: "",
   pathname: "**/media/**",
 };
@@ -19,7 +19,7 @@ const imagedeliveryConfig = {
 };
 const nextConfig = {
   images: {
-    domains: ["imagedelivery.net", "192.168.0.118"],
+    domains: ["imagedelivery.net", "api.dreamtourism.it"],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 60,

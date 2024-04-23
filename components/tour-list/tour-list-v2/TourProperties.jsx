@@ -59,7 +59,11 @@ const TourProperties = () => {
           // data-aos-delay={item?.delayAnimation}
         >
           <Link
-            href={`/tour/${item?.title?.toLowerCase()?.split(" ")?.join("-")}`}
+            href={`/tour/${item?.title
+              ?.replace(/[,.-]/g, "")
+              ?.toLowerCase()
+              ?.split(" ")
+              ?.join("-")}`}
             style={{ cursor: "pointer" }}
             className="tourCard -type-1 rounded-4 hover-inside-slider"
           >
@@ -87,8 +91,8 @@ const TourProperties = () => {
                   ))}
                 </Slider>
 
-                <div className="cardImage__leftBadge">
-                  {/* <div
+                {/* <div className="cardImage__leftBadge">
+                   <div
                     className={`py-5  rounded-right-4 text-12 lh-16 fw-600 uppercase ${
                       isTextMatched(item?.tag, "likely to sell out*")
                         ? "bg-dark-1 text-white"
@@ -104,15 +108,15 @@ const TourProperties = () => {
                     }`}
                   >
                     Item
-                  </div> */}
+                  </div> 
                   <div class="buttons">
                     <button style={{ backgroundColor: "black" }}>
                       {`${currentCurrency?.symbol} ${item.price}`}{" "}
                       <span> PER PERSON</span>
                     </button>
                     <button>No</button>
-                  </div>
-                </div>
+                  </div> 
+                </div> */}
               </div>
             </div>
             {/* End .tourCard__image */}
@@ -120,9 +124,7 @@ const TourProperties = () => {
             <div className="tourCard__content mt-10">
               <div className="d-flex justify-content-between lh-14 mb-5">
                 <div className="text-14 text-light-1">
-                  {isMobile
-                    ? `${item?.duration}+ hrs`
-                    : `${item?.duration}+ hours`}
+                  {isMobile ? `${item?.duration}` : `${item?.duration}`}
                 </div>
                 {/* <div className="size-3 bg-light-1 rounded-full ml-10 mr-10" /> */}
                 <div className="ml-10 mr-10" />

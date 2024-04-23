@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 
 import Image from "next/image";
 import Slider from "react-slick";
@@ -47,8 +46,11 @@ const Testimonial = () => {
             data-aos="fade"
             data-aos-delay={item.dealyAnimation}
           >
-            <h4 className="text-16 fw-500 text-blue-1 mb-20">{item.meta}</h4>
-            <p style={{height: "140px"}} className="testimonials__text lh-18 fw-500 text-dark-1">
+            <h4 className="text-16 fw-600 text-blue-1 mb-20">{item.meta}</h4>
+            <p
+              style={{ height: "140px" }}
+              className="testimonials__text lh-17 fw-400 text-dark-1 text-14"
+            >
               {item.text}
             </p>
             <div className="pt-20 mt-28 border-top-light">
@@ -59,12 +61,12 @@ const Testimonial = () => {
                     width={60}
                     height={60}
                     src={item.avatar}
-                    alt="image"
+                    alt={item?.text}
                     className="size-60"
                   />
                 </div>
                 <div className="col-auto">
-                  <div className="text-15 fw-500 lh-14">{item.name}</div>
+                  <div className="text-15 fw-600 lh-14">{item.name}</div>
                   {/* <div className="text-14 lh-14 text-light-1 mt-5">
                     {item.designation}
                   </div> */}
