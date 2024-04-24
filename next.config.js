@@ -19,7 +19,7 @@ const imagedeliveryConfig = {
 };
 const nextConfig = {
   images: {
-    domains: ["imagedelivery.net", "192.168.0.120"],
+    domains: ["imagedelivery.net", "api.dreamtourism.it"],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 60,

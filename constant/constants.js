@@ -2,8 +2,8 @@
 //http://192.168.0.8:8002
 
 //base url
-export const BASE_URL = "http://192.168.0.120:8000";
-// export const BASE_URL = "https://api.dreamtourism.it";
+// export const BASE_URL = "http://192.168.0.120:8000";
+export const BASE_URL = "https://api.dreamtourism.it";
 // export const BASE_URL = "https://api.activemanpowerservices.com/";
 // export const BASE_URL = "https://api.surmainternational.com";
 // export const BASE_URL = "https://api.dreamtourism.co.uk";
@@ -545,6 +545,21 @@ export const UPDATE_BRANCH = `${BASE_URL}/branch/api/v1/branch/update/`;
 export const DELETE_BRANCH = `${BASE_URL}/branch/api/v1/branch/delete/`;
 
 export const SEARCH_BRANCH = `${BASE_URL}/branch/api/v1/branch/search/`;
+
+// cms_blog
+export const CREATE_CMS_BLOG = `${BASE_URL}/cms_blog/api/v1/cms_blog/create/`;
+
+export const GET_CMS_BLOGID = `${BASE_URL}/cms_blog/api/v1/cms_blog/`;
+
+export const GET_CMS_BLOGS = `${BASE_URL}/cms_blog/api/v1/cms_blog/all/`;
+
+export const GET_CMS_BLOG_WITHOUT_PAGINATION = `${BASE_URL}/cms_blog/api/v1/cms_blog/without_pagination/all/`;
+
+export const UPDATE_CMS_BLOG = `${BASE_URL}/cms_blog/api/v1/cms_blog/update/`;
+
+export const DELETE_CMS_BLOG = `${BASE_URL}/cms_blog/api/v1/cms_blog/delete/`;
+
+export const SEARCH_CMS_BLOG = `${BASE_URL}/cms_blog/api/v1/cms_blog/search/`;
 
 //menu item
 export const MENU_ITEMS = `${BASE_URL}/menu_item/api/v1/menu_item/nested_menu_item_by_user_role/`;
