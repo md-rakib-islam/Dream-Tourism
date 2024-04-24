@@ -6,7 +6,9 @@ const TestimonialLeftCol = () => {
         <br /> saying us?
       </h2>
       <p className="mt-20">
-      Dream Tourism UK transformed my vacation into an unforgettable escape. The genuine hospitality of their team and the meticulously crafted itinerary turned it into a cherished experience. - Mahira Zaman
+        Dream Tourism IT transformed my vacation into an unforgettable escape.
+        The genuine hospitality of their team and the meticulously crafted
+        itinerary turned it into a cherished experience. - Mahira Zaman
       </p>
       <div className="row y-gap-30 pt-60 lg:pt-40">
         <div className="col-sm-5 col-6">

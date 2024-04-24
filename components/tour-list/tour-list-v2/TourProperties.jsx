@@ -12,7 +12,9 @@ import Slider from "react-slick";
 const TourProperties = () => {
   const searchParams = useSearchParams();
   const search = searchParams.get("location");
-  const tourItems = useTours(search ? search : "Home");
+  const tourItems = useTours(search == null ? "Home" : search);
+
+  console.log("searchssf", search, tourItems);
   const { currentCurrency } = useSelector((state) => state.currency);
   const width = useWindowSize();
   const isMobile = width < 768;

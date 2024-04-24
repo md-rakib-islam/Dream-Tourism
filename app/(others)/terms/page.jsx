@@ -6,14 +6,14 @@ import TermsConent from "@/components/common/TermsConent";
 
 const metaDatas = {
   general_terms_of_use: {
-    title: "Dream Tourism UK - Terms and Conditions",
+    title: "Dream Tourism IT - Terms and Conditions",
     description:
-      "Explore the terms and conditions that govern your experience with Dream Tourism UK. Understand our commitment to quality, fairness, and your satisfaction.",
+      "Explore the terms and conditions that govern your experience with Dream Tourism IT. Understand our commitment to quality, fairness, and your satisfaction.",
   },
   privacy_policy: {
-    title: "Dream Tourism UK Privacy Policy - Your Privacy, Our Priority",
+    title: "Dream Tourism IT Privacy Policy - Your Privacy, Our Priority",
     description:
-      "Read Dream Tourism UK's privacy policy to understand how we handle and protect your information. Your privacy is important to us, and we prioritize keeping your data secure.",
+      "Read Dream Tourism IT's privacy policy to understand how we handle and protect your information. Your privacy is important to us, and we prioritize keeping your data secure.",
   },
 };
 

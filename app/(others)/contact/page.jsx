@@ -9,9 +9,9 @@ import WhyChoose from "@/components/home/home-3/WhyChoose";
 import Social from "@/components/common/social/Social";
 
 export const metadata = {
-  title: "Contact Dream Tourism UK - Reach Out for Unforgettable Adventures",
+  title: "Contact Dream Tourism IT - Reach Out for Unforgettable Adventures",
   description:
-    "Connect with Dream Tourism UK for all your travel needs. Our team is here to assist you in planning your dream getaway. Let's turn your travel dreams into reality together!",
+    "Connect with Dream Tourism IT for all your travel needs. Our team is here to assist you in planning your dream getaway. Let's turn your travel dreams into reality together!",
 };
 
 const Contact = () => {

@@ -1,32 +1,36 @@
+"use client";
 
-'use client'
-
-import { useSearchParams } from 'next/navigation';
+import { addSearchValue } from "@/features/search/searchSlice";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const SearchBar = () => {
-  const searchParams = useSearchParams()
- 
-  const search = searchParams.get('location')
+  const dispatch = useDispatch();
+
+  const searchParams = useSearchParams();
+
+  const search = searchParams.get("location");
   const [searchValue, setSearchValue] = useState(search);
   const [selectedItem, setSelectedItem] = useState(null);
-  const {menuItems} = useSelector(state => state.menus);
-  const destinations = menuItems?.find((item) => item?.name === "Destinations")?.children;
- 
+  const { menuItems } = useSelector((state) => state.menus);
+  const destinations = menuItems?.find(
+    (item) => item?.name === "Destinations"
+  )?.children;
+
   // console.log(destinations)
 
   const locationSearchContent = destinations?.map((item) => ({
     id: item?.id,
     name: item?.name,
     address: "",
-  }))
-
- 
+  }));
 
   const handleOptionClick = (item) => {
     setSearchValue(item.name);
     setSelectedItem(item);
+    console.log("location", item);
+    dispatch(addSearchValue(item.name));
   };
 
   return (

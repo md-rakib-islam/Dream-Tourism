@@ -24,39 +24,39 @@ import Link from "next/link";
 
 const destinationsMetadatas = {
   netherlands: {
-    title: "Explore the Netherlands with Dream Tourism UK",
+    title: "Explore the Netherlands with Dream Tourism IT",
     description:
-      "Discover the beauty of the Netherlands with Dream Tourism UK. Enjoy scenic landscapes, lively cities, and rich culture. Plan your Dutch adventure now!",
+      "Discover the beauty of the Netherlands with Dream Tourism IT. Enjoy scenic landscapes, lively cities, and rich culture. Plan your Dutch adventure now!",
   },
   switzerland: {
-    title: "Switzerland Awaits - Dream Tourism UK",
+    title: "Switzerland Awaits - Dream Tourism IT",
     description:
-      "Experience the magic of Switzerland with Dream Tourism UK. Enjoy stunning mountains, calm lakes, and charming cities. Plan your Swiss getaway today!",
+      "Experience the magic of Switzerland with Dream Tourism IT. Enjoy stunning mountains, calm lakes, and charming cities. Plan your Swiss getaway today!",
   },
   germany: {
-    title: "Discover Germany - Dream Tourism UK",
+    title: "Discover Germany - Dream Tourism IT",
     description:
-      "Explore the diverse beauty of Germany with Dream Tourism UK. From historic castles to modern cities, immerse yourself in German culture. Start planning your German adventure now!",
+      "Explore the diverse beauty of Germany with Dream Tourism IT. From historic castles to modern cities, immerse yourself in German culture. Start planning your German adventure now!",
   },
   united_states: {
-    title: "Explore the USA with Dream Tourism UK",
+    title: "Explore the USA with Dream Tourism IT",
     description:
-      "Embark on a journey through the United States with Dream Tourism UK. From famous landmarks to natural wonders, explore the best of America. Plan your USA trip today!",
+      "Embark on a journey through the United States with Dream Tourism IT. From famous landmarks to natural wonders, explore the best of America. Plan your USA trip today!",
   },
   italy: {
-    title: "Discover Italy - Dream Tourism UK",
+    title: "Discover Italy - Dream Tourism IT",
     description:
-      "Indulge in the beauty and culture of Italy with Dream Tourism UK. From ancient ruins to delicious food, plan your dream Italian vacation today!",
+      "Indulge in the beauty and culture of Italy with Dream Tourism IT. From ancient ruins to delicious food, plan your dream Italian vacation today!",
   },
   belgium: {
-    title: "Charm of Belgium - Dream Tourism UK",
+    title: "Charm of Belgium - Dream Tourism IT",
     description:
-      "Discover the enchanting beauty of Belgium with Dream Tourism UK. Explore historic towns, taste delicious chocolates, and experience Belgian hospitality. Plan your Belgian adventure now!",
+      "Discover the enchanting beauty of Belgium with Dream Tourism IT. Explore historic towns, taste delicious chocolates, and experience Belgian hospitality. Plan your Belgian adventure now!",
   },
   france: {
-    title: "Bonjour France - Dream Tourism UK",
+    title: "Bonjour France - Dream Tourism IT",
     description:
-      "Experience the allure of France with Dream Tourism UK. From the Eiffel Tower to charming villages, immerse yourself in the French way of life. Plan your dream French getaway today!",
+      "Experience the allure of France with Dream Tourism IT. From the Eiffel Tower to charming villages, immerse yourself in the French way of life. Plan your dream French getaway today!",
   },
 };
 

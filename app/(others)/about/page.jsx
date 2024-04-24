@@ -11,9 +11,9 @@ import WhyChoose from "@/components/home/home-3/WhyChoose";
 import Testimonial from "@/components/testimonial/Testimonial";
 
 export const metadata = {
-  title: "About Dream Tourism UK - Your Journey, Our Story",
+  title: "About Dream Tourism IT - Your Journey, Our Story",
   description:
-    "Discover the heart of Dream Tourism UK. Learn about our passion for travel, commitment to excellence, and the stories that make us your ideal travel companion.",
+    "Discover the heart of Dream Tourism IT. Learn about our passion for travel, commitment to excellence, and the stories that make us your ideal travel companion.",
 };
 
 const About = () => {
