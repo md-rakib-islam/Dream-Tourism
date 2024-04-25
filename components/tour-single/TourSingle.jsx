@@ -9,7 +9,6 @@ import TourGallery from "@/components/tour-single/TourGallery";
 import ReviewProgress2 from "@/components/activity-single/guest-reviews/ReviewProgress2";
 import Itinerary from "@/components/tour-single/itinerary";
 import Tours from "@/components/tours/Tours";
-import { BASE_URL } from "@/constant/constants";
 import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
 import { addItenarayItems, addtourItem } from "@/features/tour/tourSlice";
 import { singleTourInfo } from "@/hooks/useTours";
@@ -78,12 +77,9 @@ const TourSingleV1Dynamic = ({ params, children }) => {
     tour = {
       id: data?.id,
       tag: "",
-      slideImg:
-        typeof imageContents?.content_images[data?.name] === "string"
-          ? [`${BASE_URL}/media/${imageContents.content_images[data?.name]}`]
-          : imageContents?.content_images[data?.name]?.map(
-              (imgSrc) => `${BASE_URL}/media/${imgSrc}`
-            ),
+      slideImg: Array.isArray(imageContents?.content_images[data?.name])
+        ? imageContents?.content_images[data?.name]
+        : [`${imageContents?.content_images[data?.name]}`],
       title: data?.name,
       location: singleTourInfo[data?.name]?.location,
       duration: data?.duration,
@@ -363,7 +359,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
       </section>
       {/* End Itinerary */}
 
-      <section className="mt-40 border-top-light pt-40">
+      {/* <section className="mt-40 border-top-light pt-40">
         <div className="container">
           <div className="row y-gap-40 justify-between">
             <div className="col-xl-3">
@@ -372,7 +368,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* End Review section */}
 
       <section className="layout-pt-lg layout-pb-lg mt-50 border-top-light">

@@ -1,5 +1,4 @@
 "use client";
-import { BASE_URL } from "@/constant/constants";
 import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +20,7 @@ const TopDestinations = () => {
     modifiedDestinations = destinations?.map((item, indx) => ({
       id: item.id,
       colClass: "col-xl-auto col-md-4 col-sm-6",
-      img: `${BASE_URL}/media/${data?.content_images[item?.name]}`,
+      img: `${data?.content_images[item?.name]}`,
       name: item.name,
       numberOfProperties: "1714",
       delayAnimation: "200",

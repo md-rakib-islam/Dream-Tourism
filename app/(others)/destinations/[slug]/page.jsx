@@ -184,7 +184,10 @@ const Destinations = ({ params }) => {
       </section> */}
       {/* End  Hotel sections */}
 
-      {slug === "italy" ? (
+      {slug === "italy" ||
+      slug === "netherlands" ||
+      slug === "switzerland" ||
+      slug === "france" ? (
         <section className="layout-pt-md layout-pb-md">
           <div className="container">
             <div className="row y-gap-22 justify-between items-start">

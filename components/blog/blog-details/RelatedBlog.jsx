@@ -1,30 +1,28 @@
 "use client";
-import { BASE_URL } from "@/constant/constants";
 import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 // import blogsData from "../../../data/blogs";
 
-const RelatedBlog = ({relatedPosts}) => {
-  const {menuItems} = useSelector(state => state.menus);
+const RelatedBlog = ({ relatedPosts }) => {
+  const { menuItems } = useSelector((state) => state.menus);
   const blogId = menuItems.find((item) => item.name === "Blog")?.id;
-  const {isSuccess, data, isLoading} = useGetImagesByMenuIdQuery(blogId);
-  
+  const { isSuccess, data, isLoading } = useGetImagesByMenuIdQuery(blogId);
+
   let relatedBlogs = [];
-  if(isSuccess){
-    
-      relatedBlogs = relatedPosts?.map((item) => ({
+  if (isSuccess) {
+    relatedBlogs = relatedPosts?.map((item) => ({
       id: item.id,
-      img: data?.content_images[item.name],
+      img: item?.cloudflare_image,
       title: item.name,
       date: "Jan 06, 2023",
       delayAnimation: "100",
       details: item.value,
       tag: "art",
       tags: ["adventure_travel", "food_drink"],
-    }))
+    }));
   }
- 
+
   return (
     <>
       {relatedBlogs?.map((item) => (
@@ -39,7 +37,7 @@ const RelatedBlog = ({relatedPosts}) => {
                   width={400}
                   height={300}
                   className="cover w-100 img-fluid"
-                  src={`${BASE_URL}/media/${item.img}`}
+                  src={`${item?.cloudflare_image}`}
                   alt="image"
                 />
               </div>

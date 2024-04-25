@@ -18,7 +18,7 @@ const useBlogs = () => {
   if (isContentSuccess) {
     blogPosts = contentItems?.blogs.map((item) => ({
       id: item.id,
-      img: item?.image,
+      cloudflare_image: item?.cloudflare_image,
       title: item.title,
       date: item?.date,
       delayAnimation: "100",

@@ -10,7 +10,6 @@ import FormReply from "@/components/blog/blog-details/FormReply";
 import RelatedBlog from "@/components/blog/blog-details/RelatedBlog";
 import TopComment from "@/components/blog/blog-details/TopComment";
 import LocationTopBar from "@/components/common/LocationTopBar";
-import { BASE_URL } from "@/constant/constants";
 import blogsData from "@/data/blogs";
 import {
   useGetAllBlogContentsQuery,
@@ -105,7 +104,7 @@ const BlogSingleDynamic = ({ params }) => {
               </div>
               <div className="col-12">
                 <img
-                  src={`${BASE_URL}/media/${blogItem.img}`}
+                  src={`${blogItem?.cloudflare_image}`}
                   alt={blogItem?.title}
                   className="col-12 rounded-8 w-100 img_large_details"
                 />

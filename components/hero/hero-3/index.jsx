@@ -1,7 +1,6 @@
 // import MainFilterSearchBox from "./MainFilterSearchBox";
 
 "use client";
-import { BASE_URL } from "@/constant/constants";
 import { addExchangeRates } from "@/features/currency/currencySlice";
 import { useGetSliderImagesQuery } from "@/features/image/imageApi";
 import useCurrencyExchangeRates from "@/hooks/currency";
@@ -18,7 +17,7 @@ const index = () => {
   if (isSuccess) {
     sliderImageItems = data?.homepage_sliders?.map((item) => ({
       ...item,
-      image: `${BASE_URL}/${item.image}`,
+      image: `${item?.image}`,
     }));
   }
 
@@ -29,7 +28,7 @@ const index = () => {
       <section className="masthead -type-6">
         <div className="masthead__bg">
           <Image
-            src={sliderImageItems[0]?.image}
+            src={sliderImageItems[0]?.cloudflare_image_url}
             width={1920}
             height={860}
             alt="image"
@@ -43,6 +42,9 @@ const index = () => {
                 <h1
                   className="text-45 lg:text-40 md:text-30 text-white"
                   data-aos="fade-up"
+                  style={{
+                    textShadow: "1px 1px 2px rgba(0,0,0,0.5)",
+                  }}
                 >
                   The World is Waiting For You
                 </h1>
@@ -50,6 +52,9 @@ const index = () => {
                   className="text-white mt-5"
                   data-aos="fade-up"
                   data-aos-delay="100"
+                  style={{
+                    textShadow: "1px 1px 2px rgba(0,0,0,0.5)",
+                  }}
                 >
                   Discover amzaing places at exclusive deals
                 </p>

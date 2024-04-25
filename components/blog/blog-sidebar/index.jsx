@@ -28,12 +28,12 @@ const index = () => {
       </div>
       {/* End RecentPost */}
 
-      <div className="sidebar__item">
+      {/* <div className="sidebar__item">
         <h5 className="text-18 fw-500 mb-10">Tags</h5>
         <div className="row x-gap-10 y-gap-10 pt-10">
           <Tags />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

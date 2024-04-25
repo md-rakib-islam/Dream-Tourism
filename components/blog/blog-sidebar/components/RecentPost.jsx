@@ -1,5 +1,4 @@
 "use client";
-import { BASE_URL } from "@/constant/constants";
 import useBlogs from "@/hooks/useBlogs";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import Link from "next/link";
 const RecentPost = () => {
   const blogPosts = useBlogs();
   blogPosts?.sort((a, b) => b.created_at - a.created_at);
-  
+
   return (
     <>
       {blogPosts?.slice(0, 3).map((item) => (
@@ -18,7 +17,7 @@ const RecentPost = () => {
               width={65}
               height={65}
               className="size-65 rounded-8"
-              src={`${BASE_URL}/media/${item.img}`}
+              src={`${item?.cloudflare_image}`}
               alt="image"
             />
 

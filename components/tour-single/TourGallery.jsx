@@ -1,30 +1,28 @@
-
-
-'use client'
+"use client";
 
 import Overview from "@/components/tour-single/Overview";
 import SidebarRight from "@/components/tour-single/SidebarRight";
 import TourSnapShot from "@/components/tour-single/TourSnapShot";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState } from "react";
 import ModalVideo from "react-modal-video";
 import { Gallery, Item } from "react-photoswipe-gallery";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-export default function TourGallery({tour}) {
-    const [isOpen, setOpen] = useState(false);
+export default function TourGallery({ tour }) {
+  const [isOpen, setOpen] = useState(false);
   return (
     <>
-     <ModalVideo
+      <ModalVideo
         channel="youtube"
         autoplay
         isOpen={isOpen}
         videoId="oqNZOOWF8qM"
         onClose={() => setOpen(false)}
       />
-    
-    <section className="pt-40 js-pin-container">
+
+      <section className="pt-40 js-pin-container">
         <div className="container">
           <div className="row y-gap-30">
             <div className="col-xl-8">
@@ -112,5 +110,5 @@ export default function TourGallery({tour}) {
         {/* End container */}
       </section>
     </>
-  )
+  );
 }

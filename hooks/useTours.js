@@ -111,7 +111,7 @@ const useTours = (destination = "Home") => {
           id: tour.id,
           // tag:  tour.id === 10 ? "top rated": tour.id === 9 ? "best seller" : "LIKELY TO SELL OUT*",
           tag: "",
-          slideImg: [`${BASE_URL}/media/${data.content_images[tour.name]}`],
+          slideImg: [`${data?.content_images[tour.name]}`],
           title: tour.name,
           location: singleTourInfo[tour?.name]?.location,
           duration: tour?.duration,

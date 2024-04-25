@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 // import blogsData from "../../data/blogs";
-import { BASE_URL } from "@/constant/constants";
 import { setTotalItem } from "@/features/pagination/paginationSlice";
 import useBlogs from "@/hooks/useBlogs";
 
@@ -46,7 +45,7 @@ const Blog2 = () => {
                   width={250}
                   height={250}
                   className="cover w-100 img-fluid"
-                  src={`${BASE_URL}/media/${item.img}`}
+                  src={`${item?.cloudflare_image}`}
                   alt="image"
                 />
               </div>
