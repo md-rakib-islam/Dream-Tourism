@@ -1,4 +1,3 @@
-import CallToActions from "@/components/common/CallToActions";
 import Pagination from "@/components/tour-list/common/Pagination";
 import Sidebar from "@/components/tour-list/tour-list-v2/Sidebar";
 import TopHeaderFilter from "@/components/tour-list/tour-list-v2/TopHeaderFilter";

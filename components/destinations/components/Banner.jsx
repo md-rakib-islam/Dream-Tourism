@@ -1,4 +1,5 @@
 "use client";
+import DestinationSkeleton from "@/components/skeleton/DestinationSkeleton";
 import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
 import Image from "next/image";
 import { useSelector } from "react-redux";
@@ -15,7 +16,7 @@ const Banner = ({ slug }) => {
     useGetImagesByMenuIdQuery(destinationId);
 
   let bannerUrl = "";
-  console.log("nbnfn", data);
+
   if (isSuccess) {
     bannerUrl = `${
       data?.content_images[
@@ -26,7 +27,9 @@ const Banner = ({ slug }) => {
       ]
     }`;
   }
-  return (
+  return isLoading ? (
+    <DestinationSkeleton />
+  ) : (
     <div className="col-12">
       <div className="relative d-flex">
         <Image

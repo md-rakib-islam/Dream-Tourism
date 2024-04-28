@@ -1,23 +1,15 @@
 "use client";
-import CallToActions from "@/components/common/CallToActions";
-// import DefaultHeader from "@/components/header/default-header";
-// import DefaultFooter from "@/components/footer/default";
 import Loading from "@/app/loading";
 import BlogNavigator from "@/components/blog/blog-details/BlogNavigator";
 import Comments from "@/components/blog/blog-details/Comments";
-// import DetailsContent from "@/components/blog/blog-details/DetailsContent";
 import FormReply from "@/components/blog/blog-details/FormReply";
 import RelatedBlog from "@/components/blog/blog-details/RelatedBlog";
 import TopComment from "@/components/blog/blog-details/TopComment";
 import LocationTopBar from "@/components/common/LocationTopBar";
-import blogsData from "@/data/blogs";
-import {
-  useGetAllBlogContentsQuery,
-  useGetAllContentQuery,
-} from "@/features/content/contentApi";
-import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
+import { useGetBlogContentsByBlogTitleQuery } from "@/features/content/contentApi";
 import { Interweave } from "interweave";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 // export const metadata = {
 //   title: "Blog Single || GoTrip - Travel & Tour React NextJS Template",
@@ -25,43 +17,45 @@ import { useSelector } from "react-redux";
 // };
 
 const BlogSingleDynamic = ({ params }) => {
-  const id = params.slug;
-  const { menuItems } = useSelector((state) => state.menus);
-  const { currentPage, PageSize } = useSelector((state) => state.pagination);
-  const blogId = menuItems.find((item) => item.name === "Blog")?.id;
-  const { isSuccess, data, isLoading } = useGetImagesByMenuIdQuery(blogId);
-  const {
-    isSuccess: isBlogDetailSuccess,
-    data: blogDetails,
-    isLoading: isBlogDetailsLoading,
-  } = useGetAllBlogContentsQuery(id);
-  const {
-    isSuccess: isContentSuccess,
-    data: contentItems,
-    isLoading: isBlogContentLoading,
-  } = useGetAllContentQuery(blogId);
+  const title = params.slug;
 
-  let relatedPosts = [];
-  if (isContentSuccess) {
-    relatedPosts = contentItems?.filter(
-      (item) => item.category === blogDetails?.category
-    );
-    relatedPosts = relatedPosts?.filter((item) => item.id != id);
-    console.log("related", relatedPosts);
+  function decodeFully(encodedText) {
+    // Decode the text multiple times to ensure all encoded characters are decoded
+    while (encodedText !== decodeURIComponent(encodedText)) {
+      encodedText = decodeURIComponent(encodedText);
+    }
+
+    // Return the decoded text
+    return encodedText;
   }
 
-  const blog = blogsData.find((item) => item.id == id) || blogsData[0];
+  const { currentPage, PageSize } = useSelector((state) => state.pagination);
+
+  const { isSuccess, data, isLoading } = useGetBlogContentsByBlogTitleQuery(
+    decodeFully(title)
+  );
+
+  let relatedPosts = [];
+  // if (isContentSuccess) {
+  //   relatedPosts = contentItems?.filter(
+  //     (item) => item.category === blogDetails?.category
+  //   );
+  //   relatedPosts = relatedPosts?.filter((item) => item.id != title);
+
+  // }
+
+  // const blog = blogsData.find((item) => item.id == title) || blogsData[0];
 
   let blogItem = {};
 
-  if (isSuccess && isBlogDetailSuccess) {
+  if (isSuccess) {
     blogItem = {
-      id: blogDetails.id,
-      img: data.content_images[blogDetails.name],
-      title: blogDetails.name,
+      id: data.id,
+      img: data?.cloudflare_image,
+      title: data?.title,
       date: "Jan 06, 2023",
       delayAnimation: "100",
-      details: blogDetails.value,
+      details: data?.description,
       tag: "art",
       tags: ["adventure_travel", "food_drink"],
     };
@@ -78,7 +72,7 @@ const BlogSingleDynamic = ({ params }) => {
       <LocationTopBar />
       {/* End location top bar section */}
 
-      {isLoading && isBlogDetailsLoading ? (
+      {isLoading ? (
         <div
           style={{
             width: "1200px",
@@ -103,10 +97,12 @@ const BlogSingleDynamic = ({ params }) => {
                 </div>
               </div>
               <div className="col-12">
-                <img
-                  src={`${blogItem?.cloudflare_image}`}
-                  alt={blogItem?.title}
-                  className="col-12 rounded-8 w-100 img_large_details"
+                <Image
+                  src={`${blogItem?.img}`}
+                  // className="col-12 rounded-4 destination_banner_img"
+                  height={400}
+                  width={1920}
+                  className="col-12 rounded-4 w-100 img_large_details"
                 />
               </div>
             </div>

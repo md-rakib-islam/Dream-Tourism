@@ -1,22 +1,12 @@
-import CallToActions from "@/components/common/CallToActions";
 import dynamic from "next/dynamic";
-// import DefaultHeader from "@/components/header/default-header";
-// import DefaultFooter from "@/components/footer/default";
-// import Activity from "@/components/activity/Activity";
 import Slights from "@/components/block/Slights";
-// import Cars from "@/components/cars/Cars";
-// import LocationTopBar from "@/components/common/LocationTopBar";
 import TopDestinations2 from "@/components/destinations/TopDestinations2";
 import Banner from "@/components/destinations/components/Banner";
-// import Categories from "@/components/destinations/components/Categories";
-// import GeneralInfo from "@/components/destinations/components/GeneralInfo";
 import IntroTown from "@/components/destinations/components/IntroTown";
 import Weather from "@/components/destinations/components/Weather";
 import Faq from "@/components/faq/Faq";
 import Testimonial from "@/components/home/home-1/Testimonial";
 import TestimonialLeftCol from "@/components/home/home-1/TestimonialLeftCol";
-// import Hotels from "@/components/hotels/Hotels2";
-// import Rentals from "@/components/rentals/Rentals";
 import Tours from "@/components/tours/Tours";
 import { slightContent } from "@/data/desinations";
 import getAllMenuItem from "@/services/menuService";
@@ -67,7 +57,6 @@ const destinationsMetadatas = {
 
 export async function generateStaticParams() {
   const data = await getAllMenuItem();
-  // console.log(menus);
 
   return data?.menus
     .find((item) => item.name === "Destinations")
@@ -108,18 +97,7 @@ const Destinations = ({ params }) => {
           </div>
           {/* End .row */}
 
-          {/* <div className="row x-gap-20 y-gap-20 items-center pt-20 item_gap-x10">
-            <Categories />
-          </div> */}
-          {/* End .row */}
-
           <div className="row y-gap-20 pt-40">
-            {/* <div className="col-auto">
-              <h2>Discover the Best of the {slug?.split("_")?.map((word) => word?.charAt(0).toUpperCase()
-    + word?.slice(1))?.join(" ")}</h2>
-            </div> */}
-            {/* End .col-auto */}
-
             <IntroTown slug={slug} />
           </div>
           {/* End .row */}
@@ -138,51 +116,12 @@ const Destinations = ({ params }) => {
           {/* End local weather */}
 
           <div className="pt-30 mt-30 border-top-light" />
-          {/* <div className="row y-gap-20">
-            <div className="col-12">
-              <h2 className="text-22 fw-500">General info</h2>
-            </div>
-            
-            <GeneralInfo />
-          </div> */}
 
           {/* <div className="mt-30 border-top-light" /> */}
         </div>
         {/* End .container */}
       </section>
       {/* End Top Banner,categorie,intro,weather, generic info section */}
-
-      {/* <section className="layout-pt-md layout-pb-md">
-        <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Recommended Hotels</h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Interdum et malesuada fames ac ante ipsum
-                </p>
-              </div>
-            </div> */}
-      {/* End .col */}
-
-      {/* <div className="col-auto">
-              <Link
-                href="#"
-                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-              >
-                More <div className="icon-arrow-top-right ml-15" />
-              </Link>
-            </div>
-          </div> */}
-      {/* End .row */}
-
-      {/* <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Hotels />
-          </div> */}
-      {/* End relative */}
-      {/* </div>
-      </section> */}
-      {/* End  Hotel sections */}
 
       {slug === "italy" ||
       slug === "netherlands" ||
@@ -233,133 +172,6 @@ const Destinations = ({ params }) => {
       )}
       {/* End Tours Sections */}
 
-      {/* <section className="layout-pt-md layout-pb-md">
-        <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Trending Activity</h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Interdum et malesuada fames ac ante ipsum
-                </p>
-              </div>
-            </div>
-          
-
-            <div className="col-auto">
-              <Link
-                href="#"
-                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-              >
-                More <div className="icon-arrow-top-right ml-15" />
-              </Link>
-            </div>
-           
-          </div>
-          
-
-          <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Activity />
-          </div>
-         
-        </div>
-      </section> */}
-      {/* Trending Activity Sections */}
-
-      {/* <section className="layout-pt-md layout-pb-md">
-        <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">
-                  Featured Holiday Rentals
-                </h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Interdum et malesuada fames ac ante ipsum
-                </p>
-              </div>
-            </div>
-           
-
-            <div className="col-auto">
-              <Link
-                href="#"
-                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-              >
-                More <div className="icon-arrow-top-right ml-15" />
-              </Link>
-            </div>
-            
-          </div>
-        
-
-          <div className="y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Rentals />
-          </div>
-         
-        </div>
-       
-      </section> */}
-      {/* Featured Rentals Sections */}
-
-      {/* <section className="layout-pt-md layout-pb-md">
-        <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Popular Car Hire</h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Interdum et malesuada fames ac ante ipsum
-                </p>
-              </div>
-            </div>
-           
-
-            <div className="col-auto">
-              <Link
-                href="#"
-                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-              >
-                More <div className="icon-arrow-top-right ml-15" />
-              </Link>
-            </div>
-            
-          </div>
-        
-
-          <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Cars />
-          </div>
-         
-        </div>
-      
-      </section> */}
-      {/* Popular Car Hire Sections */}
-
-      {/* <section className="layout-pt-md layout-pb-md">
-        <div className="container">
-          <div className="row justify-center text-center">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">
-                  Get inspiration for your next trip
-                </h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Interdum et malesuada fames
-                </p>
-              </div>
-            </div>
-          </div>
-         
-          <div className="row y-gap-30 pt-40">
-            <Blog />
-          </div>
-         
-        </div>
-        
-      </section> */}
-      {/* End blog Section */}
-
       <section className="layout-pt-md layout-pb-lg">
         <div className="container">
           <div className="row">
@@ -386,16 +198,6 @@ const Destinations = ({ params }) => {
             <Slights slug={slug} />
           </div>
           {/* End .row */}
-
-          {/* <div className="row">
-            <div className="col-auto">
-              <div className="mt-20 sectionTitle -md">
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  {slightContent[slug]?.footerContent}
-                </p>
-              </div>
-            </div>
-          </div> */}
 
           <div className="row justify-center mt-40">
             <div className="col-auto">
@@ -491,9 +293,6 @@ const Destinations = ({ params }) => {
         {/* End .container */}
       </section>
       {/* End top destinations */}
-
-      {/* <DefaultFooter /> */}
-      {/* End Call To Actions Section */}
     </>
   );
 };

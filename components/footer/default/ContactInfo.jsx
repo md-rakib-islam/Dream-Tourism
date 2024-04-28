@@ -10,7 +10,7 @@ const ContactInfo = () => {
       id: 2,
       title: "Need live support?",
       action: "#",
-      text: "info@dreamtourism.co.uk",
+      text: "info@dreamtourism.it",
     },
   ];
   return (

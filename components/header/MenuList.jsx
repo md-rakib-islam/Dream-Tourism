@@ -1,11 +1,9 @@
-import getAllMenuItem from '@/services/menuService';
+import getAllMenuItem from "@/services/menuService";
 
-const MenuList = async() => {
-    const menuItems = await getAllMenuItem();
-    console.log("n", menuItems);
-  return (
-    <div>MenuList</div>
-  )
-}
+const MenuList = async () => {
+  const menuItems = await getAllMenuItem();
+
+  return <div>MenuList</div>;
+};
 
 export default MenuList;

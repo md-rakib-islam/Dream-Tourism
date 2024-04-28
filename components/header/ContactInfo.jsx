@@ -9,8 +9,8 @@ const ContactInfo = () => {
     {
       id: 2,
       title: "Need live support?",
-      action: "mailto:sales@dreamziarah.com",
-      text: "sales@dreamziarah.com",
+      action: "mailto:sales@dreamtourism.it",
+      text: "sales@dreamtourism.it",
     },
   ];
   return (

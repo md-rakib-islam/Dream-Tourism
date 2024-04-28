@@ -1,10 +1,17 @@
+import Image from "next/image";
+
 const Comments = () => {
   return (
     <div className="row y-gap-40">
       <div className="col-12">
         <div className="row x-gap-20 y-gap-20 items-center">
           <div className="col-auto">
-            <img src="/img/avatars/2.png" alt="image" />
+            <Image
+              width={70}
+              height={70}
+              src="/img/avatars/2.png"
+              alt="image"
+            />
           </div>
           <div className="col-auto">
             <div className="fw-500 lh-15">Tonko</div>
@@ -19,28 +26,36 @@ const Comments = () => {
         </p>
         <div className="row x-gap-30 y-gap-30 pt-20">
           <div className="col-auto">
-            <img
+            <Image
+              width={70}
+              height={70}
               src="/img/testimonials/1/1.png"
               alt="image"
               className="rounded-4"
             />
           </div>
           <div className="col-auto">
-            <img
+            <Image
+              width={70}
+              height={70}
               src="/img/testimonials/1/2.png"
               alt="image"
               className="rounded-4"
             />
           </div>
           <div className="col-auto">
-            <img
+            <Image
+              width={70}
+              height={70}
               src="/img/testimonials/1/3.png"
               alt="image"
               className="rounded-4"
             />
           </div>
           <div className="col-auto">
-            <img
+            <Image
+              width={70}
+              height={70}
               src="/img/testimonials/1/4.png"
               alt="image"
               className="rounded-4"
@@ -62,7 +77,12 @@ const Comments = () => {
       <div className="col-12">
         <div className="row x-gap-20 y-gap-20 items-center">
           <div className="col-auto">
-            <img src="/img/avatars/2.png" alt="image" />
+            <Image
+              width={70}
+              height={70}
+              src="/img/avatars/2.png"
+              alt="image"
+            />
           </div>
           <div className="col-auto">
             <div className="fw-500 lh-15">Tonko</div>

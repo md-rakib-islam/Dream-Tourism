@@ -86,47 +86,6 @@ export const testimonial1 = [
     text: `Dream Tourism's tour of the Colosseum was a perfect blend of history and entertainment. Their guides breathed life into the ancient arena, making it an immersive and educational experience. Dhanyavaad!`,
     dealyAnimation: "200",
   },
-  // {
-  //   id: 11,
-  //   avatar: female_icon_01,
-  //   name: "Sofia Khan",
-  //   designation: "UX / UI Designer",
-  //   text: `Dream Ziarah made my Umrah journey unforgettable. The attention to detail, warm hospitality, and spiritual guidance turned it into a deeply enriching experience.`,
-  //   dealyAnimation: "300",
-  // },
-  // {
-  //   id: 12,
-  //   avatar: male_icon,
-  //   name: "Imran Ahmed",
-  //   designation: "UX / UI Designer",
-  //   text: `Hajj with Dream Ziarah was a dream come true. The team's meticulous planning and genuine care made the pilgrimage a seamless and spiritually uplifting adventure.`,
-  //   dealyAnimation: "400",
-  // },
-  // {
-  //   id: 13,
-  //   avatar: female_icon_02,
-  //   name: "Ayesha Ali",
-  //   designation: "UX / UI Designer",
-  //   text: `Dream Ziarah created a spiritual haven during my Ziarah. The personalized touch, insightful guidance, and a sense of community transformed it into a sacred retreat.`,
-  //   dealyAnimation: "100",
-  // },
-  // {
-  //   id: 14,
-  //   avatar: male_icon,
-  //   name: "Haris Rahman",
-  //   designation: "UX / UI Designer",
-  //   text: `My family and I had an incredible Hajj experience with Dream Ziarah. The dedicated team, seamless logistics, and spiritual depth made our pilgrimage truly special.`,
-  //   dealyAnimation: "200",
-  // },
-  // {
-  //   id: 15,
-  //   avatar: female_icon_01,
-  //   name: "Naima Patel",
-  //   designation: "UX / UI Designer",
-  //   text: `Umrah with Dream Ziarah was an amazing journey. Their attention to detail, friendly staff, and focus on spirituality created a peaceful and memorable pilgrimage.`,
-  //   dealyAnimation: "300",
-  // },
- 
 ];
 export const testimonial2 = [
   {

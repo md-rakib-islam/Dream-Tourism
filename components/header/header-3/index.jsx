@@ -58,7 +58,7 @@ const Header = () => {
                       src={logoLoading ? "/img/Logo_150_px-01.webp" : logoUrl}
                       width={128}
                       height={128}
-                      alt="Hajj, Umrah and Ziarah"
+                      alt="Dream Tourism Ltd"
                     />
                   </Link>
                   <div className="header-menu">

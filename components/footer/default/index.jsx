@@ -19,7 +19,7 @@ const index = () => {
   const handleSubmit = async () => {
     try {
       const res = await createNewsLetterJustEmail({ email });
-      console.log(res?.error?.data?.email[0]);
+
       if (res.data) {
         // alert("subcription added! thank you");
         toast.success(

@@ -1,5 +1,6 @@
 import {
   GET_CMS_BLOGS,
+  GET_CMS_BLOG_BY_TITLE,
   GET_CONTENTS,
   GET_CONTENTS_BY_MENU_CONTENT_ID,
   GET_CONTENTS_WITH_URL_BY_MENU_ID,
@@ -47,6 +48,12 @@ export const contentApi = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    getBlogContentsByBlogTitle: builder.query({
+      query: (blogId) => ({
+        url: `${GET_CMS_BLOG_BY_TITLE}/${blogId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -57,4 +64,5 @@ export const {
   useGetItenariesByMenuContentIdQuery,
   useGetContentsByMenuContentTitleQuery,
   useGetBlogsAllWithPaginationQuery,
+  useGetBlogContentsByBlogTitleQuery,
 } = contentApi;

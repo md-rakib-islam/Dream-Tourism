@@ -1,4 +1,3 @@
-import CallToActions from "@/components/common/CallToActions";
 // import DefaultHeader from "@/components/header/default-header";
 // import DefaultFooter from "@/components/footer/default";
 import Blog2 from "@/components/blog/Blog2";
@@ -7,9 +6,10 @@ import BlogSidebar from "@/components/blog/blog-sidebar";
 // import LocationTopBar from "@/components/common/LocationTopBar";
 
 export const metadata = {
-  title: "Explore Our Insights: Travel, Faith, and Culture - Dream Ziarah Blog",
+  title:
+    "Explore Our Insights: Travel, Faith, and Culture - Dream Tourism Blog",
   description:
-    "Dive into a world of inspiration with DreamZiarah's blog. Discover travel tips, cultural insights, and spiritual reflections. Join us on a virtual exploration that goes beyond destinations, offering a unique perspective on the intersection of travel, faith, and culture.",
+    "Dive into a world of inspiration with DreamTourism's blog. Discover travel tips, cultural insights, and spiritual reflections. Join us on a virtual exploration that goes beyond destinations, offering a unique perspective on the intersection of travel, faith, and culture.",
 };
 
 const BlogListV2 = () => {

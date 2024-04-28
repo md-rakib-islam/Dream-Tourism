@@ -405,6 +405,10 @@
 }
 
 @media (max-width: 767.98px) {
+  .img_large_details {
+    height: 100%;
+    object-fit: cover;
+  }
   .slider__flex {
     flex-direction: column-reverse;
   }

@@ -551,6 +551,8 @@ export const CREATE_CMS_BLOG = `${BASE_URL}/cms_blog/api/v1/cms_blog/create/`;
 
 export const GET_CMS_BLOGID = `${BASE_URL}/cms_blog/api/v1/cms_blog/`;
 
+export const GET_CMS_BLOG_BY_TITLE = `${BASE_URL}/cms_blog/api/v1/cms_blog/get_blogBy_blog_title/`;
+
 export const GET_CMS_BLOGS = `${BASE_URL}/cms_blog/api/v1/cms_blog/all/`;
 
 export const GET_CMS_BLOG_WITHOUT_PAGINATION = `${BASE_URL}/cms_blog/api/v1/cms_blog/without_pagination/all/`;

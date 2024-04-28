@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const NotFound = () => {
@@ -15,7 +16,7 @@ const NotFound = () => {
       <div className="container">
         <div className="row y-gap-30 justify-between items-center">
           <div className="col-lg-6">
-            <img src={data.imageSrc} alt="image" />
+            <Image width={70} height={70} src={data.imageSrc} alt="image" />
           </div>
           <div className="col-lg-5">
             <div className="no-page">

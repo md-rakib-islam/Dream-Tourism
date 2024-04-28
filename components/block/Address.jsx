@@ -1,12 +1,10 @@
-const Address = ({uk}) => {
+const Address = ({ uk }) => {
   const addressContent = [
     {
       id: 1,
       colClass: "col-lg-3",
       title: "Uk Address:",
-      content: (
-        <>Unit-6, 736-740 Romford Road, London, E12 6BT.</>
-      ),
+      content: <>Unit-6, 736-740 Romford Road, London, E12 6BT.</>,
     },
     {
       id: 2,
@@ -25,11 +23,10 @@ const Address = ({uk}) => {
       content: (
         <>
           {" "}
-          <a href="mailto:info@dreamtourism.co.uk">info@dreamtourism.co.uk</a>
+          <a href="mailto:info@dreamtourism.it">info@dreamtourism.it</a>
         </>
       ),
     },
-    
   ];
 
   const addressContent2 = [
@@ -37,9 +34,7 @@ const Address = ({uk}) => {
       id: 1,
       colClass: "col-lg-3",
       title: "Italy Address",
-      content: (
-        <>Via Principe Eugenio, 95, 00185 Roma RM, Italy.</>
-      ),
+      content: <>Via Principe Eugenio, 95, 00185 Roma RM, Italy.</>,
     },
     {
       id: 2,
@@ -62,7 +57,6 @@ const Address = ({uk}) => {
         </>
       ),
     },
-    
   ];
 
   const newAddressContent = uk ? addressContent : addressContent2;
@@ -75,7 +69,6 @@ const Address = ({uk}) => {
           <div className="text-18 fw-500 mt-10">{item.content}</div>
         </div>
       ))}
-      
     </>
   );
 };

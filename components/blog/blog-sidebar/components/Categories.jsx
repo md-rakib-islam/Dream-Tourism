@@ -15,7 +15,7 @@ const Categories = () => {
     isLoading: isBlogContentLoading,
   } = useGetAllContentQuery(blogId);
   // if(isContentSuccess){
-  //   console.log("contents", contentItems);
+
   // }
   const catContent = [
     // { id: 1, name: "Hajj", number: contentItems?.filter((item) => item?.category.toLowerCase() ==="hajj")?.length },

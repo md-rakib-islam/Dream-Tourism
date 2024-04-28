@@ -1,11 +1,8 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
-
 import Loading from "@/app/loading";
 import { useGetLogoUrlQuery } from "@/features/site-setting/siteSettingApi";
-
 import useMenus from "@/hooks/useMenus";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
@@ -23,7 +20,7 @@ const MobileMenu = () => {
   let logoUrl = "";
 
   if (isSuccess) {
-    logoUrl = `${data?.general_settings[0]?.cloudflare_favicon}`;
+    logoUrl = `${data?.general_settings[0].cloudflare_favicon}`;
   }
 
   const currentPathName =
@@ -32,24 +29,6 @@ const MobileMenu = () => {
       : pathname.split("/")[1] === "blog-details"
       ? "/blog"
       : pathname;
-
-  //    useEffect(() => {
-
-  //     categorieMegaMenuItems.map((megaMenu=>{
-  //     megaMenu?.menuCol?.map((megaCol=>{
-  //       megaCol?.menuItems?.map((item=>{
-  //         item?.menuList?.map((list)=>{
-  //           if (list.routePath?.split('/')[1] == pathname.split('/')[1]) {
-  //             setIsActiveParent(true)
-  //             setisActiveNestedParentTwo(item?.title)
-  //             setisActiveNestedParent(megaMenu?.id)
-  //           }
-  //         })
-  //       }))
-  //     }))
-  //   }))
-
-  //  }, [])
 
   return (
     <>
@@ -63,7 +42,7 @@ const MobileMenu = () => {
               src={logoUrl}
               width={128}
               height={128}
-              alt="logo"
+              alt="Dream Tourism Ltd"
             />
           )}
         </Link>
@@ -86,18 +65,22 @@ const MobileMenu = () => {
             if (menu?.children.length === 0) {
               return (
                 <MenuItem
+                  key={menu.id}
                   onClick={() => router.push(menu?.routePath)}
                   data-bs-dismiss="offcanvas"
                   className={
-                    pathname === menu?.routePath ? "menu-active-link" : ""
+                    pathname === menu?.routePath
+                      ? "menu-active-link fw-500"
+                      : "fw-500"
                   }
                 >
-                  {menu?.name}
+                  {menu.name}
                 </MenuItem>
               );
             } else {
               return (
                 <SubMenu
+                  key={menu.id}
                   label={menu?.name}
                   className={
                     menu?.children?.some(
@@ -105,19 +88,19 @@ const MobileMenu = () => {
                         item.routePath?.split("/")[1] ==
                         currentPathName.split("/")[1]
                     )
-                      ? "menu-active-link"
-                      : ""
+                      ? "menu-active-link fw-500"
+                      : "fw-500"
                   }
                 >
                   {menu?.children?.map((item, i) => (
                     <MenuItem
                       data-bs-dismiss="offcanvas"
-                      key={i}
+                      key={item.id}
                       onClick={() => router.push(item.routePath)}
                       className={
                         isActiveLink(item.routePath, pathname)
-                          ? "menu-active-link"
-                          : "inactive-menu"
+                          ? "menu-active-link fw-400"
+                          : "inactive-menu fw-400"
                       }
                     >
                       {item.name}
@@ -131,7 +114,9 @@ const MobileMenu = () => {
           <MenuItem
             data-bs-dismiss="offcanvas"
             onClick={() => router.push("/contact")}
-            className={pathname === "/contact" ? "menu-active-link" : ""}
+            className={
+              pathname === "/contact" ? "menu-active-link fw-500" : "fw-500"
+            }
           >
             Contact
           </MenuItem>
@@ -151,7 +136,7 @@ const MobileMenu = () => {
         </div>
         {/* <div className="mt-20">
           <Link
-            className=" button -dark-1 px-30 fw-400 text-14 bg-blue-1 h-50 text-white"
+            className=" button -dark-1 px-30 fw-500 text-14 bg-blue-1 h-50 text-white"
             href="/login"
           >
             Become An Expert

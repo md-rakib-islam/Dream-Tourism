@@ -29,7 +29,7 @@ const SearchBar = () => {
   const handleOptionClick = (item) => {
     setSearchValue(item.name);
     setSelectedItem(item);
-    console.log("location", item);
+
     dispatch(addSearchValue(item.name));
   };
 

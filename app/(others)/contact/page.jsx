@@ -1,4 +1,3 @@
-import CallToActions from "@/components/common/CallToActions";
 import dynamic from "next/dynamic";
 // import DefaultHeader from "@/components/header/default-header";
 // import DefaultFooter from "@/components/footer/default";
@@ -90,7 +89,7 @@ const Contact = () => {
               <div className="sectionTitle -md">
                 <h2 className="sectionTitle__title">Why Book With Us</h2>
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Experience Quality and Excellence with DreamZiarah
+                  Experience Quality and Excellence with DreamTourism
                 </p>
               </div>
             </div>

@@ -28,13 +28,15 @@ const Blog2 = () => {
       )
         return true;
     });
+
   dispatch(setTotalItem(blogItems.length));
-  console.log("blogItems", blogItems, blogPosts);
+  // dispatch(addBlogs(blogPosts));
+
   return (
     <>
       {blogPosts.slice(firstPageIndex, lastPageIndex).map((item) => (
         <Link
-          href={`/blog-details/${item.id}`}
+          href={`/blog-details/${item?.title}`}
           className="blogCard -type-1 col-12"
           key={item.id}
         >
@@ -51,9 +53,9 @@ const Blog2 = () => {
               </div>
             </div>
             <div className="col-lg-8">
-              <div className="text-15 text-light-1">{item.date}</div>
+              <div className="text-15 text-light-1">{item?.date}</div>
               <h3 className="text-22 text-dark-1 mt-10 md:mt-5">
-                {item.title}
+                {item?.title}
               </h3>
               {/* <div
                 style={{

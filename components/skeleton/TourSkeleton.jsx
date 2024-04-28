@@ -82,7 +82,7 @@ const TourSkeleton = () => {
       id: 0,
       delayAnimation: 0,
       title:
-        "Madinah City Ziarah Luxury Private Vehicle With Guide (3 Person Luxury)",
+        "Italy City Tourism Luxury Private Vehicle With Guide (3 Person Luxury)",
       slideImg: [
         "https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/96e787f4-98cb-4a60-6cfc-c83e723dd900/public",
       ],
@@ -97,7 +97,7 @@ const TourSkeleton = () => {
       id: 0,
       delayAnimation: 0,
       title:
-        "Madinah City Ziarah Luxury Private Vehicle With Guide (3 Person Luxury)",
+        "Italy City Tourism Luxury Private Vehicle With Guide (3 Person Luxury)",
       slideImg: [
         "https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/96e787f4-98cb-4a60-6cfc-c83e723dd900/public",
       ],
@@ -112,7 +112,7 @@ const TourSkeleton = () => {
       id: 0,
       delayAnimation: 0,
       title:
-        "Madinah City Ziarah Luxury Private Vehicle With Guide (3 Person Luxury)",
+        "Italy City Tourism Luxury Private Vehicle With Guide (3 Person Luxury)",
       slideImg: [
         "https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/96e787f4-98cb-4a60-6cfc-c83e723dd900/public",
       ],
@@ -127,7 +127,7 @@ const TourSkeleton = () => {
       id: 0,
       delayAnimation: 0,
       title:
-        "Madinah City Ziarah Luxury Private Vehicle With Guide (3 Person Luxury)",
+        "Italy City Tourism Luxury Private Vehicle With Guide (3 Person Luxury)",
       slideImg: [
         "https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/96e787f4-98cb-4a60-6cfc-c83e723dd900/public",
       ],
@@ -142,7 +142,7 @@ const TourSkeleton = () => {
       id: 0,
       delayAnimation: 0,
       title:
-        "Madinah City Ziarah Luxury Private Vehicle With Guide (3 Person Luxury)",
+        "Italy City Tourism Luxury Private Vehicle With Guide (3 Person Luxury)",
       slideImg: [
         "https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/96e787f4-98cb-4a60-6cfc-c83e723dd900/public",
       ],

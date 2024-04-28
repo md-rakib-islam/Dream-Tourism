@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 
 import { addSearchTerm } from "@/features/blog/blogSlice";
 import { useState } from "react";
@@ -10,7 +9,6 @@ const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(searchTerm);
   }
 
   return (
@@ -19,11 +17,16 @@ const SearchBox = () => {
       onSubmit={handleSubmit}
     >
       <input
-         value={searchTerm}
-         onKeyDown={(e) => {if(e.key === "Enter"){
-           handleSubmit()
-         }}}
-         onChange={(e) => {setSearchTerm(e.target.value); dispatch(addSearchTerm(e.target.value))}}
+        value={searchTerm}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSubmit();
+          }
+        }}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+          dispatch(addSearchTerm(e.target.value));
+        }}
         className="pl-50 border-light text-dark-1 h-50 rounded-8"
         type="text"
         placeholder="Search"

@@ -73,7 +73,6 @@ const TourSingleV1Dynamic = ({ params, children }) => {
   }
   let tour = {};
   if (isSuccess && isImageContentsSuccess) {
-    // console.log("images", imageContents.content_images[data?.name]);
     tour = {
       id: data?.id,
       tag: "",
@@ -89,7 +88,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
       delayAnimation: "200",
       languages: singleTourInfo[data?.name]?.languages,
     };
-    // console.log("Hele", data);
+
     dispatch(addtourItem(data));
   }
   //copy link
@@ -139,7 +138,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
       }
     );
   };
-  console.log("capitalize(params?.name", tour, tourId, params);
+
   return (
     <>
       <div className="header-margin"></div>

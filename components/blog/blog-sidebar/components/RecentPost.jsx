@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const RecentPost = () => {
   const blogPosts = useBlogs();
-  blogPosts?.sort((a, b) => b.created_at - a.created_at);
+  blogPosts?.sort((a, b) => b?.created_at - a?.created_at);
 
   return (
     <>

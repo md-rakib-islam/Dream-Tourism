@@ -1,11 +1,8 @@
 import { useGetBlogsAllWithPaginationQuery } from "@/features/content/contentApi";
-import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
-import getMonthDayYear from "@/utils/date";
-import { useSelector } from "react-redux";
+// import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
+// import getMonthDayYear from "@/utils/date";
 
 const useBlogs = () => {
-  const { menuItems } = useSelector((state) => state.menus);
-  const blogId = menuItems.find((item) => item.name === "Blog")?.id;
   const {
     isSuccess: isContentSuccess,
     data: contentItems,
@@ -13,7 +10,6 @@ const useBlogs = () => {
   } = useGetBlogsAllWithPaginationQuery();
   // const { isSuccess, data, isLoading } = useGetImagesByMenuIdQuery(blogId);
 
-  console.log("blogItem", contentItems);
   let blogPosts = [];
   if (isContentSuccess) {
     blogPosts = contentItems?.blogs.map((item) => ({

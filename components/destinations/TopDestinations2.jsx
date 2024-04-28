@@ -17,7 +17,6 @@ const TopDestinations2 = ({ slug }) => {
     useGetImagesByMenuIdQuery(destinationId);
   let destinations = [];
   if (isSuccess && data) {
-    console.log(data?.content_images);
     destinations = menuItems
       .find((item) => item.name === "Destinations")
       ?.children?.filter((subItem) => subItem.name.toLowerCase() !== slug)
@@ -65,7 +64,6 @@ const TopDestinations2 = ({ slug }) => {
     <>
       <Slider {...settings}>
         {destinations?.map((item) => {
-          console.log("destinations", item);
           return (
             <div
               className={`${item.colClass} top_destination_width px-5`}
