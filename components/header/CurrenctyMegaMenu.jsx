@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 
 import { addCurrency } from "@/features/currency/currencySlice";
 import { useState } from "react";
@@ -33,7 +32,7 @@ const CurrenctyMegaMenu = ({ textClass }) => {
     // { id: 20, name: "Nepal Rupee", currency: "NPR", symbol: "Nepal Rupee" },
   ];
 
-  const [selectedCurrency, setSelectedCurrency] = useState(currencyContent[4]);
+  const [selectedCurrency, setSelectedCurrency] = useState(currencyContent[3]);
 
   const handleItemClick = (item) => {
     setSelectedCurrency(item);

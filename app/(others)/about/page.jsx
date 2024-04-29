@@ -1,13 +1,15 @@
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 // import DefaultHeader from "@/components/header/default-header";
 // import DefaultFooter from "@/components/footer/default";
 import Block1 from "@/components/about/Block1";
 import Brand from "@/components/brand/Brand";
 import Counter from "@/components/counter/Counter";
 import Counter2 from "@/components/counter/Counter2";
-import WhyChoose from "@/components/home/home-3/WhyChoose";
+// import WhyChoose from "@/components/home/home-3/WhyChoose";
 // import Team1 from "@/components/team/Team1";
 import Testimonial from "@/components/testimonial/Testimonial";
+
+const WhyChoose = dynamic(() => import("@/components/home/home-3/WhyChoose"));
 
 export const metadata = {
   title: "About Dream Tourism IT - Your Journey, Our Story",

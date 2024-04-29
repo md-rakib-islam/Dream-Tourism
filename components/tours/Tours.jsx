@@ -25,12 +25,19 @@ const Tours = ({ destination }) => {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 540,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -56,7 +63,6 @@ const Tours = ({ destination }) => {
       },
     ],
   };
-
   var itemSettings = {
     dots: true,
     infinite: true,
@@ -131,22 +137,35 @@ const Tours = ({ destination }) => {
                     {/* </Slider> */}
 
                     <div className="cardImage__leftBadge">
-                      <div
-                        className={`py-5  rounded-right-4 text-12 lh-16 fw-600 uppercase ${
-                          isTextMatched(item?.tag, "likely to sell out*")
-                            ? "bg-dark-1 text-white"
-                            : ""
-                        } ${
-                          isTextMatched(item?.tag, "best seller")
-                            ? "bg-blue-1 text-white"
-                            : ""
-                        }  ${
-                          isTextMatched(item?.tag, "top rated")
-                            ? "bg-yellow-1 text-dark-1"
-                            : ""
-                        }`}
-                      >
-                        {item?.tag}{" "}
+                      {/* <div
+                    className={`py-5  rounded-right-4 text-12 lh-16 fw-600 uppercase ${
+                      isTextMatched(item?.tag, "likely to sell out*")
+                        ? "bg-dark-1 text-white"
+                        : ""
+                    } ${
+                      isTextMatched(item?.tag, "best seller")
+                        ? "bg-blue-1 text-white"
+                        : ""
+                    }  ${
+                      isTextMatched(item?.tag, "top rated")
+                        ? "bg-yellow-1 text-dark-1"
+                        : ""
+                    }`}
+                  >
+                    Item
+                  </div> */}
+                      <div class="buttons">
+                        <button
+                          style={{
+                            backgroundColor: "#353537",
+                            backgroundImage:
+                              "linear-gradient(to right, #353537 , #0d0c0d)",
+                          }}
+                        >
+                          {`${currentCurrency?.symbol} ${item.price}`}{" "}
+                          <span> PER PERSON</span>
+                        </button>
+                        <button>No</button>
                       </div>
                     </div>
                   </div>
@@ -242,22 +261,18 @@ const Tours = ({ destination }) => {
                 </Slider>
 
                 <div className="cardImage__leftBadge">
-                  <div
-                    className={`py-5  rounded-right-4 text-12 lh-16 fw-600 uppercase ${
-                      isTextMatched(item?.tag, "likely to sell out*")
-                        ? "bg-dark-1 text-white"
-                        : ""
-                    } ${
-                      isTextMatched(item?.tag, "best seller")
-                        ? "bg-blue-1 text-white"
-                        : ""
-                    }  ${
-                      isTextMatched(item?.tag, "top rated")
-                        ? "bg-yellow-1 text-dark-1"
-                        : ""
-                    }`}
-                  >
-                    {item?.tag}{" "}
+                  <div class="buttons">
+                    <button
+                      style={{
+                        backgroundColor: "#353537",
+                        backgroundImage:
+                          "linear-gradient(to right, #353537 , #0d0c0d)",
+                      }}
+                    >
+                      {`${currentCurrency?.symbol} ${item.price}`}{" "}
+                      <span> PER PERSON</span>
+                    </button>
+                    <button>No</button>
                   </div>
                 </div>
               </div>

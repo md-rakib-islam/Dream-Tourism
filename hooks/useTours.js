@@ -118,7 +118,7 @@ const useTours = (destination = "Home") => {
           numberOfReviews: singleTourInfo[tour?.name]?.numberOfReviews,
           price: convertCurrency(
             parseInt(tour?.price),
-            "USD",
+            "EUR",
             currentCurrency?.currency,
             exchangeRates
           ),

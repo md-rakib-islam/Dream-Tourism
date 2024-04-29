@@ -4,7 +4,7 @@ const useMenus = () => {
   const { menuItems } = useSelector((state) => state.menus);
 
   const filteredMenus = menuItems?.filter((item) => {
-    if (item.name === "About Us") {
+    if (item.name === "About Us" || item.name === "Blogs") {
       return false;
     }
     return true;
