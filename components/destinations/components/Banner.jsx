@@ -40,7 +40,7 @@ const Banner = ({ slug }) => {
           width={1920}
           // style={{maxHeight: "448px", maxWidth:"1120px"}}
         />
-        <div className="absolute z-2 px-50 py-60 md:py-20 md:px-30">
+        <div className="absolute z-2 px-50 py-30 md:py-20 md:px-30">
           <h1
             className="text-50 fw-600 text-white lg:text-40 md:text-30"
             style={{
