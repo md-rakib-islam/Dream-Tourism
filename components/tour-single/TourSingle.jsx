@@ -397,7 +397,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
           {/* End .row */}
 
           <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Tours />
+            <Tours filterTour={data?.name} />
           </div>
           {/* End .row */}
         </div>

@@ -9,8 +9,11 @@ import isTextMatched from "../../utils/isTextMatched";
 import useWindowSize from "@/hooks/useWindowSize";
 import TourSkeleton from "../skeleton/TourSkeleton";
 
-const Tours = ({ destination }) => {
+const Tours = ({ destination, filterTour }) => {
   const tourItems = useTours(destination);
+  const filteredTourItems = filterTour
+    ? tourItems.filter((item) => item.title !== filterTour)
+    : tourItems;
   const { currentCurrency } = useSelector((state) => state.currency);
   const width = useWindowSize();
   const isMobile = width < 768;
@@ -95,10 +98,10 @@ const Tours = ({ destination }) => {
     );
   }
 
-  return tourItems?.length === 0 ? (
+  return filteredTourItems?.length === 0 ? (
     <TourSkeleton />
-  ) : tourItems?.length < 3 ? (
-    tourItems?.map((item) => (
+  ) : filteredTourItems?.length < 3 ? (
+    filteredTourItems?.map((item) => (
       <div key={item?.id}>
         <div class="container">
           <div class="row">
@@ -225,7 +228,7 @@ const Tours = ({ destination }) => {
       nextArrow={<Arrow type="next" />}
       prevArrow={<Arrow type="prev" />}
     >
-      {tourItems?.map((item) => (
+      {filteredTourItems?.map((item) => (
         <div key={item?.id}>
           <Link
             href={`/tour/${item?.title

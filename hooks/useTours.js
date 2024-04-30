@@ -86,7 +86,6 @@ const useTours = (destination = "Home") => {
     data: contentItems,
     isLoading: isContentLoading,
   } = useGetAllContentQuery(menuId);
-
   useEffect(() => {
     if (isSuccess && isContentSuccess) {
       let tours = contentItems
