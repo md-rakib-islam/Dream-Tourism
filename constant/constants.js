@@ -551,7 +551,7 @@ export const CREATE_CMS_BLOG = `${BASE_URL}/cms_blog/api/v1/cms_blog/create/`;
 
 export const GET_CMS_BLOGID = `${BASE_URL}/cms_blog/api/v1/cms_blog/`;
 
-export const GET_CMS_BLOG_BY_TITLE = `${BASE_URL}/cms_blog/api/v1/cms_blog/get_blogBy_blog_title/`;
+export const GET_CMS_BLOG_BY_TITLE = `${BASE_URL}/cms_blog/api/v1/cms_blog/get_blogBy_blog_title`;
 
 export const GET_CMS_BLOGS = `${BASE_URL}/cms_blog/api/v1/cms_blog/all/`;
 
@@ -827,6 +827,19 @@ export const UPDATE_CUSTOMER = `${BASE_URL}/customer/api/v1/customer/update/`;
 export const DELETE_CUSTOMER = `${BASE_URL}/customer/api/v1/customer/delete/`;
 
 export const SEARCH_CUSTOMER = `${BASE_URL}/customer/api/v1/customer/search/`;
+
+// Cms_blog_comments
+export const CREATE_CMS_BLOG_COMMENTS = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/create/`;
+
+export const GET_CMS_BLOG_COMMENTSS = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/all`;
+
+export const GET_CMS_BLOG_COMMENTSID = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/`;
+
+export const UPDATE_CMS_BLOG_COMMENTS = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/update/`;
+
+export const DELETE_CMS_BLOG_COMMENTS = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/delete/`;
+
+export const SEARCH_CMS_BLOG_COMMENTS = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/search/`;
 
 //Get customer without pagination
 export const GET_CUSTOMER_WITHOUT_PAGINATION = `${BASE_URL}/customer/api/v1/customer/without_pagination/all/`;

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-const Comments = () => {
+const Comments = ({ blogId }) => {
+  console.log("blogid", blogId);
   return (
     <div className="row y-gap-40">
       <div className="col-12">

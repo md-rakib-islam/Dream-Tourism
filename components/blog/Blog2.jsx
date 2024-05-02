@@ -1,5 +1,4 @@
 "use client";
-import { Interweave } from "interweave";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";

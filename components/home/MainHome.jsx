@@ -5,6 +5,7 @@ import WhyChoose from "@/components/home/home-3/WhyChoose";
 import Tours from "@/components/tours/Tours";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Blog4 from "../blog/Blog4";
 
 // export const metadata = {
 //   title: "Home-3 || GoTrip - Travel & Tour React NextJS Template",
@@ -130,6 +131,38 @@ const home_3 = () => {
         </div>
         {/* End .container */}
       </section>
+
+      <section className="layout-pt-md layout-pb-md mt-5">
+        <div className="container">
+          <div
+            class="elfsight-app-2ceb007c-5dd9-4629-9ac6-7672a9079871"
+            data-elfsight-app-lazy
+          ></div>
+        </div>
+      </section>
+      <section className="layout-pt-lg layout-pb-lg">
+        <div className="container">
+          <div className="row justify-center text-center">
+            <div className="col-auto">
+              <div className="sectionTitle -md">
+                <h2 className="sectionTitle__title">
+                  Get inspiration for your next trip
+                </h2>
+                <p className=" sectionTitle__text mt-5 sm:mt-0">
+                  Interdum et malesuada fames
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* End .row  */}
+          <div className="row y-gap-30 pt-40">
+            <Blog4 />
+          </div>
+          {/* End .row */}
+        </div>
+        {/* End .container */}
+      </section>
+
       <section className="layout-pt-md layout-pb-md mt-5">
         <div className="container">
           <div className="row y-gap-20 justify-between items-end">

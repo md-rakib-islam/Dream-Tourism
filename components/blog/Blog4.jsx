@@ -1,18 +1,14 @@
 "use client";
-import useBlogs from "@/hooks/useBlogs";
 import Image from "next/image";
 import Link from "next/link";
+import useBlogs from "@/hooks/useBlogs";
 
-const RelatedBlog = ({ blogId }) => {
+const Blog4 = () => {
   const blogPosts = useBlogs();
-
-  const filteredBlogItems = blogId
-    ? blogPosts.filter((item) => item.id !== blogId)
-    : blogPosts;
 
   return (
     <>
-      {filteredBlogItems.slice(0, 4).map((item) => (
+      {blogPosts.slice(0, 4).map((item) => (
         <div
           className="col-lg-3 col-sm-6"
           key={item.id}
@@ -45,4 +41,4 @@ const RelatedBlog = ({ blogId }) => {
   );
 };
 
-export default RelatedBlog;
+export default Blog4;
