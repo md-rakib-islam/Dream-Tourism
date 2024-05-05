@@ -10,7 +10,14 @@ export const blogCommentApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getCommentByBlogId: builder.query({
+      query: (blogId) => ({
+        url: `${GET_CMS_BLOG_COMMENTS_BY_BLOG_ID}/${blogId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useCreateBlogCommentMutation } = blogCommentApi;
+export const { useCreateBlogCommentMutation, useGetCommentByBlogIdQuery } =
+  blogCommentApi;

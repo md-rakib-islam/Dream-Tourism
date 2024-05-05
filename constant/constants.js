@@ -2,8 +2,8 @@
 //http://192.168.0.8:8002
 
 //base url
-// export const BASE_URL = "http://192.168.0.120:8001";
-export const BASE_URL = "https://api.dreamtourism.it";
+export const BASE_URL = "http://192.168.0.120:8001";
+// export const BASE_URL = "https://api.dreamtourism.it";
 // export const BASE_URL = "https://api.activemanpowerservices.com/";
 // export const BASE_URL = "https://api.surmainternational.com";
 // export const BASE_URL = "https://api.dreamtourism.co.uk";
@@ -834,6 +834,8 @@ export const CREATE_CMS_BLOG_COMMENTS = `${BASE_URL}/cms_blog_comments/api/v1/cm
 export const GET_CMS_BLOG_COMMENTSS = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/all`;
 
 export const GET_CMS_BLOG_COMMENTSID = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/`;
+
+export const GET_CMS_BLOG_COMMENTS_BY_BLOG_ID = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/get_blog_commentBy_blog_title/`;
 
 export const UPDATE_CMS_BLOG_COMMENTS = `${BASE_URL}/cms_blog_comments/api/v1/cms_blog_comment/update/`;
 

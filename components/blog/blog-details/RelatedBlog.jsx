@@ -14,7 +14,7 @@ const RelatedBlog = ({ blogId }) => {
     <>
       {filteredBlogItems.slice(0, 4).map((item) => (
         <div
-          className="col-lg-3 col-sm-6"
+          className="col-12"
           key={item.id}
           data-aos="fade"
           data-aos-delay={item.delayAnimation}
@@ -36,7 +36,9 @@ const RelatedBlog = ({ blogId }) => {
             </div>
             <div className="mt-20">
               <h4 className="text-dark-1 text-18 fw-500">{item.title}</h4>
-              <div className="text-light-1 text-15 lh-14 mt-5">{item.date}</div>
+              <div className="text-light-1 text-15 lh-14 mt-5 mb-5">
+                {item.date}
+              </div>
             </div>
           </Link>
         </div>

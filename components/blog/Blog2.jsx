@@ -33,7 +33,7 @@ const Blog2 = () => {
 
   return (
     <>
-      {blogPosts.slice(firstPageIndex, lastPageIndex).map((item) => (
+      {blogPosts.map((item) => (
         <Link
           href={`/blog-details/${item?.title}`}
           className="blogCard -type-1 col-12"

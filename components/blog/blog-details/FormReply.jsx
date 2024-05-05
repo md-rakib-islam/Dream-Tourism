@@ -1,3 +1,5 @@
+"use client";
+
 import { useCreateBlogCommentMutation } from "@/features/blog/blogCommentSlice";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";

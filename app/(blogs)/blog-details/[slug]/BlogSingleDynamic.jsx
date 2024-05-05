@@ -25,17 +25,6 @@ const BlogSingleDynamic = ({ params }) => {
   const { isSuccess, data, isLoading } =
     useGetBlogContentsByBlogTitleQuery(title);
 
-  let relatedPosts = [];
-  // if (isContentSuccess) {
-  //   relatedPosts = contentItems?.filter(
-  //     (item) => item.category === blogDetails?.category
-  //   );
-  //   relatedPosts = relatedPosts?.filter((item) => item.id != title);
-
-  // }
-
-  // const blog = blogsData.find((item) => item.id == title) || blogsData[0];
-
   let blogItem = {};
 
   if (isSuccess) {
@@ -91,7 +80,7 @@ const BlogSingleDynamic = ({ params }) => {
               {/* End .row top bar image and title */}
 
               <div className="row y-gap-30 justify-center">
-                <div className="col-xl-8 col-lg-10 layout-pt-md">
+                <div className="col-xl-9 col-lg-9 layout-pt-md">
                   <Interweave
                     allowAttributes
                     allowElements
@@ -105,13 +94,13 @@ const BlogSingleDynamic = ({ params }) => {
                     <TopComment />
                   </div>
                   {/* End  topcommnet  */}
-                  <div className="border-bottom-light py-30">
+                  {/* <div className="border-bottom-light py-30">
                     <BlogNavigator />
-                  </div>
+                  </div> */}
                   {/* End BlogNavigator */}
 
                   <h2 className="text-22 fw-500 mb-15 pt-30">Guest reviews</h2>
-                  <Comments blogId={blogItem.id} />
+                  <Comments blogId={title} />
                   {/* End comments components */}
 
                   <div className="border-top-light pt-40 mt-40" />
@@ -128,6 +117,26 @@ const BlogSingleDynamic = ({ params }) => {
 
                   <FormReply blogId={blogItem.id} />
                 </div>
+                <div className="col-xl-3 col-lg-3 layout-pt-md">
+                  <div className="row text-center">
+                    <div className="col-auto">
+                      <div className="sectionTitle -md">
+                        <h2 className="sectionTitle__title">Related content</h2>
+                        <p className=" sectionTitle__text mt-5 sm:mt-0">
+                          Interdum et malesuada fames
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* End .row */}
+
+                  <div className=" pt-40">
+                    <RelatedBlog blogId={blogItem.id} />
+                  </div>
+                  {/* End Related Content */}
+
+                  {/* End .row */}
+                </div>
                 {/* End .col */}
               </div>
               {/* End .row */}
@@ -135,33 +144,8 @@ const BlogSingleDynamic = ({ params }) => {
             {/* End .container */}
           </section>
           {/* Details Blog Details Content */}
-          <section className="layout-pt-md layout-pb-lg">
-            <div className="container">
-              <div className="row justify-center text-center">
-                <div className="col-auto">
-                  <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title">Related content</h2>
-                    <p className=" sectionTitle__text mt-5 sm:mt-0">
-                      Interdum et malesuada fames
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* End .row */}
-
-              <div className="row y-gap-30 pt-40">
-                <RelatedBlog blogId={blogItem.id} />
-              </div>
-              {/* End .row */}
-            </div>
-            {/* End .container */}
-          </section>
-          {/* End Related Content */}
         </>
       )}
-
-      {/* <DefaultFooter /> */}
-      {/* End Call To Actions Section */}
     </>
   );
 };

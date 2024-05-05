@@ -1,7 +1,10 @@
+"use client";
+import { useGetCommentByBlogIdQuery } from "@/features/blog/blogCommentSlice";
 import Image from "next/image";
 
 const Comments = ({ blogId }) => {
-  console.log("blogid", blogId);
+  const { isSuccess, data, isLoading } = useGetCommentByBlogIdQuery(blogId);
+  console.log("CommetnData", data);
   return (
     <div className="row y-gap-40">
       <div className="col-12">
