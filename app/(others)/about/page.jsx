@@ -9,7 +9,7 @@ import Counter2 from "@/components/counter/Counter2";
 // import Team1 from "@/components/team/Team1";
 import Testimonial from "@/components/testimonial/Testimonial";
 
-const WhyChoose = dynamic(() => import("@/components/home/home-3/WhyChoose"));
+const WhyChoose = dynamic(() => import("@/components/home/home/WhyChoose"));
 
 export const metadata = {
   title: "About Dream Tourism IT - Your Journey, Our Story",

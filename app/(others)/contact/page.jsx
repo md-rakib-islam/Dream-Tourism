@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 // import DefaultFooter from "@/components/footer/default";
 import Address from "@/components/block/Address";
 import ContactForm from "@/components/common/ContactForm";
-import WhyChoose from "@/components/home/home-3/WhyChoose";
+import WhyChoose from "@/components/home/home/WhyChoose";
 // import LocationTopBar from "@/components/common/LocationTopBar";
 import Social from "@/components/common/social/Social";
 

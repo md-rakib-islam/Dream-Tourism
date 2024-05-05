@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import MainFilterSearchBox from "../hero/hero-3/MainFilterSearchBox";
+import MainFilterSearchBox from "../hero/hero/MainFilterSearchBox";
 const CoverSkeleton = () => {
   return (
     <>
@@ -11,6 +11,7 @@ const CoverSkeleton = () => {
             width={1920}
             height={860}
             alt="image"
+            priority={true}
           />
         </div>
         <div className="container">

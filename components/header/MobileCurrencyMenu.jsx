@@ -1,14 +1,13 @@
-'use client'
+"use client";
 
 // import { useGetCurrencyByLocationQuery } from "@/features/currency/currencyApi";
 import { addCurrency } from "@/features/currency/currencySlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-
 const MobileCurrencyMenu = () => {
-    const dispatch = useDispatch();
-    
+  const dispatch = useDispatch();
+
   const currencyContent = [
     { id: 400, name: "United States dollar", currency: "USD", symbol: "$" },
     { id: 2, name: "Australian dollar", currency: "AUD", symbol: "$" },
@@ -32,31 +31,29 @@ const MobileCurrencyMenu = () => {
     // { id: 20, name: "Nepal Rupee", currency: "NPR", symbol: "Nepal Rupee" },
   ];
 
-  const [selectedCurrency, setSelectedCurrency] = useState(currencyContent[0]);
+  const [selectedCurrency, setSelectedCurrency] = useState(currencyContent[3]);
   // const [coords, setCoords] = useState({});
-  // const {data, isSuccess} = useGetCurrencyByLocationQuery(coords);       
-
+  // const {data, isSuccess} = useGetCurrencyByLocationQuery(coords);
 
   const handleItemClick = (item) => {
     setSelectedCurrency(item);
     dispatch(addCurrency(item));
     // setClick(false);
   };
- 
-  
+
   // useEffect(() => {
   //   if (typeof window !== "undefined") {
   //     const successfulLookup = position => {
   //       const { latitude, longitude } = position.coords;
   //       setCoords({latitude, longitude});
-        
+
   //     }
   //     if(window.navigator.geolocation){
   //       navigator.geolocation
   //       .getCurrentPosition(successfulLookup, console.log);
   //     }
   //   }
-    
+
   // }, []);
 
   // useEffect(() => {
@@ -70,22 +67,35 @@ const MobileCurrencyMenu = () => {
   return (
     <div className="dropdown">
       <button
-          className={`d-flex items-center text-14 text-dark-1`}
-          type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
+        className={`d-flex items-center text-14 text-dark-1`}
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <span
+          style={{ color: "black", fontSize: "13px" }}
+          className="js-currencyMenu-mainTitle"
         >
-          <span style={{color: "black", fontSize: "13px"}} className="js-currencyMenu-mainTitle">
-            {selectedCurrency.currency}
-          </span>
-          <i className="icon-chevron-sm-down text-7 ml-10" />
-        </button>
+          {selectedCurrency.currency}
+        </span>
+        <i className="icon-chevron-sm-down text-7 ml-10" />
+      </button>
 
       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        {
-            currencyContent?.map((item) => (<li style={{color: "black", fontSize: "13px"}} key={item.id} onClick={() => handleItemClick(item)} className="dropdown-item">{item.currency} {item.symbol}</li>))
-        }
+        {currencyContent?.map((item) => (
+          <li
+            style={{ color: "black", fontSize: "13px" }}
+            key={item.id}
+            onClick={() => handleItemClick(item)}
+            className="dropdown-item"
+          >
+            {item.currency} {item.symbol}
+          </li>
+        ))}
       </ul>
-</div>
-  )
-}
+    </div>
+  );
+};
 
 export default MobileCurrencyMenu;

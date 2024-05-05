@@ -17,7 +17,7 @@ const useBlogs = () => {
       cloudflare_image: item?.cloudflare_image,
       title: item.title,
       date: item?.date,
-      delayAnimation: "100",
+      delayAnimation: "200",
       details: item.description,
       short_des: item?.short_des,
       tag: "art",

@@ -1,7 +1,7 @@
 "use client";
 
 import DefaultFooter from "@/components/footer/default";
-import Header3 from "@/components/header/header-3";
+import Header3 from "@/components/header/header";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";

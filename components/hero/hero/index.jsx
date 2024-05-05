@@ -8,10 +8,15 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import CoverSkeleton from "@/components/skeleton/CoverSkeleton";
+import { useEffect } from "react";
 const index = () => {
   const dispatch = useDispatch();
   const exchangeRates = useCurrencyExchangeRates();
-  dispatch(addExchangeRates(exchangeRates));
+
+  useEffect(() => {
+    dispatch(addExchangeRates(exchangeRates));
+  }, [dispatch, exchangeRates]);
+
   const { isSuccess, isLoading, data } = useGetSliderImagesQuery();
   let sliderImageItems = [];
   if (isSuccess) {
@@ -32,6 +37,7 @@ const index = () => {
             width={1920}
             height={860}
             alt="image"
+            priority={true}
           />
         </div>
 

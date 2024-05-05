@@ -103,9 +103,9 @@ const Tours = ({ destination, filterTour }) => {
   ) : filteredTourItems?.length < 3 ? (
     filteredTourItems?.map((item) => (
       <div key={item?.id}>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-8">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-3 col-md-3 col-8">
               <Link
                 href={`/tour/${item?.title
                   ?.replace(/[,.-]/g, "")
@@ -157,7 +157,7 @@ const Tours = ({ destination, filterTour }) => {
                   >
                     Item
                   </div> */}
-                      <div class="buttons">
+                      <div className="buttons">
                         <button
                           style={{
                             backgroundColor: "#353537",
@@ -264,7 +264,7 @@ const Tours = ({ destination, filterTour }) => {
                 </Slider>
 
                 <div className="cardImage__leftBadge">
-                  <div class="buttons">
+                  <div className="buttons">
                     <button
                       style={{
                         backgroundColor: "#353537",

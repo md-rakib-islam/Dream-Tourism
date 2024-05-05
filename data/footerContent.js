@@ -1,15 +1,4 @@
 module.exports = [
-  // {
-  //   id: 1,
-  //   title: "Company",
-  //   menuList: [
-  //     { name: "About Us", routerPath: "/about" },
-  //     // { name: "Careers", routerPath: "/" },
-  //     // { name: "Blog", routerPath: "/blog" },
-  //     // { name: "Press", routerPath: "/" },
-  //     // { name: "Gift Cards", routerPath: "/" },
-  //   ],
-  // },
   {
     id: 2,
     title: "Navigation",

@@ -1,6 +1,6 @@
 "use client";
 
-import useTours from "@/hooks/useTours";
+import useFilterTours from "@/hooks/useFilterTours";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -12,7 +12,8 @@ import Slider from "react-slick";
 const TourProperties = () => {
   const searchParams = useSearchParams();
   const search = searchParams.get("location");
-  const tourItems = useTours(search == null ? "Home" : search);
+  const tourItems = useFilterTours(search);
+  console.log("searchValue", search, tourItems);
 
   const { currentCurrency } = useSelector((state) => state.currency);
   const width = useWindowSize();
@@ -110,7 +111,7 @@ const TourProperties = () => {
                   >
                     Item
                   </div> */}
-                  <div class="buttons-2">
+                  <div className="buttons-2">
                     <button
                       style={{
                         backgroundColor: "#353537",

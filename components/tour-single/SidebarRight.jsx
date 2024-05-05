@@ -1,13 +1,13 @@
 "use client";
-import { useGetContentsByMenuContentTitleQuery } from '@/features/content/contentApi';
-import { useParams } from 'next/navigation';
+import { useGetContentsByMenuContentTitleQuery } from "@/features/content/contentApi";
+import { useParams } from "next/navigation";
 import { useEffect } from "react";
-import { tourUrlsMap } from './TourSingle';
-
+import { tourUrlsMap } from "./TourSingle";
 
 const SidebarRight = () => {
-  const params = useParams()
-  const {data, isSuccess, isFulfilled} = useGetContentsByMenuContentTitleQuery(tourUrlsMap[params?.name])
+  const params = useParams();
+  const { data, isSuccess, isFulfilled } =
+    useGetContentsByMenuContentTitleQuery(tourUrlsMap[params?.name]);
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -23,9 +23,7 @@ const SidebarRight = () => {
   return (
     <div className="d-flex justify-end js-pin-content">
       <div className="w-360 lg:w-full d-flex flex-column">
-      {
-        isSuccess && (<div class="bokunWidget" data-src={data?.url}></div>)
-      }
+        {isSuccess && <div className="bokunWidget" data-src={data?.url}></div>}
         {/* <div className="px-30 py-30 rounded-4 border-light bg-white shadow-4">
           <div className="text-14 text-light-1">
             From{" "}
