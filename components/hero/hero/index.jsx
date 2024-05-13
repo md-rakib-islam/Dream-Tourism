@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import CoverSkeleton from "@/components/skeleton/CoverSkeleton";
 import { useEffect } from "react";
-const index = () => {
+const index = ({ onDataAvailable }) => {
   const dispatch = useDispatch();
   const exchangeRates = useCurrencyExchangeRates();
 
@@ -38,6 +38,7 @@ const index = () => {
             height={860}
             alt="image"
             priority={true}
+            onLoad={onDataAvailable(true)}
           />
         </div>
 

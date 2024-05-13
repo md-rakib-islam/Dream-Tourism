@@ -58,6 +58,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
     useGetContentsByMenuContentTitleQuery(tourUrlsMap[params?.name]);
   const [copied, setCopied] = useState(false);
   const [isCopyLoading, setIsCopyLoading] = useState(false);
+  const [dataAvailable, setDataAvailable] = useState(false);
 
   const {
     data: imageContents,
@@ -91,6 +92,10 @@ const TourSingleV1Dynamic = ({ params, children }) => {
 
     dispatch(addtourItem(data));
   }
+
+  const handleDataAvailability = (isDataAvailable) => {
+    setDataAvailable(isDataAvailable);
+  };
   //copy link
   const copyToClipboard = () => {
     setIsCopyLoading(true);
@@ -323,13 +328,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
       </section>
       {/* End gallery grid wrapper */}
 
-      {isLoading ? (
-        <div className="col-12 h-50 text-center">
-          <Loading />
-        </div>
-      ) : (
-        <TourGallery tour={tour} />
-      )}
+      <TourGallery tour={tour} onDataAvailable={handleDataAvailability} />
 
       {/* End single page content */}
 
@@ -370,39 +369,41 @@ const TourSingleV1Dynamic = ({ params, children }) => {
       </section> */}
       {/* End Review section */}
 
-      <section className="layout-pt-lg layout-pb-lg mt-50 border-top-light">
-        <div className="container">
-          <div className="row y-gap-20 justify-between items-end">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Most Popular Tours</h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Explore Our Best Sellers: Unmatched Experiences in Every
-                  Journey
-                </p>
+      {dataAvailable && (
+        <section className="layout-pt-lg layout-pb-lg mt-50 border-top-light">
+          <div className="container">
+            <div className="row y-gap-20 justify-between items-end">
+              <div className="col-auto">
+                <div className="sectionTitle -md">
+                  <h2 className="sectionTitle__title">Most Popular Tours</h2>
+                  <p className=" sectionTitle__text mt-5 sm:mt-0">
+                    Explore Our Best Sellers: Unmatched Experiences in Every
+                    Journey
+                  </p>
+                </div>
               </div>
-            </div>
-            {/* End .col */}
+              {/* End .col */}
 
-            <div className="col-auto">
-              <Link
-                href="#"
-                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-              >
-                More <div className="icon-arrow-top-right ml-15" />
-              </Link>
+              <div className="col-auto">
+                <Link
+                  href="#"
+                  className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+                >
+                  More <div className="icon-arrow-top-right ml-15" />
+                </Link>
+              </div>
+              {/* End .col */}
             </div>
-            {/* End .col */}
-          </div>
-          {/* End .row */}
+            {/* End .row */}
 
-          <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Tours filterTour={data?.name} />
+            <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+              <Tours filterTour={data?.name} />
+            </div>
+            {/* End .row */}
           </div>
-          {/* End .row */}
-        </div>
-        {/* End .container */}
-      </section>
+          {/* End .container */}
+        </section>
+      )}
       {/* End Tours Sections */}
     </>
   );

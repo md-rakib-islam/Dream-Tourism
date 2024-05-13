@@ -12,7 +12,8 @@ export const singleTourInfo = {
       numberOfReviews: "63",
       languages: "English",
       groupSize: "1-10",
-      itinerarySrc: "",
+      itinerarySrc:
+        "https://www.google.com/maps/d/embed?mid=1nO_1-Xc4ZbZ6dBYgB-hpOFlB2rQ5O0k&ehbc=2E312F&ll=41.89093296830775%2C12.488777949999976&z=17",
     },
   "Skip the Line ticket Colosseum, Forum & Palatine Hills with Audio & Video Guide":
     {
@@ -20,28 +21,32 @@ export const singleTourInfo = {
       numberOfReviews: "57",
       languages: "English",
       groupSize: "1-10",
-      itinerarySrc: "",
+      itinerarySrc:
+        "https://www.google.com/maps/d/embed?mid=1nO_1-Xc4ZbZ6dBYgB-hpOFlB2rQ5O0k&ehbc=2E312F&ll=41.89093296830775%2C12.488777949999976&z=17",
     },
   "COLOSSEUM, ROMAN FORUM, PALATINE HILL - FULL EXPERIENCE With ARENA": {
     location: "Rome, Italy",
     numberOfReviews: "55",
     languages: "English",
     groupSize: "1-10",
-    itinerarySrc: "",
+    itinerarySrc:
+      "https://www.google.com/maps/d/embed?mid=1nO_1-Xc4ZbZ6dBYgB-hpOFlB2rQ5O0k&ehbc=2E312F&ll=41.89093296830775%2C12.488777949999976&z=17",
   },
   "Capri Island Day Trip From Rome": {
     location: "Island",
     numberOfReviews: "67",
     languages: "English.",
     groupSize: "1-10",
-    itinerarySrc: "",
+    itinerarySrc:
+      "https://www.google.com/maps/d/embed?mid=1G-xi4H9had61JnP77WMMnKw9TtxpCrM&ehbc=2E312F",
   },
   "Capri Island Day Trip From Rome With Blue Grotto": {
     location: "Island",
     numberOfReviews: "65",
     languages: "English",
     groupSize: "1-10",
-    itinerarySrc: "",
+    itinerarySrc:
+      "https://www.google.com/maps/d/embed?mid=1G-xi4H9had61JnP77WMMnKw9TtxpCrM&ehbc=2E312F",
   },
   "Celebrate New Year In Paris: A 3-Night, 4-Day Tour From London": {
     location: "Paris",
@@ -65,7 +70,6 @@ export const singleTourInfo = {
     itinerarySrc: "",
   },
 };
-
 const useFilterTours = (destination) => {
   const [tourItems, setTourItems] = useState([]);
   const { menuItems } = useSelector((state) => state?.menus);

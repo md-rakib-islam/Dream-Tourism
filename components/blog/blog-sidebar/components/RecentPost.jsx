@@ -4,13 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 // import blogsData from "../../../../data/blogs";
 
-const RecentPost = () => {
+const RecentPost = ({ blogId }) => {
   const blogPosts = useBlogs();
   blogPosts?.sort((a, b) => b?.created_at - a?.created_at);
-
+  const filteredBlogItems = blogId
+    ? blogPosts.filter((item) => item.id !== blogId)
+    : blogPosts;
   return (
     <>
-      {blogPosts?.slice(0, 3).map((item) => (
+      {filteredBlogItems?.slice(0, 5).map((item) => (
         <div className="col-12" key={item.id}>
           <div className="d-flex items-center">
             <Image
@@ -23,7 +25,7 @@ const RecentPost = () => {
 
             <div className="ml-15">
               <h5 className="text-15 lh-15 fw-500">
-                <Link href={`/blog-details/${item.id}`}>{item.title}</Link>
+                <Link href={`/blog-details/${item?.title}`}>{item.title}</Link>
               </h5>
               <div className="text-13 lh-1 mt-5">{item.date}</div>
             </div>

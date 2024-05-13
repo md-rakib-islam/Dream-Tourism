@@ -17,7 +17,7 @@ const Tours = ({ destination, filterTour }) => {
   const { currentCurrency } = useSelector((state) => state.currency);
   const width = useWindowSize();
   const isMobile = width < 768;
-
+  console.log("filteredTourItems", filteredTourItems);
   const settings = {
     dots: true,
     infinite: true,

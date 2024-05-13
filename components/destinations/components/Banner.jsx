@@ -1,32 +1,18 @@
 "use client";
 import DestinationSkeleton from "@/components/skeleton/DestinationSkeleton";
-import { useGetImagesByMenuIdQuery } from "@/features/image/imageApi";
+import { useGetImagesByMenuNameQuery } from "@/features/image/imageApi";
 import Image from "next/image";
-import { useSelector } from "react-redux";
 
 const Banner = ({ slug }) => {
-  const { menuItems } = useSelector((state) => state.menus);
-  const destinationId = menuItems
-    ?.find((item) => item.name === "Destinations")
-    ?.children?.find(
-      (item) => item.name.toLowerCase() === slug?.split("_")?.join(" ")
-    )?.id;
-
-  const { isSuccess, data, isLoading } =
-    useGetImagesByMenuIdQuery(destinationId);
+  const { isSuccess, data, isLoading } = useGetImagesByMenuNameQuery(slug);
 
   let bannerUrl = "";
-
   if (isSuccess) {
     bannerUrl = `${
-      data?.content_images[
-        slug
-          ?.split("_")
-          ?.map((word) => word?.charAt(0).toUpperCase() + word?.slice(1))
-          ?.join(" ")
-      ]
+      data?.content_images[slug.charAt(0).toUpperCase() + slug.slice(1)]
     }`;
   }
+
   return isLoading ? (
     <DestinationSkeleton />
   ) : (
@@ -34,11 +20,13 @@ const Banner = ({ slug }) => {
       <div className="relative d-flex">
         <Image
           src={bannerUrl}
-          alt="image"
+          alt="banner"
           className="col-12 rounded-4 destination_banner_img"
+          // loading="lazy"
           height={860}
           width={1920}
-          // style={{maxHeight: "448px", maxWidth:"1120px"}}
+          priority={true}
+          style={{ maxHeight: "448px" }}
         />
         <div className="absolute z-2 px-50 py-30 md:py-20 md:px-30">
           <h1

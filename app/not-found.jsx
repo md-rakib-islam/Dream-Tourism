@@ -4,8 +4,9 @@ import dynamic from "next/dynamic";
 import NotFound from "@/components/common/NotFound";
 
 export const metadata = {
-  title: "404 || GoTrip - Travel & Tour React NextJS Template",
-  description: "GoTrip - Travel & Tour React NextJS Template",
+  title: "Dream Tourism IT - Your Place for Amazing Travel Adventures",
+  description:
+    "Start your dream vacation with Dream Tourism IT. Explore fantastic destinations and enjoy unforgettable adventures. Your perfect getaway is just a click away!",
 };
 
 const index = () => {

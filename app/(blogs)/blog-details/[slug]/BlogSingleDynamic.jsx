@@ -1,6 +1,5 @@
 "use client";
-import Loading from "@/app/loading";
-import BlogNavigator from "@/components/blog/blog-details/BlogNavigator";
+import BlogSidebar from "@/components/blog/blog-sidebar";
 import Comments from "@/components/blog/blog-details/Comments";
 import FormReply from "@/components/blog/blog-details/FormReply";
 import RelatedBlog from "@/components/blog/blog-details/RelatedBlog";
@@ -57,30 +56,25 @@ const BlogSingleDynamic = ({ params }) => {
         <>
           <section className="layout-pt-md layout-pb-md">
             <div className="container">
-              <div className="row y-gap-40 justify-center text-center">
-                <div className="col-auto">
-                  <div className="text-15 fw-500 text-blue-1 mb-8 text-capitalize">
+              <div className="row y-gap-40 ">
+                <div className="col-xl-9 col-lg-9 layout-pt-md">
+                  <div className="text-15 fw-500 text-blue-1 mb-8 text-capitalize  text-center">
                     {blogItem?.tag}
                   </div>
                   <h1 className="text-30 fw-600">{blogItem?.title}</h1>
                   <div className="text-15 text-light-1 mt-10">
                     {blogItem?.date}
                   </div>
-                </div>
-                <div className="col-12">
-                  <Image
-                    src={blogItem?.img}
-                    // className="col-12 rounded-4 destination_banner_img"
-                    height={400}
-                    width={1920}
-                    className="col-12 rounded-4 w-100 img_large_details"
-                  />
-                </div>
-              </div>
-              {/* End .row top bar image and title */}
+                  <div className="col-12">
+                    <Image
+                      src={blogItem?.img}
+                      // className="col-12 rounded-4 destination_banner_img"
+                      height={400}
+                      width={1920}
+                      className="col-12 rounded-4 w-100 img_large_details"
+                    />
+                  </div>
 
-              <div className="row y-gap-30 justify-center">
-                <div className="col-xl-9 col-lg-9 layout-pt-md">
                   <Interweave
                     allowAttributes
                     allowElements
@@ -102,7 +96,15 @@ const BlogSingleDynamic = ({ params }) => {
                   <h2 className="text-22 fw-500 mb-15 pt-30">Guest reviews</h2>
                   <Comments blogId={title} />
                   {/* End comments components */}
+                </div>
+                <div className="col-xl-3">
+                  <BlogSidebar blogId={blogItem.id} />
+                </div>
+              </div>
+              {/* End .row top bar image and title */}
 
+              <div className="row y-gap-30">
+                <div className="col-xl-9 col-lg-9 layout-pt-md">
                   <div className="border-top-light pt-40 mt-40" />
 
                   <div className="row">
@@ -117,26 +119,7 @@ const BlogSingleDynamic = ({ params }) => {
 
                   <FormReply blogId={blogItem.id} />
                 </div>
-                <div className="col-xl-3 col-lg-3 layout-pt-md">
-                  <div className="row text-center">
-                    <div className="col-auto">
-                      <div className="sectionTitle -md">
-                        <h2 className="sectionTitle__title">Related content</h2>
-                        <p className=" sectionTitle__text mt-5 sm:mt-0">
-                          Interdum et malesuada fames
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  {/* End .row */}
 
-                  <div className=" pt-40">
-                    <RelatedBlog blogId={blogItem.id} />
-                  </div>
-                  {/* End Related Content */}
-
-                  {/* End .row */}
-                </div>
                 {/* End .col */}
               </div>
               {/* End .row */}

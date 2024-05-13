@@ -1,6 +1,6 @@
 import Wrapper from "@/components/layout/Wrapper";
 // import MainHome from "../app/(homes)/home_3/page";
-import MainHome from "@/components/home/MainHome";
+import MainHome from "@/components/home/index";
 
 export const metadata = {
   title: "Dream Tourism IT - Your Place for Amazing Travel Adventures",
