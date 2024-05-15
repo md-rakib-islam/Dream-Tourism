@@ -2,6 +2,7 @@ version: "3.8"
 services:
   dreamtourismit:
     build: .
+    image: demodreamtourismit-dreamtourismit
     container_name: tourismitapp
     restart: always
     ports:
