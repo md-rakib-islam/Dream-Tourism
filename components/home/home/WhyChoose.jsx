@@ -27,9 +27,10 @@ const WhyChoose = () => {
     },
     {
       id: 4,
-      icon: "/img/featureIcons/3/4.svg",
-      title: "Trusted reviews",
-      text: `4.3 stars from 100,000+ reviews.`,
+      icon: "/img/featureIcons/3/5.svg",
+      title: "Free cancellation",
+      text: `You'll receive a full refund if you cancel at least 24
+      hours in advance of most experiences.`,
       delayAnimation: "300",
     },
   ];

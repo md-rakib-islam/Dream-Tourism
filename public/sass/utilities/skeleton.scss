@@ -16,6 +16,17 @@
   animation: skeleton 1s infinite reverse;
 }
 
+.title-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.title-text .show-all {
+  -webkit-line-clamp: initial;
+}
+
 @keyframes skeleton {
   0% {
     background-position: -100% 0;

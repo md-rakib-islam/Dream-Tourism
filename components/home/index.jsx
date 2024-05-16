@@ -6,6 +6,10 @@ import Tours from "@/components/tours/Tours";
 import Link from "next/link";
 import Blog4 from "../blog/Blog4";
 import { useState } from "react";
+import Testimonial from "../testimonial/Testimonial";
+import Counter2 from "../counter/Counter2";
+import Brand from "../brand/Brand";
+import { useGetAllReviewsQuery } from "@/features/reviews/reviewsApi";
 
 // export const metadata = {
 //   title: "Home-3 || GoTrip - Travel & Tour React NextJS Template",
@@ -13,12 +17,16 @@ import { useState } from "react";
 // };
 
 const index = () => {
+  const { data: reviewsData, isSuccess: reviewsSuccess } =
+    useGetAllReviewsQuery(null);
+
   const [dataAvailable, setDataAvailable] = useState(false);
 
   // Function to handle data availability
   const handleDataAvailability = (isDataAvailable) => {
     setDataAvailable(isDataAvailable);
   };
+  console.log("reviewsData", reviewsData);
   return (
     <>
       {/* <Hero7/> */}
@@ -109,7 +117,7 @@ const index = () => {
       </section>
       {/* End Why choose Section */}
 
-      <section
+      {/* <section
         style={{ backgroundColor: "#EAFBF7" }}
         className="layout-pt-md layout-pb-md"
       >
@@ -135,10 +143,10 @@ const index = () => {
               </div>
             </div>
           </div>
-          {/* End .row */}
+          End .row 
         </div>
-        {/* End .container */}
-      </section>
+      End .container 
+      </section> */}
 
       {dataAvailable && (
         <>
@@ -150,6 +158,50 @@ const index = () => {
               ></div>
             </div>
           </section>
+          {reviewsSuccess && (
+            <section className="section-bg layout-pt-lg layout-pb-lg">
+              <div className="section-bg__item -mx-20 bg-light-2" />
+              <div className="container">
+                <div className="row justify-center text-center">
+                  <div className="col-auto">
+                    <div className="sectionTitle -md">
+                      <h2 className="sectionTitle__title">
+                        Overheard from travelers
+                      </h2>
+                      <p className=" sectionTitle__text mt-5 sm:mt-0">
+                        These popular destinations have a lot to offer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* End .row */}
+
+                <div className="overflow-hidden pt-80 js-section-slider">
+                  <div className="item_gap-x30">
+                    <Testimonial reviewsData={reviewsData} />
+                  </div>
+                </div>
+                {/* End .overflow-hidden */}
+
+                <div className="row y-gap-30 items-center pt-40 sm:pt-20">
+                  <div className="col-xl-4">
+                    <Counter2 />
+                  </div>
+                  {/* End .col */}
+
+                  <div className="col-xl-8">
+                    <div className="row y-gap-30 justify-between items-center">
+                      <Brand />
+                    </div>
+                  </div>
+                  {/* End .col */}
+                </div>
+                {/* End .row */}
+              </div>
+              {/* End .container */}
+            </section>
+          )}
+          {/* End testimonial section */}
           <section className="layout-pt-lg layout-pb-lg">
             <div className="container">
               <div className="row justify-center text-center">

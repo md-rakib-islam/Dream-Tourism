@@ -227,6 +227,11 @@ $_displays: none, inline-block, block, flex;
     width: 10px;
     height: 10px;
   }
+  &-14 {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+  }
   &-30 {
     flex-shrink: 0;
     width: 30px;
