@@ -3,12 +3,37 @@ import { useSelector } from "react-redux";
 const useMenus = () => {
   const { menuItems } = useSelector((state) => state.menus);
 
-  const filteredMenus = menuItems?.filter((item) => {
-    if (item.name === "About Us" || item.name === "Blogs") {
-      return false;
-    }
-    return true;
-  });
+  const filteredMenus = menuItems
+    ?.filter((item) => {
+      // Filter out "About Us" and "Blogs" from the top-level items
+      if (item.name === "About Us" || item.name === "Blogs") {
+        return false;
+      }
+
+      // For "Destinations", filter out "United States" from its children
+      if (item.name === "Destinations") {
+        const filteredChildren = item.children.filter(
+          (child) => child.name !== "United States"
+        );
+        return { ...item, children: filteredChildren };
+      }
+
+      return true;
+    })
+    .map((item) => {
+      // Create new objects for all top-level items to avoid mutations
+      if (item.name === "Destinations") {
+        return {
+          ...item,
+          children: item.children.filter(
+            (child) => child.name !== "United States"
+          ),
+        };
+      }
+      return { ...item };
+    });
+
+  console.log("filteredChildren", filteredMenus);
 
   filteredMenus.sort((a, b) => a.position - b.position);
 

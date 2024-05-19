@@ -67,30 +67,104 @@ const index = () => {
         </div>
         {/* End .container */}
       </section>
-      {/* End Tours Sections */}
+      {/* End Popular Tours Sections */}
 
       {dataAvailable && (
-        <section className="layout-pt-md layout-pb-md">
-          <div className="container">
-            <div className="row justify-center text-center">
-              <div className="col-auto">
-                <div className="sectionTitle -md">
-                  <h2 className="sectionTitle__title">Top Destinations</h2>
-                  <p className=" sectionTitle__text mt-5 sm:mt-0">
-                    Explore Exciting Destinations, Tailored for Every Explorer
-                  </p>
+        <>
+          <section className="layout-pt-md layout-pb-md">
+            <div className="container">
+              <div className="row y-gap-22 justify-between items-start">
+                <div className="col-8 col-lg-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title">
+                      Top Daily Tours for Ultimate Experiences
+                    </h2>
+                    <p className=" sectionTitle__text mt-5 sm:mt-0">
+                      Experience the best daily tours, offering unforgettable
+                      adventures and sights.
+                    </p>
+                  </div>
+                </div>
+                {/* End .col */}
+
+                <div className="col-4 col-lg-auto">
+                  <Link
+                    href="/tours"
+                    className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+                  >
+                    More <div className="icon-arrow-top-right ml-15" />
+                  </Link>
+                </div>
+                {/* End .col */}
+              </div>
+              {/* End .row */}
+
+              <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+                <Tours dailyTours={true} />
+              </div>
+              {/* End .row */}
+            </div>
+            {/* End .container */}
+          </section>
+          {/* End Daily Tours Sections */}
+          <section className="layout-pt-md layout-pb-md">
+            <div className="container">
+              <div className="row y-gap-22 justify-between items-start">
+                <div className="col-8 col-lg-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title">
+                      Top Long Tours for Ultimate Adventures
+                    </h2>
+                    <p className=" sectionTitle__text mt-5 sm:mt-0">
+                      Discover unforgettable journeys with our top-rated,
+                      thrilling long tours.
+                    </p>
+                  </div>
+                </div>
+                {/* End .col */}
+
+                <div className="col-4 col-lg-auto">
+                  <Link
+                    href="/tours"
+                    className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+                  >
+                    More <div className="icon-arrow-top-right ml-15" />
+                  </Link>
+                </div>
+                {/* End .col */}
+              </div>
+              {/* End .row */}
+
+              <div className="row y-gap-30 pt-40 sm:pt-20">
+                <Tours multiDays={true} />
+              </div>
+              {/* End .row */}
+            </div>
+            {/* End .container */}
+          </section>
+          {/* End Multi Days Tours Sections */}
+          <section className="layout-pt-md layout-pb-md">
+            <div className="container">
+              <div className="row justify-center text-center">
+                <div className="col-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title">Top Destinations</h2>
+                    <p className=" sectionTitle__text mt-5 sm:mt-0">
+                      Explore Exciting Destinations, Tailored for Every Explorer
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* End .row */}
+              {/* End .row */}
 
-            <div className="row y-gap-40 pt-40 sm:pt-20">
-              <TopDestinations />
+              <div className="row y-gap-40 pt-40 sm:pt-20">
+                <TopDestinations />
+              </div>
+              {/* End .row */}
             </div>
-            {/* End .row */}
-          </div>
-          {/* End .container */}
-        </section>
+            {/* End .container */}
+          </section>
+        </>
       )}
       {/* End Top Destinations Section */}
 
@@ -150,6 +224,7 @@ const index = () => {
 
       {dataAvailable && (
         <>
+          {/* 3rd party trip advisor reviews
           <section className="layout-pt-md layout-pb-md mt-5">
             <div className="container">
               <div
@@ -157,7 +232,7 @@ const index = () => {
                 data-elfsight-app-lazy
               ></div>
             </div>
-          </section>
+          </section> */}
           {reviewsSuccess && (
             <section className="section-bg layout-pt-lg layout-pb-lg">
               <div className="section-bg__item -mx-20 bg-light-2" />
@@ -176,7 +251,7 @@ const index = () => {
                 </div>
                 {/* End .row */}
 
-                <div className="overflow-hidden pt-80 js-section-slider">
+                <div className="overflow-hidden pt-40 js-section-slider">
                   <div className="item_gap-x30">
                     <Testimonial reviewsData={reviewsData} />
                   </div>

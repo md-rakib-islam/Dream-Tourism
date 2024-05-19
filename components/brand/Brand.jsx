@@ -4,7 +4,7 @@ const Brand = () => {
   return (
     <>
       {brandImages.map((item, i) => (
-        <div className="col-md-auto col-sm-6" key={i}>
+        <div className="col-4 col-md-auto " key={i}>
           <div className="d-flex justify-center">
             <Image
               width={130}

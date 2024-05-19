@@ -133,16 +133,16 @@ const useTours = (destination = "Home") => {
 
       tours?.sort((a, b) => a?.position - b?.position);
       // If the length of tours array is 3
-      if (tours.length === 3) {
-        // Replace the 4th index with the first item
-        tours.splice(3, 1, tours[0]);
-      }
+      // if (tours.length === 3) {
+      //   // Replace the 4th index with the first item
+      //   tours.splice(3, 1, tours[0]);
+      // }
 
-      // If the length of tours array is 2
-      if (tours.length === 2) {
-        // Replace the 4th index with the first and second items
-        tours.splice(3, 1, tours[0], tours[1]);
-      }
+      // // If the length of tours array is 2
+      // if (tours.length === 2) {
+      //   // Replace the 4th index with the first and second items
+      //   tours.splice(3, 1, tours[0], tours[1]);
+      // }
 
       setTourItems(tours);
     }

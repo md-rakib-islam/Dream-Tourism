@@ -2,8 +2,8 @@
 //http://192.168.0.8:8002
 
 //base url
-export const BASE_URL = "http://192.168.0.188:8000";
-// export const BASE_URL = "https://api.dreamtourism.it";
+// export const BASE_URL = "http://192.168.0.188:8000";
+export const BASE_URL = "https://api.dreamtourism.it";
 // export const BASE_URL = "https://api.activemanpowerservices.com/";
 // export const BASE_URL = "https://api.surmainternational.com";
 // export const BASE_URL = "https://api.dreamtourism.co.uk";
@@ -636,7 +636,7 @@ export const GET_ALL_IMAGE = `${BASE_URL}/cms_menu_content_image/api/v1/cms_menu
 
 export const GET_IMAGE_BY_MENU_ID = `${BASE_URL}/cms_menu_content_image/api/v1/get_all_cms_menu_content_image_list_by_cms_menu_id`;
 
-export const GET_IMAGE_BY_MENU_NAME = `${BASE_URL}/cms_menu_content_image/api/v1/get_all_cms_menu_content_image_list_by_menu_name/`;
+export const GET_IMAGE_BY_MENU_NAME = `${BASE_URL}/cms_menu_content_image/api/v1/get_all_cms_menu_content_image_list_by_menu_name`;
 
 export const GET_IMAGES_WITHOUT_PAGINATION = `${BASE_URL}/cms_menu_content/api/v1/cms_menu_content/without_pagination/all/`;
 

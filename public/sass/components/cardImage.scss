@@ -271,6 +271,22 @@ button:active {
   color: #fff;
   font-weight: 500;
 }
+.price-position {
+  position: absolute;
+  top: 3px;
+  left: 26px;
+  font-size: 11px;
+  color: white;
+  font-weight: 500;
+}
+.price-arabic-position {
+  position: absolute;
+  top: 5px;
+  left: 29px;
+  font-size: 8px;
+  color: white;
+  font-weight: 500;
+}
 
 @media (max-width: 1024px) {
   .cardImage {

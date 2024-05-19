@@ -43,11 +43,13 @@ export default function RootLayout({ children }) {
         />
 
         <link rel="icon" href="./favicon.ico" />
+        {/* 
+        script for 3rd party for tripadvisor 
         <script
           src="https://static.elfsight.com/platform/platform.js"
           data-use-service-core
           defer
-        ></script>
+        ></script> */}
       </head>
       <body>
         <main>

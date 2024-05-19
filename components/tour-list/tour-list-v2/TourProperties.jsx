@@ -12,7 +12,7 @@ import Slider from "react-slick";
 const TourProperties = () => {
   const searchParams = useSearchParams();
   const search = searchParams.get("location");
-  const tourItems = useFilterTours(search);
+  const tourItems = useFilterTours(search ? search : "Home");
   console.log("searchValue", search, tourItems);
 
   const { currentCurrency } = useSelector((state) => state.currency);
@@ -111,18 +111,53 @@ const TourProperties = () => {
                   >
                     Item
                   </div> */}
-                  <div className="buttons-2">
+                  {/* <div className="buttons-2">
                     <button
                       style={{
-                        backgroundColor: "#353537",
+                        backgroundColor:
+                          searchLocation == "Makkah"
+                            ? "#353537"
+                            : searchLocation == "Madina"
+                            ? "#21b510"
+                            : searchLocation == "Taif"
+                            ? "#824007"
+                            : searchLocation == "Jeddah"
+                            ? "#078de6"
+                            : "",
                         backgroundImage:
-                          "linear-gradient(to right, #353537 , #0d0c0d)",
+                          searchLocation == "Makkah"
+                            ? "linear-gradient(to right, #353537 , #0d0c0d)"
+                            : searchLocation == "Madina"
+                            ? "linear-gradient(to right, #21b510 , #158805)"
+                            : searchLocation == "Taif"
+                            ? "linear-gradient(to right, #824007 , #601817)"
+                            : searchLocation == "Jeddah"
+                            ? "linear-gradient(to right, #078de6 , #29317a)"
+                            : "",
                       }}
                     >
                       {`${currentCurrency?.symbol} ${item.price}`}{" "}
                       <span> PER PERSON</span>
                     </button>
                     <button>No</button>
+                  </div> */}
+                  <div>
+                    <Image
+                      width={80}
+                      height={80}
+                      priority
+                      className="col-12 js-lazy"
+                      src={`/img/price/dream.png`}
+                      alt="price"
+                    />
+
+                    <p
+                      className={
+                        currentCurrency?.symbol == "ريال"
+                          ? "price-arabic-position"
+                          : "price-position"
+                      }
+                    >{`${currentCurrency?.symbol} ${item.price}`}</p>
                   </div>
                 </div>
               </div>

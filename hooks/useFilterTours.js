@@ -76,12 +76,14 @@ const useFilterTours = (destination) => {
   const { currentCurrency, exchangeRates } = useSelector(
     (state) => state?.currency
   );
-  let menuId;
   console.log("destination", destination);
-  if (destination) {
+  let menuId;
+  if (destination === "Home") {
+    menuId = menuItems.find((item) => item.name === "Home")?.id;
+  } else {
     menuId = menuItems
-      .find((item) => item.name == "Destinations")
-      ?.children?.find((child) => child?.name == destination)?.id;
+      .find((item) => item.name === "Destinations")
+      ?.children?.find((child) => child?.name === destination)?.id;
   }
   const { isSuccess, data, isLoading } = useGetImagesByMenuIdQuery(menuId);
   const {

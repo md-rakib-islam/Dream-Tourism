@@ -6,8 +6,8 @@ const WhyChoose = () => {
   const blockContent = [
     {
       id: 1,
-      icon: "/img/featureIcons/3/1.svg",
-      title: "Best Price Guarantee",
+      icon: "/img/featureIcons/3/mone-back.svg",
+      title: "Best Price & Money Back Guarantee",
       text: `Unbeatable Value for Your Unforgettable Experience.`,
       delayAnimation: "100",
     },
