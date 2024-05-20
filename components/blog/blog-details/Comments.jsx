@@ -1,121 +1,143 @@
 "use client";
-import { useGetCommentByBlogIdQuery } from "@/features/blog/blogCommentSlice";
+import formatDate from "@/utils/dateFormate";
 import Image from "next/image";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Comments = ({ blogId }) => {
-  const { isSuccess, data, isLoading } = useGetCommentByBlogIdQuery(blogId);
+  const { comments } = useSelector((state) => state.blog);
+  const [showAll, setShowAll] = useState(false);
 
-  return (
-    <div className="row y-gap-40">
-      <div className="col-12">
-        <div className="row x-gap-20 y-gap-20 items-center">
-          <div className="col-auto">
-            <Image
-              width={70}
-              height={70}
-              src="/img/avatars/2.png"
-              alt="image"
-            />
-          </div>
-          <div className="col-auto">
-            <div className="fw-500 lh-15">Tonko</div>
-            <div className="text-14 text-light-1 lh-15">March 2022</div>
-          </div>
-        </div>
-        <h5 className="fw-500 text-blue-1 mt-20">9.2 Superb</h5>
-        <p className="text-15 text-dark-1 mt-10">
-          Nice two level apartment in great London location. Located in quiet
-          small street, but just 50 meters from main street and bus stop. Tube
-          station is short walk, just like two grocery stores.{" "}
-        </p>
-        <div className="row x-gap-30 y-gap-30 pt-20">
-          <div className="col-auto">
-            <Image
-              width={70}
-              height={70}
-              src="/img/testimonials/1/1.png"
-              alt="image"
-              className="rounded-4"
-            />
-          </div>
-          <div className="col-auto">
-            <Image
-              width={70}
-              height={70}
-              src="/img/testimonials/1/2.png"
-              alt="image"
-              className="rounded-4"
-            />
-          </div>
-          <div className="col-auto">
-            <Image
-              width={70}
-              height={70}
-              src="/img/testimonials/1/3.png"
-              alt="image"
-              className="rounded-4"
-            />
-          </div>
-          <div className="col-auto">
-            <Image
-              width={70}
-              height={70}
-              src="/img/testimonials/1/4.png"
-              alt="image"
-              className="rounded-4"
-            />
-          </div>
-        </div>
-        <div className="d-flex x-gap-30 items-center pt-20">
-          <button className="d-flex items-center text-blue-1">
-            <i className="icon-like text-16 mr-10" />
-            Helpful
-          </button>
-          <button className="d-flex items-center text-light-1">
-            <i className="icon-dislike text-16 mr-10" />
-            Not helpful
-          </button>
-        </div>
-      </div>
+  const getInitials = (name) => {
+    if (!name) return "";
+    return name.charAt(0).toUpperCase();
+  };
 
-      <div className="col-12">
-        <div className="row x-gap-20 y-gap-20 items-center">
-          <div className="col-auto">
-            <Image
-              width={70}
-              height={70}
-              src="/img/avatars/2.png"
-              alt="image"
-            />
-          </div>
-          <div className="col-auto">
-            <div className="fw-500 lh-15">Tonko</div>
-            <div className="text-14 text-light-1 lh-15">March 2022</div>
-          </div>
-        </div>
-        <h5 className="fw-500 text-blue-1 mt-20">9.2 Superb</h5>
-        <p className="text-15 text-dark-1 mt-10">
-          Nice two level apartment in great London location. Located in quiet
-          small street, but just 50 meters from main street and bus stop. Tube
-          station is short walk, just like two grocery stores.{" "}
-        </p>
-        <div className="d-flex x-gap-30 items-center pt-20">
-          <button className="d-flex items-center text-blue-1">
-            <i className="icon-like text-16 mr-10" />
-            Helpful
-          </button>
-          <button className="d-flex items-center text-light-1">
-            <i className="icon-dislike text-16 mr-10" />
-            Not helpful
-          </button>
-        </div>
-      </div>
+  // Function to get a fixed color based on the first letter
+  const getColorByLetter = (letter) => {
+    const colors = {
+      A: "#ff9999",
+      B: "#ffcc99",
+      C: "#ffff99",
+      D: "#ccff99",
+      E: "#99ff99",
+      F: "#99ffcc",
+      G: "#99ffff",
+      H: "#99ccff",
+      I: "#9999ff",
+      J: "#cc99ff",
+      K: "#ff99ff",
+      L: "#ff99cc",
+      M: "#ff6699",
+      N: "#ff9966",
+      O: "#ffcc66",
+      P: "#ffff66",
+      Q: "#ccff66",
+      R: "#99ff66",
+      S: "#66ff66",
+      T: "#66ff99",
+      U: "#66ffcc",
+      V: "#66ffff",
+      W: "#66ccff",
+      X: "#6699ff",
+      Y: "#6666ff",
+      Z: "#9966ff",
+      0: "#ff6666",
+      1: "#ff9966",
+      2: "#ffcc66",
+      3: "#ffff66",
+      4: "#ccff66",
+      5: "#99ff66",
+      6: "#66ff66",
+      7: "#66ff99",
+      8: "#66ffcc",
+      9: "#66ffff",
+    };
+    return colors[letter] || "#cccccc"; // Default color if letter is not found
+  };
 
+  const handleShowAll = () => {
+    setShowAll(true);
+  };
+
+  const handleShowLess = () => {
+    setShowAll(false);
+  };
+
+  const displayedComments = showAll ? comments : comments.slice(0, 3);
+
+  return displayedComments.length == 0 ? (
+    <div className="row y-gap-40 justify-center">
       <div className="col-auto">
-        <a href="#" className="button -md -outline-blue-1 text-blue-1">
-          Show all 116 reviews <div className="icon-arrow-top-right ml-15" />
-        </a>
+        <div className="fw-500 text-center lh-15">There is no comments</div>
       </div>
+    </div>
+  ) : (
+    <div className="row y-gap-40">
+      {displayedComments.map((comment, index) => {
+        const initial = getInitials(comment?.full_name);
+        const fixedColor = getColorByLetter(initial);
+        const date = formatDate(comment.created_at);
+
+        return (
+          <div className="col-12" key={index}>
+            <div className="row x-gap-20 y-gap-20 items-center">
+              <div className="col-auto">
+                <div
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    borderRadius: "50%",
+                    backgroundColor: fixedColor,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "24px",
+                    color: "#000000",
+                  }}
+                >
+                  {initial}
+                </div>
+              </div>
+              <div className="col-auto">
+                <div className="fw-500 lh-15">{comment?.full_name}</div>
+                <div className="text-14 text-light-1 lh-15">{date}</div>
+              </div>
+            </div>
+            <p className="text-15 text-dark-1 mt-10">{comment?.comment_des}</p>
+            <div className="d-flex x-gap-30 items-center pt-20">
+              <button className="d-flex items-center text-blue-1">
+                <i className="icon-like text-16 mr-10" />
+                Helpful
+              </button>
+              <button className="d-flex items-center text-light-1">
+                <i className="icon-dislike text-16 mr-10" />
+                Not helpful
+              </button>
+            </div>
+          </div>
+        );
+      })}
+
+      {comments.length > 3 && (
+        <div className="col-auto">
+          {!showAll ? (
+            <button
+              onClick={handleShowAll}
+              className="button -md -outline-blue-1 text-blue-1"
+            >
+              Show all comments <div className="icon-arrow-top-right ml-15" />
+            </button>
+          ) : (
+            <button
+              onClick={handleShowLess}
+              className="button -md -outline-blue-1 text-blue-1"
+            >
+              Show less comments <div className="icon-arrow-top-right ml-15" />
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

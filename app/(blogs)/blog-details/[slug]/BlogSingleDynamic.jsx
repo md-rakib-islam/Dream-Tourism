@@ -5,11 +5,17 @@ import FormReply from "@/components/blog/blog-details/FormReply";
 import RelatedBlog from "@/components/blog/blog-details/RelatedBlog";
 import TopComment from "@/components/blog/blog-details/TopComment";
 import LocationTopBar from "@/components/common/LocationTopBar";
-import { useGetBlogContentsByBlogTitleQuery } from "@/features/content/contentApi";
+import {
+  useGetBlogContentsByBlogTitleQuery,
+  useGetCommentByBlogIdQuery,
+} from "@/features/content/contentApi";
 import { Interweave } from "interweave";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import SingleBlogSkeleton from "@/components/skeleton/SingleBlogSkeleton";
+import { useEffect } from "react";
+import { addComments } from "@/features/blog/blogSlice";
+import formatDate from "@/utils/dateFormate";
 
 // export const metadata = {
 //   title: "Blog Single || GoTrip - Travel & Tour React NextJS Template",
@@ -18,12 +24,20 @@ import SingleBlogSkeleton from "@/components/skeleton/SingleBlogSkeleton";
 
 const BlogSingleDynamic = ({ params }) => {
   const title = params.slug;
+  const dispatch = useDispatch();
 
   const { currentPage, PageSize } = useSelector((state) => state.pagination);
 
   const { isSuccess, data, isLoading } =
     useGetBlogContentsByBlogTitleQuery(title);
 
+  const {
+    isSuccess: isCommentSuccess,
+    data: commentData,
+    isLoading: commentLoading,
+  } = useGetCommentByBlogIdQuery(title);
+
+  console.log("commentData", commentData, isCommentSuccess);
   let blogItem = {};
 
   if (isSuccess) {
@@ -31,13 +45,21 @@ const BlogSingleDynamic = ({ params }) => {
       id: data.id,
       img: data?.cloudflare_image || null,
       title: data?.title,
-      date: "Jan 06, 2023",
+      date: formatDate(data?.created_at),
       delayAnimation: "100",
       details: data?.description,
       tag: "art",
       tags: ["adventure_travel", "food_drink"],
     };
   }
+
+  useEffect(() => {
+    if (commentData) {
+      dispatch(addComments(commentData));
+    } else {
+      dispatch(addComments([]));
+    }
+  }, [commentData, dispatch]);
 
   return (
     <>
@@ -84,16 +106,16 @@ const BlogSingleDynamic = ({ params }) => {
                   {/* <DetailsContent /> */}
                   {/* Details content */}
 
-                  <div className="border-top-light border-bottom-light py-30 mt-30">
+                  {/* <div className="border-top-light border-bottom-light py-30 mt-30">
                     <TopComment />
-                  </div>
+                  </div> */}
                   {/* End  topcommnet  */}
                   {/* <div className="border-bottom-light py-30">
                     <BlogNavigator />
                   </div> */}
                   {/* End BlogNavigator */}
 
-                  <h2 className="text-22 fw-500 mb-15 pt-30">Guest reviews</h2>
+                  <h2 className="text-22 fw-500 mb-15 pt-30">Comments</h2>
                   <Comments blogId={title} />
                   {/* End comments components */}
                 </div>
@@ -117,7 +139,7 @@ const BlogSingleDynamic = ({ params }) => {
                   </div>
                   {/* End Leave a repy title */}
 
-                  <FormReply blogId={blogItem.id} />
+                  <FormReply blogId={blogItem.id} blogTitle={title} />
                 </div>
 
                 {/* End .col */}

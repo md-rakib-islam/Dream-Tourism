@@ -1,20 +1,31 @@
 "use client";
 
 import { useCreateBlogCommentMutation } from "@/features/blog/blogCommentSlice";
-import { useState } from "react";
+import { addComments } from "@/features/blog/blogSlice";
+import { useGetCommentByBlogIdQuery } from "@/features/content/contentApi";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
 const initialState = {
   full_name: "",
+  phn_num: "",
   email: "",
   comment_des: "",
 };
-const FormReply = ({ blogId }) => {
+const FormReply = ({ blogId, blogTitle }) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [formState, setFormState] = useState({ ...initialState });
+  const [fetchComments, setFetchComments] = useState(false);
+
   const [createBlogComment, { isLoading, isSuccess }] =
     useCreateBlogCommentMutation();
+
+  const { data: commentData, refetch } = useGetCommentByBlogIdQuery(blogTitle);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,6 +44,8 @@ const FormReply = ({ blogId }) => {
           theme: "dark",
         });
         setFormState(initialState);
+        router.push(`/blog-details/${blogTitle}`);
+        setFetchComments(true);
       }
     } catch (err) {
       toast.error("Something went wrong!", {
@@ -54,6 +67,13 @@ const FormReply = ({ blogId }) => {
       [event.target.name]: event.target.value,
     }));
   };
+  console.log("sdf", commentData);
+  useEffect(() => {
+    if (isSuccess) {
+      refetch(); // Reset fetchComments to avoid refetching
+    }
+  }, [isSuccess, refetch]);
+
   return (
     <form className="row y-gap-30 pt-40" onSubmit={handleSubmit}>
       <ToastContainer
@@ -69,7 +89,7 @@ const FormReply = ({ blogId }) => {
         theme="dark"
       />
 
-      <div className="col-xl-6">
+      <div className="col-xl-4">
         <div className="form-input ">
           <input
             onChange={handleChange}
@@ -78,13 +98,28 @@ const FormReply = ({ blogId }) => {
             name="full_name"
             id="name"
             required
+            autocomplete="new-password"
           />
           <label className="lh-1 text-16 text-light-1">Full Name</label>
         </div>
       </div>
+      <div className="col-xl-4">
+        <div className="form-input ">
+          <input
+            onChange={handleChange}
+            value={formState.phn_num}
+            type="text"
+            name="phn_num"
+            id="phn_num"
+            required
+            autocomplete="new-password"
+          />
+          <label className="lh-1 text-16 text-light-1">Phone Number</label>
+        </div>
+      </div>
       {/* End .col */}
 
-      <div className="col-xl-6">
+      <div className="col-xl-4">
         <div className="form-input ">
           <input
             onChange={handleChange}
@@ -93,6 +128,7 @@ const FormReply = ({ blogId }) => {
             name="email"
             id="email"
             required
+            autocomplete="new-password"
           />
           <label className="lh-1 text-16 text-light-1">Email</label>
         </div>
@@ -107,6 +143,7 @@ const FormReply = ({ blogId }) => {
             id="message"
             name="comment_des"
             required
+            autocomplete="new-password"
             rows={6}
           ></textarea>
           <label className="lh-1 text-16 text-light-1">

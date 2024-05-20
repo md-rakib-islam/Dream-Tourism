@@ -4,6 +4,7 @@ const initialState = {
   currentCategory: { id: 1, name: "Hajj", number: 0 },
   searchTerm: "",
   blogs: [],
+  comments: [],
 };
 
 export const blogSlice = createSlice({
@@ -19,8 +20,12 @@ export const blogSlice = createSlice({
     addBlogs: (state, action) => {
       state.blogs = action.payload;
     },
+    addComments: (state, action) => {
+      state.comments = action.payload;
+    },
   },
 });
 
-export const { addCategory, addSearchTerm, addBlogs } = blogSlice.actions;
+export const { addCategory, addSearchTerm, addBlogs, addComments } =
+  blogSlice.actions;
 export default blogSlice.reducer;
