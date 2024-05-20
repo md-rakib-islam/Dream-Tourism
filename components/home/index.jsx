@@ -5,7 +5,7 @@ import WhyChoose from "@/components/home/home/WhyChoose";
 import Tours from "@/components/tours/Tours";
 import Link from "next/link";
 import Blog4 from "../blog/Blog4";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Testimonial from "../testimonial/Testimonial";
 import Counter2 from "../counter/Counter2";
 import Brand from "../brand/Brand";
@@ -21,12 +21,28 @@ const index = () => {
     useGetAllReviewsQuery(null);
 
   const [dataAvailable, setDataAvailable] = useState(false);
+  const [isShow, setIsShow] = useState(false);
 
   // Function to handle data availability
   const handleDataAvailability = (isDataAvailable) => {
     setDataAvailable(isDataAvailable);
   };
-  console.log("reviewsData", reviewsData);
+  const memoizedApiCallsMade = useMemo(() => isShow, [isShow]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!memoizedApiCallsMade && window.scrollY > 0) {
+        setIsShow(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [memoizedApiCallsMade]);
+
   return (
     <>
       {/* <Hero7/> */}
@@ -300,156 +316,158 @@ const index = () => {
             {/* End .container */}
           </section>
 
-          <section className="layout-pt-md layout-pb-md mt-5">
-            <div className="container">
-              <div className="row y-gap-20 justify-between items-end">
-                <div className="col-auto">
-                  <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title">Popular Links</h2>
+          {isShow && (
+            <section className="layout-pt-md layout-pb-md mt-5">
+              <div className="container">
+                <div className="row y-gap-20 justify-between items-end">
+                  <div className="col-auto">
+                    <div className="sectionTitle -md">
+                      <h2 className="sectionTitle__title">Popular Links</h2>
+                    </div>
                   </div>
+                  {/* End .col */}
                 </div>
-                {/* End .col */}
-              </div>
-              {/* End .row */}
+                {/* End .row */}
 
-              <div className="row y-gap-30 pt-20 sm:pt-20 item_gap-x30">
-                <ul className="linksList">
-                  <li className="linkItem">
-                    <Link className="link" href="/destinations/france">
-                      Things to do in France
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/destinations/france">
-                      Places to visit in Paris
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Top attractions in Spain
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Must-see sights in Barcelona
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/destinations/germany">
-                      Activities in Germany
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Best things to do in Berlin
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Attractions in the United Kingdom
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Explore London's landmarks
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      What to do in Greece
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Sightseeing in Athens
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Activities in Portugal
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Discover Lisbon's highlights
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Things to see in the Netherlands
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Visit Amsterdam's famous spots
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Top experiences in Switzerland
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Galway's artistic charm
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Must-do activities in Austria
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Discover Vienna's cultural gems
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Top experiences in Switzerland
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Charming towns in Tuscany
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Exploring Florence's treasures
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Discovering Venice's magic
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Unforgettable experiences in Rome
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Italy's hidden gems
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Experience Brussels' charm
-                    </Link>
-                  </li>
-                  <li className="linkItem">
-                    <Link className="link" href="/">
-                      Things to explore in Belgium
-                    </Link>
-                  </li>
-                </ul>
+                <div className="row y-gap-30 pt-20 sm:pt-20 item_gap-x30">
+                  <ul className="linksList">
+                    <li className="linkItem">
+                      <Link className="link" href="/destinations/france">
+                        Things to do in France
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/destinations/france">
+                        Places to visit in Paris
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Top attractions in Spain
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Must-see sights in Barcelona
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/destinations/germany">
+                        Activities in Germany
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Best things to do in Berlin
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Attractions in the United Kingdom
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Explore London's landmarks
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        What to do in Greece
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Sightseeing in Athens
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Activities in Portugal
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Discover Lisbon's highlights
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Things to see in the Netherlands
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Visit Amsterdam's famous spots
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Top experiences in Switzerland
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Galway's artistic charm
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Must-do activities in Austria
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Discover Vienna's cultural gems
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Top experiences in Switzerland
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Charming towns in Tuscany
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Exploring Florence's treasures
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Discovering Venice's magic
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Unforgettable experiences in Rome
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Italy's hidden gems
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Experience Brussels' charm
+                      </Link>
+                    </li>
+                    <li className="linkItem">
+                      <Link className="link" href="/">
+                        Things to explore in Belgium
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                {/* End .row */}
               </div>
-              {/* End .row */}
-            </div>
-            {/* End .container */}
-          </section>
+              {/* End .container */}
+            </section>
+          )}
         </>
       )}
     </>

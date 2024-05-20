@@ -273,21 +273,57 @@ button:active {
 }
 .price-position {
   position: absolute;
-  top: 3px;
-  left: 26px;
-  font-size: 11px;
+  top: 4px;
+  left: 27px;
+  font-size: 10px;
   color: white;
   font-weight: 500;
 }
 .price-arabic-position {
   position: absolute;
-  top: 5px;
-  left: 29px;
+  top: 8px;
+  left: 31px;
   font-size: 8px;
   color: white;
   font-weight: 500;
 }
 
+@media (min-width: 1440px) {
+  .price-position {
+    position: absolute;
+    top: 6px;
+    left: 40px;
+    font-size: 11px;
+    color: white;
+    font-weight: 500;
+  }
+  .price-arabic-position {
+    position: absolute;
+    top: 10px;
+    left: 44px;
+    font-size: 9px;
+    color: white;
+    font-weight: 500;
+  }
+}
+@media (max-width: 1280px) {
+  .price-position {
+    position: absolute;
+    top: 6px;
+    left: 40px;
+    font-size: 11px;
+    color: white;
+    font-weight: 500;
+  }
+  .price-arabic-position {
+    position: absolute;
+    top: 10px;
+    left: 44px;
+    font-size: 9px;
+    color: white;
+    font-weight: 500;
+  }
+}
 @media (max-width: 1024px) {
   .cardImage {
     &__leftBadge {
@@ -308,6 +344,23 @@ button:active {
     gap: 10px;
     --b: 2px; /* the border thickness */
     --h: 3.5em; /* the height */
+  }
+
+  .price-position {
+    position: absolute;
+    top: 6px;
+    left: 38px;
+    font-size: 11px;
+    color: white;
+    font-weight: 500;
+  }
+  .price-arabic-position {
+    position: absolute;
+    top: 10px;
+    left: 44px;
+    font-size: 9px;
+    color: white;
+    font-weight: 500;
   }
 }
 @media (max-width: 992px) {

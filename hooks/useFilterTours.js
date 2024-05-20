@@ -76,7 +76,7 @@ const useFilterTours = (destination) => {
   const { currentCurrency, exchangeRates } = useSelector(
     (state) => state?.currency
   );
-  console.log("destination", destination);
+
   let menuId;
   if (destination === "Home") {
     menuId = menuItems.find((item) => item.name === "Home")?.id;

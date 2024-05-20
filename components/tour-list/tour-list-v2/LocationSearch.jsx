@@ -18,8 +18,6 @@ const SearchBar = () => {
     (item) => item?.name === "Destinations"
   )?.children;
 
-  // console.log(destinations)
-
   const locationSearchContent = destinations?.map((item) => ({
     id: item?.id,
     name: item?.name,

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Comments = ({ blogId }) => {
   const { isSuccess, data, isLoading } = useGetCommentByBlogIdQuery(blogId);
-  console.log("CommetnData", data);
+
   return (
     <div className="row y-gap-40">
       <div className="col-12">

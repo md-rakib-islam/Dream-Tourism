@@ -25,7 +25,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
   const { currentCurrency } = useSelector((state) => state.currency);
   const width = useWindowSize();
   const isMobile = width < 768;
-  console.log("filteredTourItems", filteredTourItems);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -105,7 +105,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
       </button>
     );
   }
-  console.log("filteredTourItems", filteredTourItems);
+
   return filteredTourItems?.length === 0 ? (
     <TourSkeleton />
   ) : filteredTourItems?.length < 4 ? (
@@ -198,7 +198,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
                     height={80}
                     priority
                     className="col-12 js-lazy"
-                    src={`/img/price/dream.png`}
+                    src={`https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/94088711-e642-4216-52ee-393e4c6a3c00/public`}
                     alt="price"
                   />
 
@@ -352,7 +352,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
                       height={80}
                       priority
                       className="col-12 js-lazy"
-                      src={`/img/price/dream.png`}
+                      src={`https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/94088711-e642-4216-52ee-393e4c6a3c00/public`}
                       alt="price"
                     />
 

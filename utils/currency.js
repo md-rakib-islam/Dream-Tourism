@@ -200,7 +200,6 @@ const convertCurrency = (
   toCurrency,
   currentExchangeRates
 ) => {
-  // console.log(currentExchangeRates, amount);
   const exchangeRates = Object?.keys(currentExchangeRates || {}).length
     ? currentExchangeRates
     : defaultExchangeRates;

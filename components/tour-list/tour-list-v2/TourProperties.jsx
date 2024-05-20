@@ -13,7 +13,6 @@ const TourProperties = () => {
   const searchParams = useSearchParams();
   const search = searchParams.get("location");
   const tourItems = useFilterTours(search ? search : "Home");
-  console.log("searchValue", search, tourItems);
 
   const { currentCurrency } = useSelector((state) => state.currency);
   const width = useWindowSize();
@@ -147,7 +146,7 @@ const TourProperties = () => {
                       height={80}
                       priority
                       className="col-12 js-lazy"
-                      src={`/img/price/dream.png`}
+                      src={`https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/94088711-e642-4216-52ee-393e4c6a3c00/public`}
                       alt="price"
                     />
 

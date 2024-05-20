@@ -6,9 +6,7 @@ const getTemperatureByLocation = async (location = "") => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location},Saudi Arabia&APPID=${apiKey}`;
     const res = await fetch(url);
     return res.json();
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (_err) {}
 };
 
 export default getTemperatureByLocation;

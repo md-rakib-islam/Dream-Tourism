@@ -33,8 +33,6 @@ const useMenus = () => {
       return { ...item };
     });
 
-  console.log("filteredChildren", filteredMenus);
-
   filteredMenus.sort((a, b) => a.position - b.position);
 
   const modifiedMenuItems = filteredMenus?.map((item) => {

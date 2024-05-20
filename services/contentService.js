@@ -3,9 +3,7 @@ const getAllContentByMenuId = async (menuId) => {
   try {
     const res = await fetch(`${GET_CONTENTS_WITH_URL_BY_MENU_ID}/${menuId}`);
     return res.json();
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (_err) {}
 };
 
 export default getAllContentByMenuId;

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
@@ -20,9 +22,7 @@ const Testimonial = ({ reviewsData }) => {
   };
 
   function formatDate(seconds) {
-    console.log("seconds", seconds);
     const milliseconds = seconds * 1000;
-    console.log("milliseconds", milliseconds);
 
     const date = new Date(milliseconds);
     const now = new Date();
@@ -118,7 +118,7 @@ const Testimonial = ({ reviewsData }) => {
         nextArrow={<Arrow type="next" />}
         prevArrow={<Arrow type="prev" />}
         // dots={(count, dotList) => {
-        //   console.log("dots", dotList, count);
+
         //   // Calculate the number of dots to show
         //   const maxDotsToShow = 4;
         //   const totalSlides = count + settings.slidesToShow - 1; // Adjust total slides considering the slidesToShow

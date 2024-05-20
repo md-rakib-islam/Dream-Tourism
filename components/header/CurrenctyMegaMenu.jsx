@@ -39,7 +39,6 @@ const CurrenctyMegaMenu = ({ textClass }) => {
     dispatch(addCurrency(item));
     setClick(false);
   };
-  // console.log("Currency", selectedCurrency)
 
   return (
     <>
