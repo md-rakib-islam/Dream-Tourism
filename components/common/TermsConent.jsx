@@ -9,7 +9,6 @@ const TermsConent = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const router = useRouter();
   const searchParams = useSearchParams();
-  )
 
   useEffect(() => {
     if (searchParams.get("type") === "general_terms_of_use") {
