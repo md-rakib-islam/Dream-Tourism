@@ -12,7 +12,7 @@ const Address = ({ uk }) => {
       title: "Customer Care",
       content: (
         <>
-          <a href="tel:+447549293108">+447549293108</a>
+          <a href="tel:+393887748015">+393887748015</a>
         </>
       ),
     },
