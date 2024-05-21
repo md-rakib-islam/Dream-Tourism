@@ -30,19 +30,23 @@ const index = ({ onDataAvailable }) => {
     <CoverSkeleton />
   ) : (
     <>
-      <section className="masthead -type-6">
+      <section className="masthead -type-6 mb-40">
         <div className="masthead__bg">
           <Image
             src={sliderImageItems[0]?.cloudflare_image_url}
             width={1920}
             height={860}
             alt="image"
+            className="h-100"
             priority={true}
             onLoad={onDataAvailable(true)}
           />
         </div>
 
-        <div className="container">
+        <div
+          className="container"
+          style={{ position: "relative", top: "60px" }}
+        >
           <div className="row justify-center">
             <div className="col-xl-9 d-lg-flex flex-column justify-content-center align-items-center">
               <div className="text-center">
@@ -66,9 +70,26 @@ const index = ({ onDataAvailable }) => {
                   Discover amzaing places at exclusive deals
                 </p>
               </div>
-              {/* End hero title */}
-              <MainFilterSearchBox />
             </div>
+          </div>
+        </div>
+        <div
+          className="container"
+          style={{
+            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            bottom: "-125px",
+          }}
+        >
+          <div
+            className="mainSearch-wrap bg-white shadow-1"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <MainFilterSearchBox />
+            {/* End tab-filter */}
           </div>
         </div>
       </section>
