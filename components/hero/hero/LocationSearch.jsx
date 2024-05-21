@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 
 import { addSearchValue } from "@/features/search/searchSlice";
 import { useState } from "react";
@@ -9,20 +8,21 @@ const LocationSearch = () => {
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
-  const {menuItems} = useSelector(state => state.menus);
-  const destinations = menuItems?.find((item) => item?.name === "Destinations")?.children;
-  
+  const { menuItems } = useSelector((state) => state.menus);
+  const destinations = menuItems?.find(
+    (item) => item?.name === "Destinations"
+  )?.children;
 
   const locationSearchContent = destinations?.map((item) => ({
     id: item?.id,
     name: item?.name,
     address: "",
-  }))
+  }));
 
   const handleOptionClick = (item) => {
     setSearchValue(item.name);
     setSelectedItem(item);
-    dispatch(addSearchValue(item.name))
+    dispatch(addSearchValue(item.name));
   };
 
   return (
@@ -41,7 +41,9 @@ const LocationSearch = () => {
               placeholder="Where are you going?"
               className="js-search js-dd-focus"
               value={searchValue}
-              onChange={(e) => {setSearchValue(e.target.value)}}
+              onChange={(e) => {
+                setSearchValue(e.target.value);
+              }}
             />
           </div>
         </div>

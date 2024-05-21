@@ -45,7 +45,7 @@ const index = ({ onDataAvailable }) => {
 
         <div
           className="container"
-          style={{ position: "relative", top: "60px" }}
+          style={{ position: "relative", top: "70px" }}
         >
           <div className="row justify-center">
             <div className="col-xl-9 d-lg-flex flex-column justify-content-center align-items-center">
@@ -73,16 +73,7 @@ const index = ({ onDataAvailable }) => {
             </div>
           </div>
         </div>
-        <div
-          className="container"
-          style={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            bottom: "-125px",
-          }}
-        >
+        <div className="container">
           <div
             className="mainSearch-wrap bg-white shadow-1"
             data-aos="fade-up"

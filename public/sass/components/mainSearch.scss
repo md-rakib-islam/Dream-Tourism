@@ -9,7 +9,7 @@
 
   .button-grid {
     display: grid;
-    grid-template-columns: 1fr 250px 290px auto;
+    grid-template-columns: 1fr 250px 147px auto;
 
     > * + * {
       border-left: 1px solid var(--color-border);

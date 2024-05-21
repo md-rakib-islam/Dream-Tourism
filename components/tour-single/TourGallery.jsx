@@ -61,14 +61,16 @@ export default function TourGallery({ tour, onDataAvailable }) {
                   ))}
                 </Swiper>
 
-                <div className="absolute h-full col-11">
-                  <button className="section-slider-nav -prev flex-center button -blue-1  shadow-1 size-40 rounded-full sm:d-none js-img-prev">
-                    <i className="icon icon-chevron-left text-12" />
-                  </button>
-                  <button className="section-slider-nav -next flex-center button -blue-1  shadow-1 size-40 rounded-full sm:d-none js-img-next">
-                    <i className="icon icon-chevron-right text-12" />
-                  </button>
-                </div>
+                {dataAvailable && (
+                  <div className="absolute h-full col-11">
+                    <button className="section-slider-nav -prev flex-center button -blue-1  shadow-1 size-40 rounded-full sm:d-none js-img-prev">
+                      <i className="icon icon-chevron-left text-12" />
+                    </button>
+                    <button className="section-slider-nav -next flex-center button -blue-1  shadow-1 size-40 rounded-full sm:d-none js-img-next">
+                      <i className="icon icon-chevron-right text-12" />
+                    </button>
+                  </div>
+                )}
                 {/* End prev nav button wrapper */}
               </div>
               {!dataAvailable && <GalarySkeleton />}
