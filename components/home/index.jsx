@@ -10,6 +10,10 @@ import Testimonial from "../testimonial/Testimonial";
 import Counter2 from "../counter/Counter2";
 import Brand from "../brand/Brand";
 import { useGetAllReviewsQuery } from "@/features/reviews/reviewsApi";
+import useWindowSize from "@/hooks/useWindowSize";
+import { useSelector } from "react-redux";
+import ToursForMobile from "../tours/ToursForMobile";
+import { useGetSliderImagesQuery } from "@/features/image/imageApi";
 
 // export const metadata = {
 //   title: "Home-3 || GoTrip - Travel & Tour React NextJS Template",
@@ -17,11 +21,17 @@ import { useGetAllReviewsQuery } from "@/features/reviews/reviewsApi";
 // };
 
 const index = () => {
+  const { isSuccess, isLoading, data } = useGetSliderImagesQuery();
+
   const { data: reviewsData, isSuccess: reviewsSuccess } =
     useGetAllReviewsQuery(null);
 
   const [dataAvailable, setDataAvailable] = useState(false);
+  const width = useWindowSize();
+  const isMobile = width > 768;
   const [isShow, setIsShow] = useState(false);
+
+  const { currentTab } = useSelector((state) => state.hero) || {};
 
   // Function to handle data availability
   const handleDataAvailability = (isDataAvailable) => {
@@ -47,57 +57,180 @@ const index = () => {
     <>
       {/* <Hero7/> */}
       <div className="header-margin"></div>
-      <Hero3 onDataAvailable={handleDataAvailability} />
+      <Hero3
+        onDataAvailable={handleDataAvailability}
+        isSuccess={isSuccess}
+        isLoading={isLoading}
+        data={data}
+        isMobile={isMobile}
+      />
       {/* End Hero 3 */}
 
-      <section className="layout-pt-md layout-pb-md">
-        <div className="container">
-          <div className="row y-gap-22 justify-between items-start">
-            <div className="col-8 col-lg-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Most Popular Tours</h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Explore Our Best Sellers: Unmatched Experiences in Every
-                  Journey
-                </p>
-              </div>
-            </div>
-            {/* End .col */}
-
-            <div className="col-4 col-lg-auto">
-              <Link
-                href="/tours"
-                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-              >
-                More <div className="icon-arrow-top-right ml-15" />
-              </Link>
-            </div>
-            {/* End .col */}
-          </div>
-          {/* End .row */}
-
-          <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-            <Tours />
-          </div>
-          {/* End .row */}
-        </div>
-        {/* End .container */}
-      </section>
-      {/* End Popular Tours Sections */}
-
-      {dataAvailable && (
+      {!isMobile ? (
         <>
           <section className="layout-pt-md layout-pb-md">
             <div className="container">
               <div className="row y-gap-22 justify-between items-start">
                 <div className="col-8 col-lg-auto">
                   <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title">
-                      Top Daily Tours for Ultimate Experiences
+                    <h2 className="sectionTitle__title  md:text-24">
+                      Most Popular {currentTab == "All" ? "Tours" : currentTab}
                     </h2>
+                  </div>
+                </div>
+                {/* End .col */}
+
+                <div className="col-4 col-lg-auto">
+                  <Link
+                    href="/tours"
+                    className="button -md -blue-1 bg-blue-1-05 md:text-13 text-blue-1"
+                  >
+                    More{" "}
+                    <div className="icon-arrow-top-right ml-15 md:text-13" />
+                  </Link>
+                </div>
+                <div className="col-12 col-lg-auto">
+                  <p className=" sectionTitle__text mt-5 sm:mt-0 md:text-13">
+                    Explore Our Best Sellers: Unmatched Experiences in Every
+                    Journey
+                  </p>
+                </div>
+                {/* End .col */}
+              </div>
+              {/* End .row */}
+
+              <div className="row y-gap-30 pt-40 sm:pt-20 ">
+                <ToursForMobile />
+              </div>
+              {/* End .row */}
+            </div>
+            {/* End .container */}
+          </section>
+          <section className="layout-pt-md layout-pb-md">
+            <div className="container">
+              <div className="row justify-center text-center">
+                <div className="col-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title md:text-24">
+                      Top Destinations
+                    </h2>
+                    <p className=" sectionTitle__text mt-5 sm:mt-0 md:text-13">
+                      Explore Exciting Destinations, Tailored for Every Explorer
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* End .row */}
+
+              <div className="row y-gap-40 pt-40 sm:pt-20">
+                <TopDestinations />
+              </div>
+              {/* End .row */}
+            </div>
+            {/* End .container */}
+          </section>
+          <section className="layout-pt-md layout-pb-md">
+            <div className="container">
+              <div className="row justify-center text-center">
+                <div className="col-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title md:text-24">
+                      Why Book With Us
+                    </h2>
+                    <p className=" sectionTitle__text mt-5 sm:mt-0 md:text-13">
+                      Experience Quality and Excellence with DreamTourism
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* End .row */}
+
+              <div className="row y-gap-40 justify-between pt-50">
+                <WhyChoose />
+              </div>
+              {/* End row */}
+            </div>
+            {/* End .container */}
+          </section>
+          {/* End Why choose Section */}
+          {reviewsSuccess && (
+            <section className="section-bg layout-pt-lg layout-pb-lg">
+              <div className="section-bg__item -mx-20 bg-light-2" />
+              <div className="container">
+                <div className="row justify-center text-center">
+                  <div className="col-auto">
+                    <div className="sectionTitle -md">
+                      <h2 className="sectionTitle__title md:text-24">
+                        Overheard from travelers
+                      </h2>
+                      <p className=" sectionTitle__text mt-5 sm:mt-0 md:text-13">
+                        These popular destinations have a lot to offer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* End .row */}
+
+                <div className="overflow-hidden pt-40 js-section-slider">
+                  <div className="item_gap-x30">
+                    <Testimonial reviewsData={reviewsData} />
+                  </div>
+                </div>
+                {/* End .overflow-hidden */}
+
+                <div className="row y-gap-30 items-center pt-40 sm:pt-20">
+                  <div className="col-xl-4">
+                    <Counter2 />
+                  </div>
+                  {/* End .col */}
+
+                  <div className="col-xl-8">
+                    <div className="row y-gap-30 justify-between items-center">
+                      <Brand />
+                    </div>
+                  </div>
+                  {/* End .col */}
+                </div>
+                {/* End .row */}
+              </div>
+              {/* End .container */}
+            </section>
+          )}
+          {/* End testimonial section */}
+          <section className="layout-pt-lg layout-pb-lg">
+            <div className="container">
+              <div className="row justify-center text-center">
+                <div className="col-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title md:text-24">
+                      Get inspiration for your next trip
+                    </h2>
+                    <p className=" sectionTitle__text mt-5 sm:mt-0 md:text-13">
+                      Interdum et malesuada fames
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* End .row  */}
+              <div className="row y-gap-30 pt-40">
+                <Blog4 />
+              </div>
+              {/* End .row */}
+            </div>
+            {/* End .container */}
+          </section>
+        </>
+      ) : (
+        <>
+          <section className="layout-pt-md layout-pb-md">
+            <div className="container">
+              <div className="row y-gap-22 justify-between items-start">
+                <div className="col-8 col-lg-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title">Most Popular Tours</h2>
                     <p className=" sectionTitle__text mt-5 sm:mt-0">
-                      Experience the best daily tours, offering unforgettable
-                      adventures and sights.
+                      Explore Our Best Sellers: Unmatched Experiences in Every
+                      Journey
                     </p>
                   </div>
                 </div>
@@ -116,65 +249,7 @@ const index = () => {
               {/* End .row */}
 
               <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-                <Tours dailyTours={true} />
-              </div>
-              {/* End .row */}
-            </div>
-            {/* End .container */}
-          </section>
-          {/* End Daily Tours Sections */}
-          <section className="layout-pt-md layout-pb-md">
-            <div className="container">
-              <div className="row y-gap-22 justify-between items-start">
-                <div className="col-8 col-lg-auto">
-                  <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title">
-                      Top Long Tours for Ultimate Adventures
-                    </h2>
-                    <p className=" sectionTitle__text mt-5 sm:mt-0">
-                      Discover unforgettable journeys with our top-rated,
-                      thrilling long tours.
-                    </p>
-                  </div>
-                </div>
-                {/* End .col */}
-
-                <div className="col-4 col-lg-auto">
-                  <Link
-                    href="/tours"
-                    className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-                  >
-                    More <div className="icon-arrow-top-right ml-15" />
-                  </Link>
-                </div>
-                {/* End .col */}
-              </div>
-              {/* End .row */}
-
-              <div className="row y-gap-30 pt-40 sm:pt-20">
-                <Tours multiDays={true} />
-              </div>
-              {/* End .row */}
-            </div>
-            {/* End .container */}
-          </section>
-          {/* End Multi Days Tours Sections */}
-          <section className="layout-pt-md layout-pb-md">
-            <div className="container">
-              <div className="row justify-center text-center">
-                <div className="col-auto">
-                  <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title">Top Destinations</h2>
-                    <p className=" sectionTitle__text mt-5 sm:mt-0">
-                      Explore Exciting Destinations, Tailored for Every Explorer
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* End .row */}
-
-              <div className="row y-gap-40 pt-40 sm:pt-20">
-                <TopDestinations />
+                <Tours />
               </div>
               {/* End .row */}
             </div>
@@ -182,73 +257,138 @@ const index = () => {
           </section>
         </>
       )}
-      {/* End Top Destinations Section */}
-
-      <section className="layout-pt-md layout-pb-md">
-        <div className="container">
-          <div className="row justify-center text-center">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Why Book With Us</h2>
-                <p className=" sectionTitle__text mt-5 sm:mt-0">
-                  Experience Quality and Excellence with DreamTourism
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* End .row */}
-
-          <div className="row y-gap-40 justify-between pt-50">
-            <WhyChoose />
-          </div>
-          {/* End row */}
-        </div>
-        {/* End .container */}
-      </section>
-      {/* End Why choose Section */}
-
-      {/* <section
-        style={{ backgroundColor: "#EAFBF7" }}
-        className="layout-pt-md layout-pb-md"
-      >
-        <div className="container">
-          <div className="row justify-center text-center">
-            <div className="col-auto">
-              <div className="sectionTitle -md">
-                <h2 className="sectionTitle__title">Free cancellation</h2>
-                <p
-                  style={{ color: "black" }}
-                  className="mt-5 sm:mt-4 bannar_mobile"
-                >
-                  You'll receive a full refund if you cancel at least 24 <br />{" "}
-                  hours in advance of most experiences.
-                </p>
-                <p
-                  style={{ color: "black" }}
-                  className=" mt-5 sm:mt-4 bannar_desktop"
-                >
-                  You'll receive a full refund if you cancel at least 24 hours
-                  in advance of most experiences.
-                </p>
-              </div>
-            </div>
-          </div>
-          End .row 
-        </div>
-      End .container 
-      </section> */}
+      {/* End Popular Tours Sections */}
 
       {dataAvailable && (
         <>
-          {/* 3rd party trip advisor reviews
-          <section className="layout-pt-md layout-pb-md mt-5">
+          {isMobile && (
+            <>
+              <section className="layout-pt-md layout-pb-md">
+                <div className="container">
+                  <div className="row y-gap-22 justify-between items-start">
+                    <div className="col-8 col-lg-auto">
+                      <div className="sectionTitle -md">
+                        <h2 className="sectionTitle__title">
+                          Top Daily Tours for Ultimate Experiences
+                        </h2>
+                        <p className=" sectionTitle__text mt-5 sm:mt-0">
+                          Experience the best daily tours, offering
+                          unforgettable adventures and sights.
+                        </p>
+                      </div>
+                    </div>
+                    {/* End .col */}
+
+                    <div className="col-4 col-lg-auto">
+                      <Link
+                        href="/tours"
+                        className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+                      >
+                        More <div className="icon-arrow-top-right ml-15" />
+                      </Link>
+                    </div>
+                    {/* End .col */}
+                  </div>
+                  {/* End .row */}
+
+                  <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+                    <Tours dailyTours={true} />
+                  </div>
+                  {/* End .row */}
+                </div>
+                {/* End .container */}
+              </section>
+              {/* End Daily Tours Sections */}
+              <section className="layout-pt-md layout-pb-md">
+                <div className="container">
+                  <div className="row y-gap-22 justify-between items-start">
+                    <div className="col-8 col-lg-auto">
+                      <div className="sectionTitle -md">
+                        <h2 className="sectionTitle__title">
+                          Top Long Tours for Ultimate Adventures
+                        </h2>
+                        <p className=" sectionTitle__text mt-5 sm:mt-0">
+                          Discover unforgettable journeys with our top-rated,
+                          thrilling long tours.
+                        </p>
+                      </div>
+                    </div>
+                    {/* End .col */}
+
+                    <div className="col-4 col-lg-auto">
+                      <Link
+                        href="/tours"
+                        className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+                      >
+                        More <div className="icon-arrow-top-right ml-15" />
+                      </Link>
+                    </div>
+                    {/* End .col */}
+                  </div>
+                  {/* End .row */}
+
+                  <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+                    <Tours multiDays={true} />
+                  </div>
+                  {/* End .row */}
+                </div>
+                {/* End .container */}
+              </section>
+              {/* End Multi Days Tours Sections */}
+              <section className="layout-pt-md layout-pb-md">
+                <div className="container">
+                  <div className="row justify-center text-center">
+                    <div className="col-auto">
+                      <div className="sectionTitle -md">
+                        <h2 className="sectionTitle__title">
+                          Top Destinations
+                        </h2>
+                        <p className=" sectionTitle__text mt-5 sm:mt-0">
+                          Explore Exciting Destinations, Tailored for Every
+                          Explorer
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* End .row */}
+
+                  <div className="row y-gap-40 pt-40 sm:pt-20">
+                    <TopDestinations />
+                  </div>
+                  {/* End .row */}
+                </div>
+                {/* End .container */}
+              </section>
+              {/* top destination */}
+            </>
+          )}
+        </>
+      )}
+
+      {dataAvailable && (
+        <>
+          <section className="layout-pt-md layout-pb-md">
             <div className="container">
-              <div
-                className="elfsight-app-2ceb007c-5dd9-4629-9ac6-7672a9079871"
-                data-elfsight-app-lazy
-              ></div>
+              <div className="row justify-center text-center">
+                <div className="col-auto">
+                  <div className="sectionTitle -md">
+                    <h2 className="sectionTitle__title">Why Book With Us</h2>
+                    <p className=" sectionTitle__text mt-5 sm:mt-0">
+                      Experience Quality and Excellence with DreamTourism
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* End .row */}
+
+              <div className="row y-gap-40 justify-between pt-50">
+                <WhyChoose />
+              </div>
+              {/* End row */}
             </div>
-          </section> */}
+            {/* End .container */}
+          </section>
+          {/* End Why choose Section */}
           {reviewsSuccess && (
             <section className="section-bg layout-pt-lg layout-pb-lg">
               <div className="section-bg__item -mx-20 bg-light-2" />

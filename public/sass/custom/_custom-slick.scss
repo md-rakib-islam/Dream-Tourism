@@ -121,6 +121,15 @@
   }
 }
 
+.item_gap-x13 {
+  padding: 0 13px;
+  .slick-slide {
+    padding: 0 15px;
+  }
+  .slick-list {
+    margin: 0 -15px;
+  }
+}
 .item_gap-x30 {
   .slick-slide {
     padding: 0 15px;

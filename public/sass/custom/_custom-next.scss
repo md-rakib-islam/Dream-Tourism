@@ -71,6 +71,9 @@
 
 .row {
   --bs-gutter-x: 30px;
+  @media (max-width: 768px) {
+    --bs-gutter-x: 20px;
+  }
 }
 
 .form-select:focus {

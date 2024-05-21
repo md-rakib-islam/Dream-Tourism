@@ -10,7 +10,7 @@ const Blog4 = () => {
     <>
       {blogPosts.slice(0, 4).map((item) => (
         <div
-          className="col-lg-3 col-sm-6"
+          className="col-lg-3 col-6"
           key={item.id}
           data-aos="fade"
           data-aos-delay={item.delayAnimation}
@@ -31,8 +31,12 @@ const Blog4 = () => {
               </div>
             </div>
             <div className="mt-20">
-              <h4 className="text-dark-1 text-18 fw-500">{item.title}</h4>
-              <div className="text-light-1 text-15 lh-14 mt-5">{item.date}</div>
+              <h4 className="text-dark-1 text-18 sm:text-13 fw-500">
+                {item.title}
+              </h4>
+              <div className="text-light-1 text-15 sm:text-12 lh-14 mt-5">
+                {item.date}
+              </div>
             </div>
           </Link>
         </div>

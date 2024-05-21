@@ -110,7 +110,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
     <TourSkeleton />
   ) : filteredTourItems?.length < 4 ? (
     filteredTourItems?.map((item) => (
-      <div className="col-lg-3 col-md-3 col-8" key={item?.id}>
+      <div className="col-lg-3 col-md-3 col-6" key={item?.id}>
         <Link
           href={`/tour/${item?.title
             ?.replace(/[,.-]/g, "")
@@ -144,7 +144,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
               ))}
               {/* </Slider> */}
 
-              <div className="cardImage__leftBadge cardImage-2__leftBadge">
+              <div className="cardImage__leftBadge cardImage-2__leftBadge sm:d-none">
                 {/* <div
                     className={`py-5  rounded-right-4 text-12 lh-16 fw-600 uppercase ${
                       isTextMatched(item?.tag, "likely to sell out*")
@@ -216,24 +216,26 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
 
           <div className="tourCard__content mt-10">
             <div className="d-flex justify-content-between lh-14 mb-5">
-              <div className="text-14 text-light-1">
+              <div className="text-14 md:text-12 text-light-1">
                 {isMobile ? `${item?.duration}` : `${item?.duration}`}
               </div>
               <div className="ml-10 mr-10" />
               <div className="col-auto">
-                <div className="text-14 text-dark-1 fw-bold">
+                <div className="text-14 md:text-12 text-dark-1 fw-bold">
                   From {currentCurrency?.symbol}
-                  <span className="text-16 fw-600 text-blue-1 fw-bold">
+                  <span className="text-16 md:text-13 fw-600 text-blue-1 fw-bold">
                     {" "}
                     {item.price}
                   </span>
                 </div>
               </div>
             </div>
-            <h4 className="tourCard__title text-dark-5 text-18 lh-16 fw-600">
+            <h4 className="tourCard__title text-dark-5 text-18 md:text-13 lh-16 fw-600">
               <span>{item?.title}</span>
             </h4>
-            <p className="text-light-1 lh-14 text-14 mt-5">{item?.location}</p>
+            <p className="text-light-1 lh-14 text-14 md:text-12 mt-5">
+              {item?.location}
+            </p>
 
             <div className="row justify-between items-center pt-15">
               <div className="col-auto">
@@ -246,7 +248,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
                       />
                     ))}
                   </div>
-                  <div className="text-14 text-light-1 ml-10">
+                  <div className="text-14 md:text-12 text-light-1 ml-10">
                     {item?.numberOfReviews} reviews
                   </div>
                 </div>

@@ -553,6 +553,39 @@
     }
   }
 }
+.header-masterhead {
+  position: fixed;
+  z-index: 1000;
+  top: 75px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  transition: all 0.4s $easeOutQuart;
+
+  @include media-below(md) {
+    height: 57px;
+  }
+
+  &.-fixed {
+    position: absolute !important;
+  }
+  &.controls-head {
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+
+    > div {
+      scroll-snap-align: center;
+    }
+  }
+
+  &.is-sticky {
+    margin: 0 !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+}
 
 // .masthead.-type-7 {
 //   position: relative;
