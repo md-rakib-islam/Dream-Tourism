@@ -7,14 +7,14 @@ const Copyright = () => {
         <div className="row x-gap-30 y-gap-10">
           <div className="col-auto">
             <div className="d-flex items-center">
-              Copyright © 2023
+              Copyright © 2024
               <a
                 href="https://dreamtourism.com"
                 className="mx-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Dream Tourism IT
+                Dream Tourism
               </a>
               {/* All rights reserved. */}
             </div>

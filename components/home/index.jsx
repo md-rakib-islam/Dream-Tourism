@@ -14,6 +14,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 import { useSelector } from "react-redux";
 import ToursForMobile from "../tours/ToursForMobile";
 import { useGetSliderImagesQuery } from "@/features/image/imageApi";
+import useBlogs from "@/hooks/useBlogs";
 
 // export const metadata = {
 //   title: "Home-3 || GoTrip - Travel & Tour React NextJS Template",
@@ -25,6 +26,7 @@ const index = () => {
 
   const { data: reviewsData, isSuccess: reviewsSuccess } =
     useGetAllReviewsQuery(null);
+  const blogPosts = useBlogs();
 
   const [dataAvailable, setDataAvailable] = useState(false);
   const [mobileDataAvailable, setMobileDataAvailable] = useState(false);
@@ -203,28 +205,30 @@ const index = () => {
             </section>
           )}
           {/* End testimonial section */}
-          <section className="layout-pt-lg layout-pb-lg">
-            <div className="container">
-              <div className="row justify-center text-center">
-                <div className="col-auto">
-                  <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title md:text-24">
-                      Get inspiration for your next trip
-                    </h2>
-                    <p className=" sectionTitle__text mt-5 sm:mt-0 md:text-13">
-                      Interdum et malesuada fames
-                    </p>
+          {blogPosts?.length !== 0 && (
+            <section className="layout-pt-lg layout-pb-lg">
+              <div className="container">
+                <div className="row justify-center text-center">
+                  <div className="col-auto">
+                    <div className="sectionTitle -md">
+                      <h2 className="sectionTitle__title md:text-24">
+                        Get inspiration for your next trip
+                      </h2>
+                      <p className=" sectionTitle__text mt-5 sm:mt-0 md:text-13">
+                        Interdum et malesuada fames
+                      </p>
+                    </div>
                   </div>
                 </div>
+                {/* End .row  */}
+                <div className="row y-gap-30 pt-40">
+                  <Blog4 blogPosts={blogPosts} />
+                </div>
+                {/* End .row */}
               </div>
-              {/* End .row  */}
-              <div className="row y-gap-30 pt-40">
-                <Blog4 />
-              </div>
-              {/* End .row */}
-            </div>
-            {/* End .container */}
-          </section>
+              {/* End .container */}
+            </section>
+          )}
         </>
       )}
       {/* End Popular Tours Sections */}
@@ -438,28 +442,30 @@ const index = () => {
             </section>
           )}
           {/* End testimonial section */}
-          <section className="layout-pt-lg layout-pb-lg">
-            <div className="container">
-              <div className="row justify-center text-center">
-                <div className="col-auto">
-                  <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title">
-                      Get inspiration for your next trip
-                    </h2>
-                    <p className=" sectionTitle__text mt-5 sm:mt-0">
-                      Interdum et malesuada fames
-                    </p>
+          {blogPosts?.length !== 0 && (
+            <section className="layout-pt-lg layout-pb-lg">
+              <div className="container">
+                <div className="row justify-center text-center">
+                  <div className="col-auto">
+                    <div className="sectionTitle -md">
+                      <h2 className="sectionTitle__title">
+                        Get inspiration for your next trip
+                      </h2>
+                      <p className=" sectionTitle__text mt-5 sm:mt-0">
+                        Interdum et malesuada fames
+                      </p>
+                    </div>
                   </div>
                 </div>
+                {/* End .row  */}
+                <div className="row y-gap-30 pt-40">
+                  <Blog4 blogPosts={blogPosts} />
+                </div>
+                {/* End .row */}
               </div>
-              {/* End .row  */}
-              <div className="row y-gap-30 pt-40">
-                <Blog4 />
-              </div>
-              {/* End .row */}
-            </div>
-            {/* End .container */}
-          </section>
+              {/* End .container */}
+            </section>
+          )}
 
           {isShow && (
             <section className="layout-pt-md layout-pb-md mt-5">

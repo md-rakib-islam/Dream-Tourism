@@ -114,8 +114,8 @@ const BlogSingleDynamic = ({ params }) => {
                   </div> */}
                   {/* End BlogNavigator */}
 
-                  <h2 className="text-22 fw-500 mb-15 pt-30">Comments</h2>
-                  <Comments blogId={title} />
+                  {/* <h2 className="text-22 fw-500 mb-15 pt-30">Comments</h2>
+                  <Comments blogId={title} /> */}
                   {/* End comments components */}
                 </div>
                 <div className="col-xl-3">
@@ -124,7 +124,7 @@ const BlogSingleDynamic = ({ params }) => {
               </div>
               {/* End .row top bar image and title */}
 
-              <div className="row y-gap-30">
+              {/* <div className="row y-gap-30">
                 <div className="col-xl-9 col-lg-9 layout-pt-md">
                   <div className="border-top-light pt-40 mt-40" />
 
@@ -136,13 +136,12 @@ const BlogSingleDynamic = ({ params }) => {
                       </p>
                     </div>
                   </div>
-                  {/* End Leave a repy title */}
 
                   <FormReply blogId={blogItem.id} blogTitle={title} />
                 </div>
 
-                {/* End .col */}
-              </div>
+                
+              </div> */}
               {/* End .row */}
             </div>
             {/* End .container */}

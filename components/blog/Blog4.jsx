@@ -1,11 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import useBlogs from "@/hooks/useBlogs";
 
-const Blog4 = () => {
-  const blogPosts = useBlogs();
-
+const Blog4 = ({ blogPosts }) => {
   return (
     <>
       {blogPosts.slice(0, 4).map((item) => (
