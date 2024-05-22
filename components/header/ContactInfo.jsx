@@ -3,8 +3,8 @@ const ContactInfo = () => {
     {
       id: 1,
       title: "Customer Care",
-      action: "tel:+(966) 54 803 7409",
-      text: "+966 54 803 7409",
+      action: "tel:+(39) 38 877 48015",
+      text: "+39 38 877 48015",
     },
     {
       id: 2,

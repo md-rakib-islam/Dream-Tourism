@@ -67,7 +67,7 @@ const FormReply = ({ blogId, blogTitle }) => {
       [event.target.name]: event.target.value,
     }));
   };
-  console.log("sdf", commentData);
+
   useEffect(() => {
     if (isSuccess) {
       refetch(); // Reset fetchComments to avoid refetching

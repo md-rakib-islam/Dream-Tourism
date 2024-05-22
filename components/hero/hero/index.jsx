@@ -10,7 +10,14 @@ import CoverSkeleton from "@/components/skeleton/CoverSkeleton";
 import { useEffect, useState } from "react";
 import useWindowSize from "@/hooks/useWindowSize";
 import { addCurrentTab } from "@/features/hero/findPlaceSlice";
-const index = ({ onDataAvailable, isSuccess, isLoading, data, isMobile }) => {
+const index = ({
+  onDataAvailable,
+  isSuccess,
+  isLoading,
+  data,
+  isMobile,
+  onMobileDataAvailable,
+}) => {
   const dispatch = useDispatch();
   const exchangeRates = useCurrencyExchangeRates();
 
@@ -45,13 +52,15 @@ const index = ({ onDataAvailable, isSuccess, isLoading, data, isMobile }) => {
   };
 
   useEffect(() => {
+    onMobileDataAvailable(true);
+  }, [isSuccess]);
+  useEffect(() => {
     window.addEventListener("scroll", changeBackground);
     return () => {
       window.removeEventListener("scroll", changeBackground);
     };
   }, []);
 
-  console.log("isMobile", isMobile, currentTab);
   return isLoading ? (
     <CoverSkeleton />
   ) : (

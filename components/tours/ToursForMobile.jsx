@@ -33,7 +33,7 @@ const ToursForMobile = ({ destination, filterTour }) => {
     <TourMobileSkeleton />
   ) : (
     filteredTourItems?.map((item) => (
-      <div className="col-lg-3 col-md-3 col-6" key={item?.id}>
+      <div className="col-lg-3 col-md-4 col-6" key={item?.id}>
         <Link
           href={`/tour/${item?.title
             ?.replace(/[,.-]/g, "")
@@ -67,73 +67,23 @@ const ToursForMobile = ({ destination, filterTour }) => {
               ))}
               {/* </Slider> */}
 
-              <div className="cardImage__leftBadge cardImage-2__leftBadge sm:d-none">
-                {/* <div
-                    className={`py-5  rounded-right-4 text-12 lh-16 fw-600 uppercase ${
-                      isTextMatched(item?.tag, "likely to sell out*")
-                        ? "bg-dark-1 text-white"
-                        : ""
-                    } ${
-                      isTextMatched(item?.tag, "best seller")
-                        ? "bg-blue-1 text-white"
-                        : ""
-                    }  ${
-                      isTextMatched(item?.tag, "top rated")
-                        ? "bg-yellow-1 text-dark-1"
-                        : ""
-                    }`}
+              {/* <div className="cardImage__leftBadge cardImage-2__leftBadge md:d-none">
+                
+                <div className="buttons-2">
+                  <button
+                    style={{
+                      backgroundColor: "#353537",
+                      backgroundImage:
+                        "linear-gradient(to right, #353537 , #0d0c0d)",
+                    }}
                   >
-                    Item
-                  </div> */}
-                {/* <div className="buttons-2">
-                    <button
-                      style={{
-                        backgroundColor:
-                          searchLocation == "Makkah"
-                            ? "#353537"
-                            : searchLocation == "Madina"
-                            ? "#21b510"
-                            : searchLocation == "Taif"
-                            ? "#824007"
-                            : searchLocation == "Jeddah"
-                            ? "#078de6"
-                            : "",
-                        backgroundImage:
-                          searchLocation == "Makkah"
-                            ? "linear-gradient(to right, #353537 , #0d0c0d)"
-                            : searchLocation == "Madina"
-                            ? "linear-gradient(to right, #21b510 , #158805)"
-                            : searchLocation == "Taif"
-                            ? "linear-gradient(to right, #824007 , #601817)"
-                            : searchLocation == "Jeddah"
-                            ? "linear-gradient(to right, #078de6 , #29317a)"
-                            : "",
-                      }}
-                    >
-                      {`${currentCurrency?.symbol} ${item.price}`}{" "}
-                      <span> PER PERSON</span>
-                    </button>
-                    <button>No</button>
-                  </div> */}
-                <div>
-                  <Image
-                    width={80}
-                    height={80}
-                    priority
-                    className="col-12 js-lazy"
-                    src={`https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/94088711-e642-4216-52ee-393e4c6a3c00/public`}
-                    alt="price"
-                  />
-
-                  <p
-                    className={
-                      currentCurrency?.symbol == "ريال"
-                        ? "price-arabic-position"
-                        : "price-position"
-                    }
-                  >{`${currentCurrency?.symbol} ${item.price}`}</p>
+                    {`${currentCurrency?.symbol} ${item.price}`}{" "}
+                    <span> PER PERSON</span>
+                  </button>
+                  <button>No</button>
                 </div>
-              </div>
+                
+              </div> */}
             </div>
           </div>
 

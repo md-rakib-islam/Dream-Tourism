@@ -438,10 +438,10 @@ button:active {
   }
   .buttons-2 {
     display: flex;
-    width: 310px;
-    gap: 10px;
-    --b: 2px; /* the border thickness */
-    --h: 4.1em; /* the height */
+    width: 200px;
+    gap: 0px;
+    --b: 0px;
+    --h: 3.1em;
   }
 }
 @media (max-width: 344px) {

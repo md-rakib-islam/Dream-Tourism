@@ -162,37 +162,20 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
                   >
                     Item
                   </div> */}
-                {/* <div className="buttons-2">
-                    <button
-                      style={{
-                        backgroundColor:
-                          searchLocation == "Makkah"
-                            ? "#353537"
-                            : searchLocation == "Madina"
-                            ? "#21b510"
-                            : searchLocation == "Taif"
-                            ? "#824007"
-                            : searchLocation == "Jeddah"
-                            ? "#078de6"
-                            : "",
-                        backgroundImage:
-                          searchLocation == "Makkah"
-                            ? "linear-gradient(to right, #353537 , #0d0c0d)"
-                            : searchLocation == "Madina"
-                            ? "linear-gradient(to right, #21b510 , #158805)"
-                            : searchLocation == "Taif"
-                            ? "linear-gradient(to right, #824007 , #601817)"
-                            : searchLocation == "Jeddah"
-                            ? "linear-gradient(to right, #078de6 , #29317a)"
-                            : "",
-                      }}
-                    >
-                      {`${currentCurrency?.symbol} ${item.price}`}{" "}
-                      <span> PER PERSON</span>
-                    </button>
-                    <button>No</button>
-                  </div> */}
-                <div>
+                <div className="buttons-2">
+                  <button
+                    style={{
+                      backgroundColor: "#353537",
+                      backgroundImage:
+                        "linear-gradient(to right, #353537 , #0d0c0d)",
+                    }}
+                  >
+                    {`${currentCurrency?.symbol} ${item.price}`}{" "}
+                    <span> PER PERSON</span>
+                  </button>
+                  <button>No</button>
+                </div>
+                {/* <div>
                   <Image
                     width={80}
                     height={80}
@@ -209,7 +192,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
                         : "price-position"
                     }
                   >{`${currentCurrency?.symbol} ${item.price}`}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -318,37 +301,20 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
                   >
                     Item
                   </div> */}
-                  {/* <div className="buttons-2">
+                  <div className="buttons-2">
                     <button
                       style={{
-                        backgroundColor:
-                          searchLocation == "Makkah"
-                            ? "#353537"
-                            : searchLocation == "Madina"
-                            ? "#21b510"
-                            : searchLocation == "Taif"
-                            ? "#824007"
-                            : searchLocation == "Jeddah"
-                            ? "#078de6"
-                            : "",
+                        backgroundColor: "#353537",
                         backgroundImage:
-                          searchLocation == "Makkah"
-                            ? "linear-gradient(to right, #353537 , #0d0c0d)"
-                            : searchLocation == "Madina"
-                            ? "linear-gradient(to right, #21b510 , #158805)"
-                            : searchLocation == "Taif"
-                            ? "linear-gradient(to right, #824007 , #601817)"
-                            : searchLocation == "Jeddah"
-                            ? "linear-gradient(to right, #078de6 , #29317a)"
-                            : "",
+                          "linear-gradient(to right, #353537 , #0d0c0d)",
                       }}
                     >
                       {`${currentCurrency?.symbol} ${item.price}`}{" "}
                       <span> PER PERSON</span>
                     </button>
                     <button>No</button>
-                  </div> */}
-                  <div>
+                  </div>
+                  {/* <div>
                     <Image
                       width={80}
                       height={80}
@@ -365,7 +331,7 @@ const Tours = ({ destination, filterTour, dailyTours, multiDays }) => {
                           : "price-position"
                       }
                     >{`${currentCurrency?.symbol} ${item.price}`}</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

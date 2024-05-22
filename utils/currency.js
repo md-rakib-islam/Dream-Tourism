@@ -24,9 +24,7 @@ async function generateToursForCurrentCurrency(tours = [], from = "USD", to) {
     );
 
     return responses;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
+  } catch (_error) {}
 }
 
 const defaultExchangeRates = {

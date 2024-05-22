@@ -37,7 +37,6 @@ const BlogSingleDynamic = ({ params }) => {
     isLoading: commentLoading,
   } = useGetCommentByBlogIdQuery(title);
 
-  console.log("commentData", commentData, isCommentSuccess);
   let blogItem = {};
 
   if (isSuccess) {

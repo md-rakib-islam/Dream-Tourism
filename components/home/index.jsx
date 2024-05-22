@@ -27,6 +27,7 @@ const index = () => {
     useGetAllReviewsQuery(null);
 
   const [dataAvailable, setDataAvailable] = useState(false);
+  const [mobileDataAvailable, setMobileDataAvailable] = useState(false);
   const width = useWindowSize();
   const isMobile = width > 768;
   const [isShow, setIsShow] = useState(false);
@@ -36,6 +37,10 @@ const index = () => {
   // Function to handle data availability
   const handleDataAvailability = (isDataAvailable) => {
     setDataAvailable(isDataAvailable);
+  };
+  // Function to handle data availability
+  const handleMobileDataAvailability = (isMobileDataAvailable) => {
+    setMobileDataAvailable(isMobileDataAvailable);
   };
   const memoizedApiCallsMade = useMemo(() => isShow, [isShow]);
 
@@ -63,10 +68,11 @@ const index = () => {
         isLoading={isLoading}
         data={data}
         isMobile={isMobile}
+        onMobileDataAvailable={handleMobileDataAvailability}
       />
       {/* End Hero 3 */}
 
-      {!isMobile ? (
+      {!isMobile && mobileDataAvailable && (
         <>
           <section className="layout-pt-md layout-pb-md">
             <div className="container">
@@ -220,42 +226,6 @@ const index = () => {
             {/* End .container */}
           </section>
         </>
-      ) : (
-        <>
-          <section className="layout-pt-md layout-pb-md">
-            <div className="container">
-              <div className="row y-gap-22 justify-between items-start">
-                <div className="col-8 col-lg-auto">
-                  <div className="sectionTitle -md">
-                    <h2 className="sectionTitle__title">Most Popular Tours</h2>
-                    <p className=" sectionTitle__text mt-5 sm:mt-0">
-                      Explore Our Best Sellers: Unmatched Experiences in Every
-                      Journey
-                    </p>
-                  </div>
-                </div>
-                {/* End .col */}
-
-                <div className="col-4 col-lg-auto">
-                  <Link
-                    href="/tours"
-                    className="button -md -blue-1 bg-blue-1-05 text-blue-1"
-                  >
-                    More <div className="icon-arrow-top-right ml-15" />
-                  </Link>
-                </div>
-                {/* End .col */}
-              </div>
-              {/* End .row */}
-
-              <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
-                <Tours />
-              </div>
-              {/* End .row */}
-            </div>
-            {/* End .container */}
-          </section>
-        </>
       )}
       {/* End Popular Tours Sections */}
 
@@ -263,6 +233,41 @@ const index = () => {
         <>
           {isMobile && (
             <>
+              <section className="layout-pt-md layout-pb-md">
+                <div className="container">
+                  <div className="row y-gap-22 justify-between items-start">
+                    <div className="col-8 col-lg-auto">
+                      <div className="sectionTitle -md">
+                        <h2 className="sectionTitle__title">
+                          Most Popular Tours
+                        </h2>
+                        <p className=" sectionTitle__text mt-5 sm:mt-0">
+                          Explore Our Best Sellers: Unmatched Experiences in
+                          Every Journey
+                        </p>
+                      </div>
+                    </div>
+                    {/* End .col */}
+
+                    <div className="col-4 col-lg-auto">
+                      <Link
+                        href="/tours"
+                        className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+                      >
+                        More <div className="icon-arrow-top-right ml-15" />
+                      </Link>
+                    </div>
+                    {/* End .col */}
+                  </div>
+                  {/* End .row */}
+
+                  <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
+                    <Tours />
+                  </div>
+                  {/* End .row */}
+                </div>
+                {/* End .container */}
+              </section>
               <section className="layout-pt-md layout-pb-md">
                 <div className="container">
                   <div className="row y-gap-22 justify-between items-start">
