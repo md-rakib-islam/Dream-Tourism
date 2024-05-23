@@ -30,8 +30,11 @@ const Blog2 = () => {
 
   dispatch(setTotalItem(blogItems.length));
   // dispatch(addBlogs(blogPosts));
-
-  return (
+  return blogPosts.length === 0 ? (
+    <div className="col-12">
+      <p>There is no blogs</p>
+    </div>
+  ) : (
     <>
       {blogPosts.map((item) => (
         <Link

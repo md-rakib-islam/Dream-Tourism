@@ -61,7 +61,7 @@ const TermsConent = () => {
                 By accessing this Website, accessible from{" "}
                 <a
                   className="text-primary"
-                  href="https://demo.dreamtourism.it"
+                  href="https://dreamtourism.it"
                   target="_blank"
                 >
                   https://dreamtourism.it/
@@ -197,9 +197,9 @@ const TermsConent = () => {
                       Visit our website at{" "}
                       <a
                         className="text-primary"
-                        href="https://dreamtourism.co.uk"
+                        href="https://dreamtourism.it"
                       >
-                        https://dreamtourism.co.uk/
+                        https://dreamtourism.it/
                       </a>
                       , or any website of ours that links to this privacy notice
                     </li>
@@ -278,9 +278,9 @@ const TermsConent = () => {
                   your rights is by visiting{" "}
                   <a
                     className="text-primary"
-                    href="https://dreamtourism.co.uk/contact/"
+                    href="https://dreamtourism.it/contact/"
                   >
-                    https://dreamtourism.co.uk/contact/
+                    https://dreamtourism.it/contact/
                   </a>{" "}
                   or by contacting us. We will consider and act upon any request
                   in accordance with applicable data protection laws.
@@ -822,9 +822,9 @@ const TermsConent = () => {
                     information, please visit: <br></br>
                     <a
                       className="text-primary"
-                      href="https://dreamtourism.co.uk/contact/"
+                      href="https://dreamtourism.it/contact/"
                     >
-                      https://dreamtourism.co.uk/contact/
+                      https://dreamtourism.it/contact/
                     </a>
                   </p>
                 </div>

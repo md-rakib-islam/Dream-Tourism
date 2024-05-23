@@ -208,7 +208,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                     <li className="d-flex my-2">
                       <FacebookShareButton
                         className="me-2"
-                        url={`https://demo.dreamtourism.it/tour/${tour?.title
+                        url={`https://dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
@@ -217,7 +217,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                       </FacebookShareButton>
                       <FacebookMessengerShareButton
                         className="me-2"
-                        url={`https://demo.dreamtourism.it/tour/${tour?.title
+                        url={`https://dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
@@ -226,7 +226,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                       </FacebookMessengerShareButton>
                       <WhatsappShareButton
                         className="me-2"
-                        url={`https://demo.dreamtourism.it/tour/${tour?.title
+                        url={`https://dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
@@ -235,7 +235,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                       </WhatsappShareButton>
                       <EmailShareButton
                         className="me-2"
-                        url={`https://demo.dreamtourism.it/tour/${tour?.title
+                        url={`https://dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}
@@ -243,7 +243,7 @@ const TourSingleV1Dynamic = ({ params, children }) => {
                         <EmailIcon size={32} round={true} />
                       </EmailShareButton>
                       {/* <LinkedinShareButton
-                        url={`https://demo.dreamtourism.it/tour/${tour?.title
+                        url={`https://dreamtourism.it/tour/${tour?.title
                           ?.toLowerCase()
                           ?.split(" ")
                           ?.join("-")}`}

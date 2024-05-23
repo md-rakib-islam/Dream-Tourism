@@ -1,69 +1,123 @@
-// Import necessary constants and utilities
 import {
   GET_CMS_BLOGS,
   GET_CONTENTS_WITH_URL_BY_MENU_ID,
+  GET_MENUS_ALL_NESTED,
 } from "@/constant/constants";
 import { slugify } from "@/utils/sluglify";
 
 const BASE_URL = "https://dreamtourism.it";
 
 export default async function Sitemap() {
-  // Fetch content data based on homeId
-  const contentRes = await fetch(`${GET_CONTENTS_WITH_URL_BY_MENU_ID}/1`);
-  if (!contentRes.ok) {
-    throw new Error(
-      `Failed to fetch content data: ${contentRes.status} ${contentRes.statusText}`
-    );
-  }
+  try {
+    // Perform all fetch requests in parallel
+    const [contentRes, blogRes, desRes] = await Promise.all([
+      fetch(`${GET_CONTENTS_WITH_URL_BY_MENU_ID}/1`),
+      fetch(`${GET_CMS_BLOGS}`),
+      fetch(`${GET_MENUS_ALL_NESTED}`),
+    ]);
 
-  const contentData = await contentRes.json();
+    // Check if all fetch requests were successful
+    if (!contentRes.ok || !blogRes.ok || !desRes.ok) {
+      throw new Error(
+        `Failed to fetch data: ${contentRes.status} ${contentRes.statusText}, ${blogRes.status} ${blogRes.statusText}, ${desRes.status} ${desRes.statusText}`
+      );
+    }
 
-  // Ensure contentData is an array
-  if (!Array.isArray(contentData)) {
-    throw new TypeError("Content data is not an array");
-  }
-  const blogRes = await fetch(`${GET_CMS_BLOGS}`);
-  if (!blogRes.ok) {
-    throw new Error(
-      `Failed to fetch content data: ${blogRes.status} ${blogRes.statusText}`
-    );
-  }
+    const [contentData, blogsData, destinationData] = await Promise.all([
+      contentRes.json(),
+      blogRes.json(),
+      desRes.json(),
+    ]);
 
-  const blogsData = await blogRes.json();
+    // Validate the fetched data
+    if (!Array.isArray(contentData)) {
+      throw new TypeError("Content data is not an array");
+    }
+    if (!Array.isArray(blogsData.blogs)) {
+      throw new TypeError("Blogs data is not an array");
+    }
+    if (!Array.isArray(destinationData?.menus)) {
+      throw new TypeError("Destination data is not an array");
+    }
 
-  // Ensure contentData is an array
-  if (!Array.isArray(blogsData.blogs)) {
-    throw new TypeError("Content data is not an array");
-  }
-
-  console.log("blogsData", blogsData.blogs);
-  // Generate sitemap URLs
-  const blogsXml = blogsData.blogs.map((item) => ({
-    url: `${BASE_URL}/blog-details/${encodeURIComponent(item.title)}`, // Ensure names are URL-encoded
-    lastModified: new Date(item.updated_at).toISOString(), // Use ISO string format for dates
-    changeFrequency: "weekly",
-    priority: 0.5,
-  }));
-  const contentsXml = contentData
-    .filter(
-      (item) =>
-        item.name !== "Italy" &&
-        item.name !== "United States" &&
-        item.name !== "Netherlands" &&
-        item.name !== "Switzerland" &&
-        item.name !== "Germany" &&
-        item.name !== "France" &&
-        item.name !== "Belgium"
-    )
-    .map((item) => ({
-      url: `${BASE_URL}/tour/${encodeURIComponent(slugify(item.name))}`, // Ensure names are URL-encoded
-      lastModified: new Date(item.updated_at).toISOString(), // Use ISO string format for dates
+    // Generate sitemap URLs
+    const blogsXml = blogsData.blogs.map((item) => ({
+      url: `${BASE_URL}/blog-details/${encodeURIComponent(item.title)}`,
+      lastModified: new Date(item.updated_at).toISOString(),
       changeFrequency: "weekly",
-      priority: 0.5,
+      priority: 1,
     }));
-  const combinedXml = contentsXml.concat(blogsXml);
 
-  // Set the response headers to serve the XML
-  // Set the response headers to serve the XML
-  return combinedXml;
+    const excludedCountries = [
+      "Italy",
+      "United States",
+      "Netherlands",
+      "Switzerland",
+      "Germany",
+      "France",
+      "Belgium",
+    ];
+    const contentsXml = contentData
+      .filter((item) => !excludedCountries.includes(item.name))
+      .map((item) => ({
+        url: `${BASE_URL}/tour/${encodeURIComponent(slugify(item.name))}`,
+        lastModified: new Date(item.updated_at).toISOString(),
+        changeFrequency: "weekly",
+        priority: 1,
+      }));
+
+    const destinationsXml = destinationData.menus
+      .filter((item) => item.name === "Destinations")
+      .flatMap((item) =>
+        item.children
+          .filter((child) => child.name !== "United States")
+          .map((child) => ({
+            url: `${BASE_URL}/destinations/${encodeURIComponent(
+              child.name.toLowerCase()
+            )}`,
+            lastModified: new Date().toISOString(),
+            changeFrequency: "weekly",
+            priority: 1,
+          }))
+      );
+
+    const otherXml = [
+      {
+        url: `${BASE_URL}/about`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: "weekly",
+        priority: 1,
+      },
+      {
+        url: `${BASE_URL}/contact`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: "weekly",
+        priority: 1,
+      },
+      {
+        url: `${BASE_URL}/terms?type=privacy_policy`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: "weekly",
+        priority: 1,
+      },
+      {
+        url: `${BASE_URL}/terms?type=general_terms_of_use`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: "weekly",
+        priority: 1,
+      },
+    ];
+
+    const combinedXml = [
+      ...contentsXml,
+      ...blogsXml,
+      ...destinationsXml,
+      ...otherXml,
+    ];
+
+    return combinedXml;
+  } catch (error) {
+    console.error("Error generating sitemap:", error);
+    throw error;
+  }
 }
