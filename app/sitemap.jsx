@@ -95,6 +95,12 @@ export default async function Sitemap() {
         priority: 1,
       },
       {
+        url: `${BASE_URL}/blogs`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: "weekly",
+        priority: 1,
+      },
+      {
         url: `${BASE_URL}/terms?type=privacy_policy`,
         lastModified: new Date().toISOString(),
         changeFrequency: "weekly",
@@ -117,7 +123,6 @@ export default async function Sitemap() {
 
     return combinedXml;
   } catch (error) {
-    console.error("Error generating sitemap:", error);
     throw error;
   }
 }

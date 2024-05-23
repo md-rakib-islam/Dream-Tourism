@@ -4,7 +4,7 @@ const initialState = {
   tabs: [
     { id: 1, name: "All" },
     { id: 2, name: "Daily Tours" },
-    { id: 3, name: "Long Tours" },
+    { id: 3, name: "Multi-Day Tours" },
     // { id: 4, name: "Holyday Rentals", icon: "icon-home" },
     // { id: 5, name: "Car", icon: "icon-car" },
     // { id: 6, name: "Cruise", icon: "icon-yatch" },

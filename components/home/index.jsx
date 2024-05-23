@@ -314,7 +314,7 @@ const index = () => {
                     <div className="col-8 col-lg-auto">
                       <div className="sectionTitle -md">
                         <h2 className="sectionTitle__title">
-                          Top Long Tours for Ultimate Adventures
+                          Top Multi-Day Tours for Ultimate Adventures
                         </h2>
                         <p className=" sectionTitle__text mt-5 sm:mt-0">
                           Discover unforgettable journeys with our top-rated,

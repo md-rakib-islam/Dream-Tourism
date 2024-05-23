@@ -107,7 +107,20 @@ const index = ({
               {/* End .masthead__tabs */}
 
               <div className="container">
-                <div className="row justify-center">
+                <div
+                  className="row justify-center"
+                  style={{
+                    backgroundImage:
+                      "url(https://imagedelivery.net/dIKhvGtesTiRSxhQ2oKWkA/2dc04686-968f-42e3-27b7-efe20bb64300/v1)",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    opacity: 0.89,
+                    height: "120px",
+                    // width: '100%',  // Uncomment if you need this property
+                    backgroundPosition: "center",
+                    backgroundAttachment: "local",
+                  }}
+                >
                   <div className="col-xl-9 d-lg-flex flex-column justify-content-center align-items-center mt-10">
                     <div className="text-center">
                       <h1

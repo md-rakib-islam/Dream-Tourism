@@ -21,7 +21,7 @@ const ToursForMobile = ({ destination, filterTour }) => {
     ? tourItems.filter(
         (item) => item.duration && item.duration.includes("hours")
       )
-    : currentTab == "Long Tours"
+    : currentTab == "Multi-Day Tours"
     ? tourItems.filter(
         (item) => item.duration && !item.duration.includes("hours")
       )
